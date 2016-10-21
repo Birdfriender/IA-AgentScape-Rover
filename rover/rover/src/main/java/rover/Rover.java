@@ -286,7 +286,7 @@ public abstract class Rover extends Agent {
     }
 
     /**
-     * Collects a resource from the world
+     * Collects a Resource from the world
      * @throws Exception
      */
     public void collect() throws Exception {
@@ -295,7 +295,7 @@ public abstract class Rover extends Agent {
     }
 
     /**
-     * Deposits a resource this rover is carrying
+     * Deposits a Resource this rover is carrying
      * @throws Exception
      */
     public void deposit() throws Exception {

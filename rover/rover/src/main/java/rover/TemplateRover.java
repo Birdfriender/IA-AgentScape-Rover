@@ -10,7 +10,7 @@ public class TemplateRover extends Rover {
         super();
 
 		//use your username for team name
-		setTeam("template");
+		setTeam("thh37");
 		
 		try {
 			//set attributes for this rover
@@ -57,70 +57,79 @@ public class TemplateRover extends Rover {
 		}
 		
 		switch(pr.getResultType()) {
-		case PollResult.MOVE:
-			//move finished
-            getLog().info("Move complete.");
+			case PollResult.MOVE:
+				//move finished
+            	getLog().info("Move complete.");
 			
-			//now scan
-			try {
-                getLog().info("Scanning...");
-				scan(4);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-			break;
-		case PollResult.SCAN:
-            getLog().info("Scan complete");
-						
-			for(ScanItem item : pr.getScanItems()) {
-				if(item.getItemType() == ScanItem.RESOURCE) {
-                    getLog().info("Resource found at: " + item.getxOffset() + ", " + item.getyOffset() + " Type: "+item.getResourceType());
-		    if (item.getxOffset() < 0.1 && item.getyOffset() < 0.1) { 
-try {
-				getLog().info("Attempting a collect!");
-				collect();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			break;
-		 } else {
-try {
-                getLog().info("Moving to resource.");
-				move(item.getxOffset(), item.getyOffset(), 4);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			break;
-		     }
-				} else if(item.getItemType() == ScanItem.BASE) {
-                    getLog().info("Base found at: " + item.getxOffset() + ", " + item.getyOffset());
-				} else {
-                    getLog().info("Rover found at: " + item.getxOffset() + ", " + item.getyOffset());
+				//now scan
+				try {
+                	getLog().info("Scanning...");
+					scan(4);
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
-			}
 			
-			// now move again
-			Random rand = new Random();
-			try {
-                getLog().info("Moving...");
-				move(5 * rand.nextDouble(), 5 * rand.nextDouble(), 4);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			break;
-		case PollResult.COLLECT:
-            getLog().info("Collect complete.");
-			try {
-                getLog().info("Moving...");
-				move(1,1,4);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			break;
-		case PollResult.DEPOSIT:
-            getLog().info("Deposit complete.");
-			break;
+				break;
+
+		    case PollResult.SCAN:
+                getLog().info("Scan complete");
+						
+			    for(ScanItem item : pr.getScanItems()) {
+				    if(item.getItemType() == ScanItem.RESOURCE) {
+                        getLog().info("Resource found at: " + item.getxOffset() + ", " + item.getyOffset() + " Type: "+item.getResourceType());
+		                if (item.getxOffset() < 0.1 && item.getyOffset() < 0.1) {
+                            try {
+				                getLog().info("Attempting a collect!");
+				                collect();
+			                } catch (Exception e) {
+				                e.printStackTrace();
+			                }
+			                break;
+		                }
+		                else {
+                            try {
+                                getLog().info("Moving to Resource.");
+				                move(item.getxOffset(), item.getyOffset(), 4);
+			                }
+			                catch (Exception e) {
+				                e.printStackTrace();
+			                }
+			            break;
+		                }
+                    }
+                    else if(item.getItemType() == ScanItem.BASE) {
+                        getLog().info("Base found at: " + item.getxOffset() + ", " + item.getyOffset());
+				    }
+				    else {
+                        getLog().info("Rover found at: " + item.getxOffset() + ", " + item.getyOffset());
+				    }
+			    }
+			
+			    // now move again
+			    Random rand = new Random();
+			    try {
+                    getLog().info("Moving...");
+				    move(5 * rand.nextDouble(), 5 * rand.nextDouble(), 4);
+			    }
+			    catch (Exception e) {
+				    e.printStackTrace();
+			    }
+			    break;
+
+		    case PollResult.COLLECT:
+                getLog().info("Collect complete.");
+			    try {
+                    getLog().info("Moving...");
+				    move(1,1,4);
+			    }
+			    catch (Exception e) {
+				    e.printStackTrace();
+			    }
+			    break;
+
+		    case PollResult.DEPOSIT:
+                getLog().info("Deposit complete.");
+			    break;
 		}
 		
 	}
