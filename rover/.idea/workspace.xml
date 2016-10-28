@@ -107,11 +107,11 @@
       <file leaf-file-name="RoverMap.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/map/RoverMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1056">
-              <caret line="98" column="34" selection-start-line="98" selection-start-column="34" selection-end-line="98" selection-end-column="34" />
+            <state relative-caret-position="1104">
+              <caret line="99" column="34" selection-start-line="99" selection-start-column="34" selection-end-line="99" selection-end-column="34" />
               <folding>
-                <element signature="e#2573#2574#0" expanded="true" />
-                <element signature="e#2622#2623#0" expanded="true" />
+                <element signature="e#2625#2626#0" expanded="true" />
+                <element signature="e#2674#2675#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -921,7 +921,14 @@
       <option name="project" value="LOCAL" />
       <updated>1477658605454</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fixed concurrent modification exception in RemoveUnexploredNode">
+      <created>1477659234380</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1477659234380</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -999,7 +1006,8 @@
     <MESSAGE value="Added logging commands" />
     <MESSAGE value="Updating logging" />
     <MESSAGE value="Initliazed Map member of GenericRover" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initliazed Map member of GenericRover" />
+    <MESSAGE value="Fixed concurrent modification exception in RemoveUnexploredNode" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed concurrent modification exception in RemoveUnexploredNode" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1302,11 +1310,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/map/RoverMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1056">
-          <caret line="98" column="34" selection-start-line="98" selection-start-column="34" selection-end-line="98" selection-end-column="34" />
+        <state relative-caret-position="1104">
+          <caret line="99" column="34" selection-start-line="99" selection-start-column="34" selection-end-line="99" selection-end-column="34" />
           <folding>
-            <element signature="e#2573#2574#0" expanded="true" />
-            <element signature="e#2622#2623#0" expanded="true" />
+            <element signature="e#2625#2626#0" expanded="true" />
+            <element signature="e#2674#2675#0" expanded="true" />
           </folding>
         </state>
       </provider>

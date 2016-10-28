@@ -96,6 +96,7 @@ public class RoverMap {
                 r = n;
             }
         }
+        System.out.println(unexploredNodes.size());
         unexploredNodes.remove(r);
     }
 
