@@ -88,12 +88,12 @@ public class RoverMap {
 
     public void removeExploredNode(double x, double y)
     {
-        Node r = new Node(0,0);
-        for(Node n : unexploredNodes)
+        int r = 0;
+        for(int i = 0; i < unexploredNodes.size(); i++)
         {
-            if(n.getyPos() == y && n.getxPos() == x)
+            if(unexploredNodes.get(i).getyPos() == y && unexploredNodes.get(i).getxPos() == x)
             {
-                r = n;
+                r = i;
             }
         }
         System.out.println(unexploredNodes.size());
