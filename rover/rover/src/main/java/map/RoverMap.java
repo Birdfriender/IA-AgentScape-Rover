@@ -96,13 +96,27 @@ public class RoverMap {
                 r = i;
             }
         }
-        System.out.println(unexploredNodes.size());
+        System.out.println("Nodes left to explore: " +unexploredNodes.size());
         unexploredNodes.remove(r);
     }
 
     public boolean existsUnexploredNode()
     {
         return !unexploredNodes.isEmpty();
+    }
+
+    public void removeResource(double x, double y)
+    {
+        int r = 0;
+        for(int i = 0; i < resources.size(); i++)
+        {
+            if(resources.get(i).getyPos() == y && resources.get(i).getxPos() == x)
+            {
+                r = i;
+            }
+        }
+        System.out.println("Known Resources Left: " + resources.size());
+        resources.remove(r);
     }
 
 }

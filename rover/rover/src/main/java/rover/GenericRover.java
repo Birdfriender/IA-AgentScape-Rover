@@ -156,6 +156,7 @@ public class GenericRover extends Rover implements IMapObject {
                     collect();
                 } catch (Exception e) {
                     state = State.ReturningResource;
+                    map.removeResource(xPos, yPos);
                     System.out.println("Attempting Move to Base");
                     roverMove(xPos * -1, yPos * -1);
                     e.printStackTrace();
