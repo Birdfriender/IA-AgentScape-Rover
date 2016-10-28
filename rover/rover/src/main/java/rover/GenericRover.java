@@ -52,6 +52,7 @@ public class GenericRover extends Rover implements IMapObject {
 		
 		try {
 			//start by looking around
+            getLog().info("Start by Scanning");
 			scan(SCAN_RANGE);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -131,14 +132,12 @@ public class GenericRover extends Rover implements IMapObject {
         switch(state){
             case Scouting:
                 Node n = map.closestNode();
-                try {
-                    move(n.getxPos(), n.getyPos(), SPEED);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                getLog().info("Attempting Move to Node");
+                roverMove(n.getxPos(), n.getyPos());
                 break;
             case Scanning:
                 try {
+                    getLog().info("Attempting to Scan for New Resources");
                     scan(SCAN_RANGE);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -147,14 +146,12 @@ public class GenericRover extends Rover implements IMapObject {
                 break;
             case GoingToResource:
                 Resource r = map.closestResource();
-                try {
-                    move(r.getxPos(),r.getyPos(),SPEED);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                getLog().info("Attempting to Move to Resource");
+                roverMove(r.getxPos(),r.getyPos());
                 break;
             case CollectingResource:
                 try {
+                    getLog().info("Attempting to Collect");
                     collect();
                 } catch (Exception e) {
                     state = State.ReturningResource;
@@ -162,14 +159,12 @@ public class GenericRover extends Rover implements IMapObject {
                 }
                 break;
             case ReturningResource:
-                try {
-                    move(xPos * -1, yPos * -1, SPEED);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                getLog().info("Attempting Move to Base");
+                roverMove(xPos * -1, yPos * -1);
                 break;
             case DepositingResource:
                 try {
+                    getLog().info("Attempting to Deposite Resource");
                     deposit();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -178,6 +173,17 @@ public class GenericRover extends Rover implements IMapObject {
         }
 		
 	}
+
+	private void roverMove(double x, double y)
+    {
+        try {
+            move(x, y, SPEED);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        xPos += x;
+        yPos += y;
+    }
 
 	private void updateResource(double offsetX, double offsetY, int type)
     {
@@ -214,5 +220,24 @@ public class GenericRover extends Rover implements IMapObject {
     @Override
     public double objectiveDistanceTo(IMapObject object) {
         return Math.sqrt(Math.pow(xPos - object.getxPos(), 2) + Math.pow(yPos - object.getyPos(), 2));
+    }
+
+    public Runnable comms()
+    {
+        return new Runnable() {
+            @Override
+            public void run() {
+                while(getEnergy() > 0.0)
+                {
+                    retrieveMessages();
+
+                    try {
+                        Thread.sleep(50);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
     }
 }
