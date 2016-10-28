@@ -71,10 +71,10 @@ public class GenericRover extends Rover implements IMapObject {
 	void poll(PollResult pr) {
 		// This is called when one of the actions has completed
 
-        getLog().info("Remaining Power: " + getEnergy());
+        System.out.println("Remaining Power: " + getEnergy());
 		
 		if(pr.getResultStatus() == PollResult.FAILED) {
-            getLog().info("Ran out of power...");
+            System.out.println("Ran out of power...");
 			return;
 		}
 		
@@ -132,12 +132,12 @@ public class GenericRover extends Rover implements IMapObject {
         switch(state){
             case Scouting:
                 Node n = map.closestNode();
-                getLog().info("Attempting Move to Node");
+                System.out.println("Attempting Move to Node");
                 roverMove(n.getxPos(), n.getyPos());
                 break;
             case Scanning:
                 try {
-                    getLog().info("Attempting to Scan for New Resources");
+                    System.out.println("Attempting to Scan for New Resources");
                     scan(SCAN_RANGE);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -146,12 +146,12 @@ public class GenericRover extends Rover implements IMapObject {
                 break;
             case GoingToResource:
                 Resource r = map.closestResource();
-                getLog().info("Attempting to Move to Resource");
+                System.out.println("Attempting to Move to Resource");
                 roverMove(r.getxPos(),r.getyPos());
                 break;
             case CollectingResource:
                 try {
-                    getLog().info("Attempting to Collect");
+                    System.out.println("Attempting to Collect");
                     collect();
                 } catch (Exception e) {
                     state = State.ReturningResource;
@@ -159,12 +159,12 @@ public class GenericRover extends Rover implements IMapObject {
                 }
                 break;
             case ReturningResource:
-                getLog().info("Attempting Move to Base");
+                System.out.println("Attempting Move to Base");
                 roverMove(xPos * -1, yPos * -1);
                 break;
             case DepositingResource:
                 try {
-                    getLog().info("Attempting to Deposite Resource");
+                    System.out.println("Attempting to Deposite Resource");
                     deposit();
                 } catch (Exception e) {
                     e.printStackTrace();
