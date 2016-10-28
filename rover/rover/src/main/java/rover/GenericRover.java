@@ -156,6 +156,8 @@ public class GenericRover extends Rover implements IMapObject {
                     collect();
                 } catch (Exception e) {
                     state = State.ReturningResource;
+                    System.out.println("Attempting Move to Base");
+                    roverMove(xPos * -1, yPos * -1);
                     e.printStackTrace();
                 }
                 break;
@@ -184,6 +186,23 @@ public class GenericRover extends Rover implements IMapObject {
         }
         xPos += x;
         yPos += y;
+        if(xPos > getWorldWidth()/2)
+        {
+            xPos -= getWorldWidth()/2;
+        }
+        else if(xPos < getWorldWidth()/-2)
+        {
+            xPos += getWorldWidth();
+        }
+
+        if(yPos > getWorldHeight()/2)
+        {
+            yPos -= getWorldHeight()/2;
+        }
+        else if(yPos < getWorldHeight()/-2)
+        {
+            yPos += getWorldHeight();
+        }
     }
 
 	private void updateResource(double offsetX, double offsetY, int type)

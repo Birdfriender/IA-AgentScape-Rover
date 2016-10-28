@@ -97,8 +97,8 @@
       <file leaf-file-name="GenericRover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="640">
-              <caret line="152" column="36" selection-start-line="152" selection-start-column="36" selection-end-line="152" selection-end-column="36" />
+            <state relative-caret-position="496">
+              <caret line="157" column="52" selection-start-line="157" selection-start-column="52" selection-end-line="157" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -942,7 +942,14 @@
       <option name="project" value="LOCAL" />
       <updated>1477660321311</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="FIxed move to resource">
+      <created>1477661475667</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1477661475667</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1023,7 +1030,8 @@
     <MESSAGE value="Fixed concurrent modification exception in RemoveUnexploredNode" />
     <MESSAGE value="Additional Logging" />
     <MESSAGE value="FIxed remove in RemoveUnexploredNodes" />
-    <option name="LAST_COMMIT_MESSAGE" value="FIxed remove in RemoveUnexploredNodes" />
+    <MESSAGE value="FIxed move to resource" />
+    <option name="LAST_COMMIT_MESSAGE" value="FIxed move to resource" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1329,8 +1337,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="152" column="36" selection-start-line="152" selection-start-column="36" selection-end-line="152" selection-end-column="36" />
+        <state relative-caret-position="496">
+          <caret line="157" column="52" selection-start-line="157" selection-start-column="52" selection-end-line="157" selection-end-column="52" />
           <folding />
         </state>
       </provider>
