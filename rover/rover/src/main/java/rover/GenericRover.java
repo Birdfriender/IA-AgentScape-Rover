@@ -188,7 +188,7 @@ public class GenericRover extends Rover implements IMapObject {
         yPos += y;
         if(xPos > getWorldWidth()/2)
         {
-            xPos -= getWorldWidth()/2;
+            xPos -= getWorldWidth();
         }
         else if(xPos < getWorldWidth()/-2)
         {
@@ -197,9 +197,9 @@ public class GenericRover extends Rover implements IMapObject {
 
         if(yPos > getWorldHeight()/2)
         {
-            yPos -= getWorldHeight()/2;
+            yPos -= getWorldHeight();
         }
-        else if(yPos < getWorldHeight()/-2)
+        else if(yPos < getWorldHeight()/2)
         {
             yPos += getWorldHeight();
         }
