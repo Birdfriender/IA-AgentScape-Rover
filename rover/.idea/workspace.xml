@@ -97,8 +97,8 @@
       <file leaf-file-name="GenericRover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="70" column="30" selection-start-line="70" selection-start-column="30" selection-end-line="70" selection-end-column="30" />
+            <state relative-caret-position="768">
+              <caret line="51" column="80" selection-start-line="51" selection-start-column="80" selection-end-line="51" selection-end-column="80" />
               <folding />
             </state>
           </provider>
@@ -107,14 +107,11 @@
       <file leaf-file-name="RoverMap.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/map/RoverMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4272">
+            <state relative-caret-position="4219">
               <caret line="101" column="42" selection-start-line="101" selection-start-column="42" selection-end-line="101" selection-end-column="42" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1439#1440#0" expanded="false" />
-                <element signature="e#1481#1482#0" expanded="false" />
-                <element signature="e#1538#1539#0" expanded="false" />
-                <element signature="e#1580#1581#0" expanded="false" />
+                <element signature="e#2526#2527#0" expanded="true" />
+                <element signature="e#2575#2576#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -910,12 +907,19 @@
       <option name="project" value="LOCAL" />
       <updated>1477657474061</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Updating logging">
+      <created>1477658079135</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1477658079135</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-14" y="0" width="3216" height="1714" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -986,7 +990,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added logging commands" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added logging commands" />
+    <MESSAGE value="Updating logging" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating logging" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1199,6 +1204,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="746">
           <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1230,20 +1236,6 @@
             <element signature="e#295#296#0" expanded="false" />
             <element signature="e#332#333#0" expanded="false" />
             <element signature="e#364#365#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rover/src/main/java/map/RoverMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4272">
-          <caret line="101" column="42" selection-start-line="101" selection-start-column="42" selection-end-line="101" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1439#1440#0" expanded="false" />
-            <element signature="e#1481#1482#0" expanded="false" />
-            <element signature="e#1538#1539#0" expanded="false" />
-            <element signature="e#1580#1581#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1292,10 +1284,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/rover/src/main/java/map/RoverMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4219">
+          <caret line="101" column="42" selection-start-line="101" selection-start-column="42" selection-end-line="101" selection-end-column="42" />
+          <folding>
+            <element signature="e#2526#2527#0" expanded="true" />
+            <element signature="e#2575#2576#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="70" column="30" selection-start-line="70" selection-start-column="30" selection-end-line="70" selection-end-column="30" />
+        <state relative-caret-position="768">
+          <caret line="51" column="80" selection-start-line="51" selection-start-column="80" selection-end-line="51" selection-end-column="80" />
           <folding />
         </state>
       </provider>

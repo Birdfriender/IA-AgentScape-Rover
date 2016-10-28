@@ -49,7 +49,7 @@ public class GenericRover extends Rover implements IMapObject {
 	void begin() {
 		//called when the world is started
         getLog().info("BEGIN!");
-		
+		map = new RoverMap(this, SCAN_RANGE, getWorldHeight(), getWorldWidth());
 		try {
 			//start by looking around
             getLog().info("Start by Scanning");
@@ -95,6 +95,7 @@ public class GenericRover extends Rover implements IMapObject {
 
 		    case PollResult.SCAN:
                 for(ScanItem item : pr.getScanItems()) {
+                    System.out.println("Found Item");
                     if (item.getItemType() == ScanItem.RESOURCE) {
                         Resource res = new Resource(item.getxOffset() + xPos,
                                 item.getyOffset() + yPos, item.getResourceType());
