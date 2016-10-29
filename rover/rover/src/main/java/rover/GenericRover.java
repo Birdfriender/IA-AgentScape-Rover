@@ -97,8 +97,26 @@ public class GenericRover extends Rover implements IMapObject {
                 for(ScanItem item : pr.getScanItems()) {
                     System.out.println("Found Item");
                     if (item.getItemType() == ScanItem.RESOURCE) {
+
                         Resource res = new Resource(item.getxOffset() + xPos,
                                 item.getyOffset() + yPos, item.getResourceType());
+                        if(res.getxPos() > getWorldWidth()/2)
+                        {
+                            res.setxPos(res.getxPos() - getWorldWidth());
+                        }
+                        else if(res.getxPos() < getWorldWidth()/-2)
+                        {
+                            res.setxPos(res.getxPos() + getWorldWidth());
+                        }
+
+                        if(res.getyPos() > getWorldHeight()/2)
+                        {
+                            res.setyPos(res.getyPos() - getWorldHeight());
+                        }
+                        else if(res.getyPos() < getWorldHeight()/-2)
+                        {
+                            res.setyPos(res.getyPos() + getWorldHeight());
+                        }
                         if(!map.contains(res))
                         {
                             map.addResource(res);
