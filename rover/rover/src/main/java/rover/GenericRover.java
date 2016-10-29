@@ -12,6 +12,7 @@ public class GenericRover extends Rover implements IMapObject {
 
     private RoverMap map;
     private double xPos = 0, yPos = 0;
+    private double currentLoad = 0;
     private static final int MAX_LOAD = 3;
     private static final int SPEED = 3;
     private static final int SCAN_RANGE = 3;
@@ -187,7 +188,16 @@ public class GenericRover extends Rover implements IMapObject {
             case DepositingResource:
                 try {
                     System.out.println("Attempting to Deposite Resource");
-                    deposit();
+                    if(getCurrentLoad() > 0) {
+                        deposit();
+                    }
+                    else
+                    {
+                        state = State.GoingToResource;
+                        Resource r = map.closestResource();
+                        System.out.println("Attempting to Move to Resource");
+                        roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
