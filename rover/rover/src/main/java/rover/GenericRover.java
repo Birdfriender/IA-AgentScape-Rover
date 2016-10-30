@@ -51,6 +51,7 @@ public class GenericRover extends Rover implements IMapObject {
 		//called when the world is started
         getLog().info("BEGIN!");
 		map = new RoverMap(this, SCAN_RANGE, getWorldHeight(), getWorldWidth());
+		System.out.println("World size " + getWorldWidth() + "x" + getWorldHeight());
 		try {
 			//start by looking around
             getLog().info("Start by Scanning");
@@ -197,7 +198,7 @@ public class GenericRover extends Rover implements IMapObject {
         {
             xPos -= getWorldWidth();
         }
-        else if(xPos < getWorldWidth()/-2)
+        else if(xPos < (getWorldWidth()/2) * -1)
         {
             xPos += getWorldWidth();
         }
@@ -206,7 +207,7 @@ public class GenericRover extends Rover implements IMapObject {
         {
             yPos -= getWorldHeight();
         }
-        else if(yPos < getWorldHeight()/2)
+        else if(yPos < (getWorldHeight()/2) * -1)
         {
             yPos += getWorldHeight();
         }
@@ -221,7 +222,7 @@ public class GenericRover extends Rover implements IMapObject {
         {
             xCoord = xCoord - getWorldWidth();
         }
-        else if(xCoord < getWorldWidth()/-2)
+        else if(xCoord < (getWorldWidth()/2) * -1)
         {
             xCoord = xCoord + getWorldWidth();
         }
@@ -230,7 +231,7 @@ public class GenericRover extends Rover implements IMapObject {
         {
             yCoord = yCoord - getWorldHeight();
         }
-        else if(yCoord < getWorldHeight()/-2)
+        else if(yCoord < (getWorldHeight()/2) * -1)
         {
             yCoord = yCoord + getWorldHeight();
         }
