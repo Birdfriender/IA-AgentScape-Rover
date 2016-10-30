@@ -143,7 +143,7 @@ public class GenericRover extends Rover implements IMapObject {
                 break;
             case GoingToResource:
                 Resource r = map.closestResource();
-                System.out.println("Attempting to Move to Resource");
+                System.out.println("Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
                 roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
                 break;
             case CollectingResource:
