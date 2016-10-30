@@ -97,8 +97,8 @@
       <file leaf-file-name="GenericRover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2560">
-              <caret line="233" column="47" selection-start-line="233" selection-start-column="47" selection-end-line="233" selection-end-column="47" />
+            <state relative-caret-position="208">
+              <caret line="187" column="88" selection-start-line="187" selection-start-column="88" selection-end-line="187" selection-end-column="88" />
               <folding />
             </state>
           </provider>
@@ -978,7 +978,14 @@
       <option name="project" value="LOCAL" />
       <updated>1477739183037</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Encapsulate resource map update code in attempt to fix bug where rover stops in the middle of nowhere">
+      <created>1477835230337</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1477835230337</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1063,7 +1070,8 @@
     <MESSAGE value="Fixed world co-ordinate system" />
     <MESSAGE value="Remove collected resources from map" />
     <MESSAGE value="Attempt to fix multiple resource bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Attempt to fix multiple resource bug" />
+    <MESSAGE value="Encapsulate resource map update code in attempt to fix bug where rover stops in the middle of nowhere" />
+    <option name="LAST_COMMIT_MESSAGE" value="Encapsulate resource map update code in attempt to fix bug where rover stops in the middle of nowhere" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1363,8 +1371,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2560">
-          <caret line="233" column="47" selection-start-line="233" selection-start-column="47" selection-end-line="233" selection-end-column="47" />
+        <state relative-caret-position="208">
+          <caret line="187" column="88" selection-start-line="187" selection-start-column="88" selection-end-line="187" selection-end-column="88" />
           <folding />
         </state>
       </provider>

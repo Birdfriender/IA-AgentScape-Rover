@@ -185,6 +185,7 @@ public class GenericRover extends Rover implements IMapObject {
 
 	private void roverMove(double x, double y)
     {
+        System.out.println("Moving from " + xPos + ", " + yPos + " heading: " + x + ", "  + y);
         try {
             move(x, y, SPEED);
         } catch (Exception e) {
