@@ -98,30 +98,7 @@ public class GenericRover extends Rover implements IMapObject {
                 for(ScanItem item : pr.getScanItems()) {
                     System.out.println("Found Item");
                     if (item.getItemType() == ScanItem.RESOURCE) {
-
-                        Resource res = new Resource(item.getxOffset() + xPos,
-                                item.getyOffset() + yPos, item.getResourceType());
-                        if(res.getxPos() > getWorldWidth()/2)
-                        {
-                            res.setxPos(res.getxPos() - getWorldWidth());
-                        }
-                        else if(res.getxPos() < getWorldWidth()/-2)
-                        {
-                            res.setxPos(res.getxPos() + getWorldWidth());
-                        }
-
-                        if(res.getyPos() > getWorldHeight()/2)
-                        {
-                            res.setyPos(res.getyPos() - getWorldHeight());
-                        }
-                        else if(res.getyPos() < getWorldHeight()/-2)
-                        {
-                            res.setyPos(res.getyPos() + getWorldHeight());
-                        }
-                        if(!map.contains(res))
-                        {
-                            map.addResource(res);
-                        }
+                        updateResource(item.getxOffset(), item.getyOffset(), item.getItemType());
                     }
                 }
 		        if(map.existsUnexploredNode())
@@ -194,9 +171,9 @@ public class GenericRover extends Rover implements IMapObject {
                     else
                     {
                         state = State.GoingToResource;
-                        Resource r = map.closestResource();
+                        Resource re = map.closestResource();
                         System.out.println("Attempting to Move to Resource");
-                        roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
+                        roverMove(re.getxPos() - xPos,re.getyPos() - yPos);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -238,7 +215,24 @@ public class GenericRover extends Rover implements IMapObject {
     {
         double xCoord = xPos + offsetX;
         double yCoord = yPos + offsetY;
-        double distance = Math.sqrt((offsetX * offsetX) + (offsetY * offsetY));
+
+        if(xCoord > getWorldWidth()/2)
+        {
+            xCoord = xCoord - getWorldWidth();
+        }
+        else if(xCoord < getWorldWidth()/-2)
+        {
+            xCoord = xCoord + getWorldWidth();
+        }
+
+        if(yCoord > getWorldHeight()/2)
+        {
+            yCoord = yCoord - getWorldHeight();
+        }
+        else if(yCoord < getWorldHeight()/-2)
+        {
+            yCoord = yCoord + getWorldHeight();
+        }
 
         Resource newRes = new Resource(xCoord, yCoord, type);
         if(!map.contains(newRes)) {
