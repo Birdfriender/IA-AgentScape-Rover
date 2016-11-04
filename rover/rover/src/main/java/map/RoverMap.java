@@ -105,12 +105,12 @@ public class RoverMap {
         return !unexploredNodes.isEmpty();
     }
 
-    public void removeResource(double x, double y)
+    public void removeResource(Resource resource)
     {
         int r = 0;
         for(int i = 0; i < resources.size(); i++)
         {
-            if(resources.get(i).getyPos() == y && resources.get(i).getxPos() == x)
+            if(resources.get(i).getyPos() == resource.getyPos() && resources.get(i).getxPos() == resource.getxPos())
             {
                 r = i;
             }

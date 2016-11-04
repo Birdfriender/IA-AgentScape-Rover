@@ -1,11 +1,13 @@
 package rover;
 
+import bdi.RoverRoleBelief;
 import map.IMapObject;
 import map.Node;
 import map.Resource;
 import map.RoverMap;
 
 import java.lang.Math;
+import java.util.ArrayList;
 
 
 public class GenericRover extends Rover implements IMapObject {
@@ -16,6 +18,9 @@ public class GenericRover extends Rover implements IMapObject {
     private static final int MAX_LOAD = 3;
     private static final int SPEED = 3;
     private static final int SCAN_RANGE = 3;
+    private static String role = "Generic";
+    private ArrayList<RoverRoleBelief> roverRoleBeliefs;
+
 	private enum State
 	{
 		Scouting,
@@ -25,6 +30,8 @@ public class GenericRover extends Rover implements IMapObject {
         ReturningResource,
         DepositingResource
 	}
+
+
 
 	private State state;
 
@@ -50,6 +57,7 @@ public class GenericRover extends Rover implements IMapObject {
 	void begin() {
 		//called when the world is started
         getLog().info("BEGIN!");
+        shout("Hello", role);
 		map = new RoverMap(this, SCAN_RANGE, getWorldHeight(), getWorldWidth());
 		try {
 			//start by looking around
@@ -152,7 +160,18 @@ public class GenericRover extends Rover implements IMapObject {
                     collect();
                 } catch (Exception e) {
                     state = State.ReturningResource;
-                    map.removeResource(xPos, yPos);
+                    Resource res = new Resource(xPos, yPos, 0); //type doesnt matter here, bit awkward but oh well
+                    shout("Resource",
+                            Double.toString(res.getxPos()),
+                            Double.toString(res.getyPos()),
+                            Integer.toString(res.getType()),
+                            "Depleted");
+                    whisper(this.getID(),
+                            "Resource",
+                            Double.toString(res.getxPos()),
+                            Double.toString(res.getyPos()),
+                            Integer.toString(res.getType()),
+                            "Depleted");
                     System.out.println("Attempting Move to Base");
                     roverMove(xPos * -1, yPos * -1);
                     e.printStackTrace();
@@ -164,7 +183,7 @@ public class GenericRover extends Rover implements IMapObject {
                 break;
             case DepositingResource:
                 try {
-                    System.out.println("Attempting to Deposite Resource");
+                    System.out.println("Attempting to Deposit Resource");
                     if(getCurrentLoad() > 0) {
                         deposit();
                     }
@@ -237,8 +256,46 @@ public class GenericRover extends Rover implements IMapObject {
 
         Resource newRes = new Resource(xCoord, yCoord, type);
         if(!map.contains(newRes)) {
-            map.addResource(newRes);
+            shout("Resource",
+                    Double.toString(newRes.getxPos()),
+                    Double.toString(newRes.getyPos()),
+                    Integer.toString(newRes.getType()),
+                    "Discovered");
+            whisper(this.getID(),
+                    "Resource",
+                    Double.toString(newRes.getxPos()),
+                    Double.toString(newRes.getyPos()),
+                    Integer.toString(newRes.getType()),
+                    "Discovered");
         }
+    }
+
+    public void whisper(String target, String header, String... content)
+    {
+        String message = "";
+        message.concat(this.getID());
+        message.concat("_");
+        message.concat(header);
+        for(String s : content)
+        {
+            message.concat("_");
+            message.concat(s);
+        }
+        broadCastToUnit(target, message);
+    }
+
+    public void shout(String header, String... content)
+    {
+        String message = "";
+        message.concat(this.getID());
+        message.concat("_");
+        message.concat(header);
+        for(String s : content)
+        {
+            message.concat("_");
+            message.concat(s);
+        }
+        broadCastToTeam(message);
     }
 
     @Override
@@ -275,6 +332,11 @@ public class GenericRover extends Rover implements IMapObject {
                 {
                     retrieveMessages();
 
+                    for(String message : messages)
+                    {
+                        processMessage(message);
+                    }
+                    messages.clear();
                     try {
                         Thread.sleep(50);
                     } catch (InterruptedException e) {
@@ -283,5 +345,51 @@ public class GenericRover extends Rover implements IMapObject {
                 }
             }
         };
+    }
+
+    public void processMessage(String message)
+    {
+        String[] splitMessage = message.split("_");
+        switch (splitMessage[1])
+        {
+            case "Hello" :
+                new RoverRoleBelief(splitMessage[0], splitMessage[1]);
+                break;
+
+            case "Resource" :
+                if(splitMessage[4] == "Discovered")
+                {
+                    Resource res = new Resource(Integer.parseInt(splitMessage[2]),
+                            Integer.parseInt(splitMessage[3]),
+                            Integer.parseInt(splitMessage[4]));
+                    if(map.contains(res))
+                    {
+                        map.addResource(res);
+                    }
+                }
+                else if(splitMessage[4] == "Depleted")
+                {
+                    Resource res = new Resource(Integer.parseInt(splitMessage[2]),
+                            Integer.parseInt(splitMessage[3]),
+                            Integer.parseInt(splitMessage[4]));
+                    if(map.contains(res))
+                    {
+                        map.removeResource(res);
+                    }
+                }
+
+        }
+    }
+
+    public String getRoverRole(String rover)
+    {
+        for(RoverRoleBelief b : roverRoleBeliefs)
+        {
+            if (b.getClientID() == rover)
+            {
+                return b.getRole();
+            }
+        }
+        return "NULL";
     }
 }
