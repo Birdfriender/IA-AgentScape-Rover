@@ -275,13 +275,13 @@ public class GenericRover extends Rover implements IMapObject {
     private void whisper(String target, String header, String... content)
     {
         String message = "";
-        message.concat(this.getID());
-        message.concat("_");
-        message.concat(header);
+        message = message.concat(this.getID());
+        message = message.concat("_");
+        message = message.concat(header);
         for(String s : content)
         {
-            message.concat("_");
-            message.concat(s);
+            message = message.concat("_");
+            message = message.concat(s);
         }
         System.out.println("Whisper " + message + " to " + target);
         broadCastToUnit(target, message);
@@ -290,13 +290,13 @@ public class GenericRover extends Rover implements IMapObject {
     public void shout(String header, String... content)
     {
         String message = "";
-        message.concat(this.getID());
-        message.concat("_");
-        message.concat(header);
+        message = message.concat(this.getID());
+        message = message.concat("_");
+        message = message.concat(header);
         for(String s : content)
         {
-            message.concat("_");
-            message.concat(s);
+            message = message.concat("_");
+            message = message.concat(s);
         }
         System.out.println("Shouting " + message);
         broadCastToTeam(message);

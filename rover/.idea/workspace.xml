@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9a3b0a6b-8005-471b-975b-5941409b0754" name="Default" comment="Added logging to comms functions">
+    <list default="true" id="9a3b0a6b-8005-471b-975b-5941409b0754" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java" afterPath="$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java" />
     </list>
@@ -97,11 +97,11 @@
       <file leaf-file-name="GenericRover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="542">
-              <caret line="296" column="9" lean-forward="true" selection-start-line="296" selection-start-column="9" selection-end-line="296" selection-end-column="9" />
+            <state relative-caret-position="-563">
+              <caret line="298" column="22" lean-forward="false" selection-start-line="298" selection-start-column="22" selection-end-line="298" selection-end-column="22" />
               <folding>
-                <element signature="e#9664#10323#0" expanded="true" />
-                <element signature="e#10322#10323#0" expanded="true" />
+                <element signature="e#9764#10423#0" expanded="true" />
+                <element signature="e#10422#10423#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1004,7 +1004,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478437288270</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added logging to comms functions">
+      <created>1478441985208</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1478441985208</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1419,11 +1426,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
-          <caret line="296" column="9" lean-forward="true" selection-start-line="296" selection-start-column="9" selection-end-line="296" selection-end-column="9" />
+        <state relative-caret-position="-563">
+          <caret line="298" column="22" lean-forward="false" selection-start-line="298" selection-start-column="22" selection-end-line="298" selection-end-column="22" />
           <folding>
-            <element signature="e#9664#10323#0" expanded="true" />
-            <element signature="e#10322#10323#0" expanded="true" />
+            <element signature="e#9764#10423#0" expanded="true" />
+            <element signature="e#10422#10423#0" expanded="true" />
           </folding>
         </state>
       </provider>
