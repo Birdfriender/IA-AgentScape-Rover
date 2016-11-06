@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9a3b0a6b-8005-471b-975b-5941409b0754" name="Default" comment="">
+    <list default="true" id="9a3b0a6b-8005-471b-975b-5941409b0754" name="Default" comment="Fixed message processing to correctly remove resources from map">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java" afterPath="$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java" />
     </list>
@@ -97,8 +97,8 @@
       <file leaf-file-name="GenericRover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="379" column="23" lean-forward="false" selection-start-line="379" selection-start-column="23" selection-end-line="379" selection-end-column="23" />
+            <state relative-caret-position="390">
+              <caret line="374" column="38" lean-forward="false" selection-start-line="374" selection-start-column="38" selection-end-line="374" selection-end-column="38" />
               <folding>
                 <element signature="e#9764#10423#0" expanded="true" />
                 <element signature="e#10422#10423#0" expanded="true" />
@@ -1022,7 +1022,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478451136003</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Fixed message processing to correctly remove resources from map">
+      <created>1478451164994</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1478451164994</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1118,7 +1125,8 @@
     <MESSAGE value="Fixed use of String.concat() in whisper and shout functions" />
     <MESSAGE value="Fixed issue where messages were being parsed into ints rather than floats" />
     <MESSAGE value="Fixed message processing to correctly add resources to map" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed message processing to correctly add resources to map" />
+    <MESSAGE value="Fixed message processing to correctly remove resources from map" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed message processing to correctly remove resources from map" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1426,8 +1434,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="379" column="23" lean-forward="false" selection-start-line="379" selection-start-column="23" selection-end-line="379" selection-end-column="23" />
+        <state relative-caret-position="390">
+          <caret line="374" column="38" lean-forward="false" selection-start-line="374" selection-start-column="38" selection-end-line="374" selection-end-column="38" />
           <folding>
             <element signature="e#9764#10423#0" expanded="true" />
             <element signature="e#10422#10423#0" expanded="true" />

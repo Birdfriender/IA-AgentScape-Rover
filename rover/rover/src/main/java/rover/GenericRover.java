@@ -362,7 +362,7 @@ public class GenericRover extends Rover implements IMapObject {
                 break;
 
             case "Resource" :
-                if(splitMessage[4] == "Discovered")
+                if(splitMessage[5] == "Discovered")
                 {
                     Resource res = new Resource(Float.parseFloat(splitMessage[2]),
                             Float.parseFloat(splitMessage[3]),
@@ -372,7 +372,7 @@ public class GenericRover extends Rover implements IMapObject {
                         map.addResource(res);
                     }
                 }
-                else if(splitMessage[4] == "Depleted")
+                else if(splitMessage[5] == "Depleted")
                 {
                     Resource res = new Resource(Float.parseFloat(splitMessage[2]),
                             Float.parseFloat(splitMessage[3]),
