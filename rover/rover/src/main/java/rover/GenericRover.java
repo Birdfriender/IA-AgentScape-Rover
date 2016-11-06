@@ -355,6 +355,7 @@ public class GenericRover extends Rover implements IMapObject {
     public void processMessage(String message)
     {
         String[] splitMessage = message.split("_");
+        System.out.println(splitMessage);
         switch (splitMessage[1])
         {
             case "Hello" :
@@ -362,7 +363,8 @@ public class GenericRover extends Rover implements IMapObject {
                 break;
 
             case "Resource" :
-                if(splitMessage[5] == "Discovered")
+                System.out.println("Resource Info");
+                if(splitMessage[5].equals("Discovered"))
                 {
                     System.out.println("Recieved new resource");
                     Resource res = new Resource(Float.parseFloat(splitMessage[2]),
@@ -373,7 +375,7 @@ public class GenericRover extends Rover implements IMapObject {
                         map.addResource(res);
                     }
                 }
-                else if(splitMessage[5] == "Depleted")
+                else if(splitMessage[5].equals("Depleted"))
                 {
                     Resource res = new Resource(Float.parseFloat(splitMessage[2]),
                             Float.parseFloat(splitMessage[3]),
@@ -392,7 +394,7 @@ public class GenericRover extends Rover implements IMapObject {
     {
         for(RoverRoleBelief b : roverRoleBeliefs)
         {
-            if (b.getClientID() == rover)
+            if (b.getClientID().equals(rover))
             {
                 return b.getRole();
             }
