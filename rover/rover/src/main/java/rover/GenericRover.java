@@ -367,7 +367,7 @@ public class GenericRover extends Rover implements IMapObject {
                     Resource res = new Resource(Float.parseFloat(splitMessage[2]),
                             Float.parseFloat(splitMessage[3]),
                             Integer.parseInt(splitMessage[4]));
-                    if(map.contains(res))
+                    if(!map.contains(res))
                     {
                         map.addResource(res);
                     }
@@ -377,7 +377,7 @@ public class GenericRover extends Rover implements IMapObject {
                     Resource res = new Resource(Float.parseFloat(splitMessage[2]),
                             Float.parseFloat(splitMessage[3]),
                             Integer.parseInt(splitMessage[4]));
-                    if(map.contains(res))
+                    if(!map.contains(res))
                     {
                         map.removeResource(res);
                     }

@@ -96,8 +96,8 @@ public class RoverMap {
                 r = i;
             }
         }
-        System.out.println("Nodes left to explore: " +unexploredNodes.size());
         unexploredNodes.remove(r);
+        System.out.println("Nodes left to explore: " +unexploredNodes.size());
     }
 
     public boolean existsUnexploredNode()
@@ -115,8 +115,8 @@ public class RoverMap {
                 r = i;
             }
         }
-        System.out.println("Known Resources Left: " + resources.size());
         resources.remove(r);
+        System.out.println("Known Resources Left: " + resources.size());
     }
 
 }
