@@ -358,12 +358,13 @@ public class GenericRover extends Rover implements IMapObject {
         switch (splitMessage[1])
         {
             case "Hello" :
-                new RoverRoleBelief(splitMessage[0], splitMessage[1]);
+                new RoverRoleBelief(splitMessage[0], splitMessage[2]);
                 break;
 
             case "Resource" :
                 if(splitMessage[5] == "Discovered")
                 {
+                    System.out.println("Recieved new resource");
                     Resource res = new Resource(Float.parseFloat(splitMessage[2]),
                             Float.parseFloat(splitMessage[3]),
                             Integer.parseInt(splitMessage[4]));
@@ -382,6 +383,7 @@ public class GenericRover extends Rover implements IMapObject {
                         map.removeResource(res);
                     }
                 }
+                break;
 
         }
     }
