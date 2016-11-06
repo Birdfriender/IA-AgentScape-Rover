@@ -60,6 +60,7 @@ public class GenericRover extends Rover implements IMapObject {
         shout("Hello", role);
 		map = new RoverMap(this, SCAN_RANGE, getWorldHeight(), getWorldWidth());
 		System.out.println("World size " + getWorldWidth() + "x" + getWorldHeight());
+		new Thread(comms()).start();
 		try {
 			//start by looking around
             getLog().info("Start by Scanning");
