@@ -364,8 +364,8 @@ public class GenericRover extends Rover implements IMapObject {
             case "Resource" :
                 if(splitMessage[4] == "Discovered")
                 {
-                    Resource res = new Resource(Integer.parseInt(splitMessage[2]),
-                            Integer.parseInt(splitMessage[3]),
+                    Resource res = new Resource(Float.parseFloat(splitMessage[2]),
+                            Float.parseFloat(splitMessage[3]),
                             Integer.parseInt(splitMessage[4]));
                     if(map.contains(res))
                     {
@@ -374,8 +374,8 @@ public class GenericRover extends Rover implements IMapObject {
                 }
                 else if(splitMessage[4] == "Depleted")
                 {
-                    Resource res = new Resource(Integer.parseInt(splitMessage[2]),
-                            Integer.parseInt(splitMessage[3]),
+                    Resource res = new Resource(Float.parseFloat(splitMessage[2]),
+                            Float.parseFloat(splitMessage[3]),
                             Integer.parseInt(splitMessage[4]));
                     if(map.contains(res))
                     {
