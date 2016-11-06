@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9a3b0a6b-8005-471b-975b-5941409b0754" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rover/src/main/java/map/RoverMap.java" afterPath="$PROJECT_DIR$/rover/src/main/java/map/RoverMap.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java" afterPath="$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java" />
     </list>
     <ignored path="rover.iws" />
@@ -99,7 +98,7 @@
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="481">
-              <caret line="379" column="24" lean-forward="false" selection-start-line="379" selection-start-column="24" selection-end-line="379" selection-end-column="24" />
+              <caret line="379" column="23" lean-forward="false" selection-start-line="379" selection-start-column="23" selection-end-line="379" selection-end-column="23" />
               <folding>
                 <element signature="e#9764#10423#0" expanded="true" />
                 <element signature="e#10422#10423#0" expanded="true" />
@@ -1016,7 +1015,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478444063269</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Fixed message processing to correctly add resources to map">
+      <created>1478451136003</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1478451136003</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1111,7 +1117,8 @@
     <MESSAGE value="Added logging to comms functions" />
     <MESSAGE value="Fixed use of String.concat() in whisper and shout functions" />
     <MESSAGE value="Fixed issue where messages were being parsed into ints rather than floats" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed issue where messages were being parsed into ints rather than floats" />
+    <MESSAGE value="Fixed message processing to correctly add resources to map" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed message processing to correctly add resources to map" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1420,7 +1427,7 @@
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="481">
-          <caret line="379" column="24" lean-forward="false" selection-start-line="379" selection-start-column="24" selection-end-line="379" selection-end-column="24" />
+          <caret line="379" column="23" lean-forward="false" selection-start-line="379" selection-start-column="23" selection-end-line="379" selection-end-column="23" />
           <folding>
             <element signature="e#9764#10423#0" expanded="true" />
             <element signature="e#10422#10423#0" expanded="true" />
