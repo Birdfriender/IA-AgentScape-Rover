@@ -18,6 +18,7 @@ public class GenericRover extends Rover implements IMapObject {
     private static final int MAX_LOAD = 3;
     private static final int SPEED = 3;
     private static final int SCAN_RANGE = 3;
+    private static final int COLLECTOR_TYPE = 1;
     private static String role = "Generic";
     private ArrayList<RoverRoleBelief> roverRoleBeliefs;
 
@@ -46,7 +47,7 @@ public class GenericRover extends Rover implements IMapObject {
 			//speed, scan range, max load
 			//has to add up to <= 9
 			//Fourth attribute is the collector type
-			setAttributes(3, 3, 3, 1);
+			setAttributes(SPEED, SCAN_RANGE, MAX_LOAD, COLLECTOR_TYPE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

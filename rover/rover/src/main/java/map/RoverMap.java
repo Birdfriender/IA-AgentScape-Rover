@@ -73,6 +73,16 @@ public class RoverMap {
         return closest;
     }
 
+    public void selectArea(int start, int end)
+    {
+        ArrayList<Node> tempNodes = new ArrayList<Node>();
+        for(int i = start; i < end; i++)
+        {
+            tempNodes.add(unexploredNodes.get(i));
+        }
+        unexploredNodes = tempNodes;
+    }
+
     public Node closestNode()
     {
         Node closest = unexploredNodes.get(0);
