@@ -60,7 +60,7 @@ public class RoverMap {
         resources.add(newResource);
     }
 
-    public Resource closestResource()
+    public Resource closestResource(int type)
     {
         Resource closest = resources.get(0);
         for (Resource res : resources)
@@ -127,6 +127,24 @@ public class RoverMap {
         }
         resources.remove(r);
         System.out.println("Known Resources Left: " + resources.size());
+    }
+
+    public boolean hasResourceType(int type)
+    {
+        for(Resource res : resources)
+        {
+            if(res.getType() == type)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public int numNodes()
+    {
+        return unexploredNodes.size();
     }
 
 }

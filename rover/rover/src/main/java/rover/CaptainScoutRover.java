@@ -1,6 +1,7 @@
 package rover;
 
 import bdi.RoverRoleBelief;
+import map.Node;
 import map.Resource;
 import map.RoverMap;
 
@@ -11,9 +12,6 @@ import java.util.ArrayList;
  */
 public class CaptainScoutRover extends ScoutRover {
 
-    private RoverMap map;
-    private double xPos = 0, yPos = 0;
-    private double currentLoad = 0;
     private static final int MAX_LOAD = 0;
     private static final int SPEED = 1;
     private static final int SCAN_RANGE = 8;
@@ -56,15 +54,41 @@ public class CaptainScoutRover extends ScoutRover {
         map = new RoverMap(this, SCAN_RANGE, getWorldHeight(), getWorldWidth());
         System.out.println("World size " + getWorldWidth() + "x" + getWorldHeight());
         new Thread(comms()).start();
-
         try {
-            //start by looking around
-            getLog().info("Start by Scanning");
-            scan(SCAN_RANGE);
-        } catch (Exception e) {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        int scoutCount = 1; //start at 1 because we'll be scouting too
+        for(RoverRoleBelief belief : roverRoleBeliefs)
+        {
+            if(belief.getRole() == "Scout")
+            {
+                scoutCount++;
+            }
+        }
+        allocateMapAreas(scoutCount);
+        //start by moving
+        Node n = map.closestNode();
+        System.out.println("Attempting Move to Node");
+        roverMove(n.getxPos() - xPos, n.getyPos() - yPos);
 
+    }
+
+    void allocateMapAreas(int scoutCount)
+    {
+        int totalNodes = map.numNodes();
+        int allocPerRover = totalNodes / scoutCount;
+        int i = 0; //im so tired
+        for(RoverRoleBelief belief : roverRoleBeliefs)
+        {
+            if(belief.getRole() == "Scout")
+            {
+                whisper(belief.getClientID(), "Allocation", Integer.toString(i), Integer.toString(i + allocPerRover));
+            }
+            i += allocPerRover;
+        }
+        whisper(this.getID(), "Allocation", Integer.toString(i), Integer.toString(totalNodes % scoutCount));
     }
 
     @Override
@@ -121,9 +145,9 @@ public class CaptainScoutRover extends ScoutRover {
                 break;
 
             case Scouting:
-                Resource r = map.closestResource();
-                System.out.println("Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
-                roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
+                Node n = map.closestNode();
+                System.out.println("Attempting Move to Node");
+                roverMove(n.getxPos() - xPos, n.getyPos() - yPos);
                 break;
 
             case Waiting:
@@ -135,103 +159,5 @@ public class CaptainScoutRover extends ScoutRover {
 
         }
 
-    }
-
-    private void roverMove(double x, double y)
-    {
-        System.out.println("Moving from " + xPos + ", " + yPos + " heading: " + x + ", "  + y);
-        try {
-            move(x, y, SPEED);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        xPos += x;
-        yPos += y;
-        if(xPos > getWorldWidth()/2)
-        {
-            xPos -= getWorldWidth();
-        }
-        else if(xPos < (getWorldWidth()/2) * -1)
-        {
-            xPos += getWorldWidth();
-        }
-
-        if(yPos > getWorldHeight()/2)
-        {
-            yPos -= getWorldHeight();
-        }
-        else if(yPos < (getWorldHeight()/2) * -1)
-        {
-            yPos += getWorldHeight();
-        }
-    }
-
-    private void updateResource(double offsetX, double offsetY, int type)
-    {
-        double xCoord = xPos + offsetX;
-        double yCoord = yPos + offsetY;
-
-        if(xCoord > getWorldWidth()/2)
-        {
-            xCoord = xCoord - getWorldWidth();
-        }
-        else if(xCoord < (getWorldWidth()/2) * -1)
-        {
-            xCoord = xCoord + getWorldWidth();
-        }
-
-        if(yCoord > getWorldHeight()/2)
-        {
-            yCoord = yCoord - getWorldHeight();
-        }
-        else if(yCoord < (getWorldHeight()/2) * -1)
-        {
-            yCoord = yCoord + getWorldHeight();
-        }
-
-        Resource newRes = new Resource(xCoord, yCoord, type);
-        if(!map.contains(newRes)) {
-            shout("Resource",
-                    Double.toString(newRes.getxPos()),
-                    Double.toString(newRes.getyPos()),
-                    Integer.toString(newRes.getType()),
-                    "Discovered");
-            whisper(this.getID(),
-                    "Resource",
-                    Double.toString(newRes.getxPos()),
-                    Double.toString(newRes.getyPos()),
-                    Integer.toString(newRes.getType()),
-                    "Discovered");
-        }
-    }
-
-    private void whisper(String target, String header, String... content)
-    {
-        String message = "";
-        message = message.concat(this.getID());
-        message = message.concat("_");
-        message = message.concat(header);
-        for(String s : content)
-        {
-            message = message.concat("_");
-            message = message.concat(s);
-        }
-        System.out.println("Whisper " + message + " to " + target);
-        broadCastToUnit(target, message);
-    }
-
-    public void shout(String header, String... content)
-    {
-        String message = "";
-        message = message.concat(this.getID());
-        message = message.concat("_");
-        message = message.concat(header);
-        for(String s : content)
-        {
-            message = message.concat("_");
-            message = message.concat(s);
-        }
-        System.out.println("Shouting " + message);
-        broadCastToTeam(message);
     }
 }

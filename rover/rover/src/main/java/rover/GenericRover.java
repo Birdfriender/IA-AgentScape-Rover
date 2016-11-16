@@ -12,9 +12,10 @@ import java.util.ArrayList;
 
 public class GenericRover extends Rover implements IMapObject {
 
-    private RoverMap map;
-    private double xPos = 0, yPos = 0;
-    private double currentLoad = 0;
+    RoverMap map;
+    double xPos = 0, yPos = 0;
+    double currentLoad = 0;
+
     private static final int MAX_LOAD = 3;
     private static final int SPEED = 3;
     private static final int SCAN_RANGE = 3;
@@ -141,7 +142,7 @@ public class GenericRover extends Rover implements IMapObject {
             case Scouting:
                 Node n = map.closestNode();
                 System.out.println("Attempting Move to Node");
-                roverMove(n.getxPos(), n.getyPos());
+                roverMove(n.getxPos() - xPos, n.getyPos());
                 break;
             case Scanning:
                 try {
@@ -153,7 +154,7 @@ public class GenericRover extends Rover implements IMapObject {
                 map.removeExploredNode(xPos,yPos);
                 break;
             case GoingToResource:
-                Resource r = map.closestResource();
+                Resource r = map.closestResource(COLLECTOR_TYPE);
                 System.out.println("Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
                 roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
                 break;
@@ -193,7 +194,7 @@ public class GenericRover extends Rover implements IMapObject {
                     else
                     {
                         state = State.GoingToResource;
-                        Resource re = map.closestResource();
+                        Resource re = map.closestResource(COLLECTOR_TYPE);
                         System.out.println("Attempting to Move to Resource");
                         roverMove(re.getxPos() - xPos,re.getyPos() - yPos);
                     }
@@ -205,7 +206,7 @@ public class GenericRover extends Rover implements IMapObject {
 		
 	}
 
-	private void roverMove(double x, double y)
+	protected void roverMove(double x, double y)
     {
         System.out.println("Moving from " + xPos + ", " + yPos + " heading: " + x + ", "  + y);
         try {
@@ -234,7 +235,7 @@ public class GenericRover extends Rover implements IMapObject {
         }
     }
 
-	private void updateResource(double offsetX, double offsetY, int type)
+	protected void updateResource(double offsetX, double offsetY, int type)
     {
         double xCoord = xPos + offsetX;
         double yCoord = yPos + offsetY;
@@ -273,7 +274,7 @@ public class GenericRover extends Rover implements IMapObject {
         }
     }
 
-    private void whisper(String target, String header, String... content)
+    protected void whisper(String target, String header, String... content)
     {
         String message = "";
         message = message.concat(this.getID());
@@ -288,7 +289,7 @@ public class GenericRover extends Rover implements IMapObject {
         broadCastToUnit(target, message);
     }
 
-    public void shout(String header, String... content)
+    protected void shout(String header, String... content)
     {
         String message = "";
         message = message.concat(this.getID());
