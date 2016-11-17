@@ -21,7 +21,7 @@ public class GenericRover extends Rover implements IMapObject {
     private static final int SCAN_RANGE = 3;
     private static final int COLLECTOR_TYPE = 1;
     private static String role = "Generic";
-    private ArrayList<RoverRoleBelief> roverRoleBeliefs;
+    ArrayList<RoverRoleBelief> roverRoleBeliefs = new ArrayList<RoverRoleBelief>( );
 
 	private enum State
 	{

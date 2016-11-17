@@ -17,7 +17,6 @@ public class ScoutRover extends GenericRover {
     private static final int SCAN_RANGE = 8;
     private static final int COLLECTOR_TYPE = 1;
     private static String role = "Scout";
-    private ArrayList<RoverRoleBelief> roverRoleBeliefs;
     protected boolean gotAllocation = false;
 
     private enum State

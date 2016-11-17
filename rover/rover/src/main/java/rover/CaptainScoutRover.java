@@ -17,7 +17,6 @@ public class CaptainScoutRover extends ScoutRover {
     private static final int SCAN_RANGE = 8;
     private static final int COLLECTOR_TYPE = 1;
     private static String role = "CaptainScout";
-    private ArrayList<RoverRoleBelief> roverRoleBeliefs;
 
     private enum State
     {
