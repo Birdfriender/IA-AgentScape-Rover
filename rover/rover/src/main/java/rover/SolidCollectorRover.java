@@ -97,5 +97,19 @@ public class SolidCollectorRover extends CollectorRover {
                 }
                 break;
         }
+
+        switch (state) {
+            case CollectingResource:
+                break;
+
+            case DepositingResource:
+                break;
+
+            case GoingToResource:
+                break;
+
+            case ReturningResource:
+                break;
+        }
     }
 }
