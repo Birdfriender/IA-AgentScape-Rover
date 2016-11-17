@@ -100,15 +100,54 @@ public class SolidCollectorRover extends CollectorRover {
 
         switch (state) {
             case CollectingResource:
+                try {
+                    collect();
+                } catch (Exception e) {
+                    state = State.ReturningResource;
+                    Resource res = new Resource(xPos, yPos, 0); //type doesnt matter here, bit awkward but oh well
+                    shout("Resource",
+                            Double.toString(res.getxPos()),
+                            Double.toString(res.getyPos()),
+                            Integer.toString(res.getType()),
+                            "Depleted");
+                    whisper(this.getID(),
+                            "Resource",
+                            Double.toString(res.getxPos()),
+                            Double.toString(res.getyPos()),
+                            Integer.toString(res.getType()),
+                            "Depleted");
+                    System.out.println("Attempting Move to New Resource");
+                    while(!map.hasResourceType(COLLECTOR_TYPE))
+                    {
+                        //wait
+                    }
+                    Resource r = map.closestResource(COLLECTOR_TYPE);
+                    System.out.println("Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
+                    roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
+                }
                 break;
 
             case DepositingResource:
+                try {
+                    deposit();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 break;
 
             case GoingToResource:
+                while(!map.hasResourceType(COLLECTOR_TYPE))
+                {
+                    //wait
+                }
+                Resource r = map.closestResource(COLLECTOR_TYPE);
+                System.out.println("Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
+                roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
                 break;
 
             case ReturningResource:
+                System.out.println("Attempting Move to Base");
+                roverMove(xPos * -1, yPos * -1);
                 break;
         }
     }
