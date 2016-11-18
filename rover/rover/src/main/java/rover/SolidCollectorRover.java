@@ -71,6 +71,11 @@ public class SolidCollectorRover extends CollectorRover {
         while(!map.hasResourceType(COLLECTOR_TYPE))
         {
             //wait
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
         switch(pr.getResultType()) {
@@ -125,6 +130,12 @@ public class SolidCollectorRover extends CollectorRover {
                     while(!map.hasResourceType(COLLECTOR_TYPE))
                     {
                         //wait
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e1) {
+                            e1.printStackTrace();
+                        }
+
                     }
                     Resource r = map.closestResource(COLLECTOR_TYPE);
                     System.out.println(this.getID() + " Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
@@ -144,6 +155,11 @@ public class SolidCollectorRover extends CollectorRover {
                 while(!map.hasResourceType(COLLECTOR_TYPE))
                 {
                     //wait
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
                 Resource r = map.closestResource(COLLECTOR_TYPE);
                 System.out.println(this.getID() + " Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
