@@ -52,7 +52,7 @@ public class CaptainScoutRover extends ScoutRover {
         getLog().info("BEGIN!");
         shout("Hello", role);
         map = new RoverMap(this, SCAN_RANGE, getWorldHeight(), getWorldWidth());
-        System.out.println("World size " + getWorldWidth() + "x" + getWorldHeight());
+        System.out.println(this.getID() + " World size " + getWorldWidth() + "x" + getWorldHeight());
         new Thread(comms()).start();
         try {
             Thread.sleep(5000);
@@ -60,7 +60,7 @@ public class CaptainScoutRover extends ScoutRover {
             e.printStackTrace();
         }
         int scoutCount = 1; //start at 1 because we'll be scouting too
-        System.out.println("Allocating Map");
+        System.out.println(this.getID() + " Allocating Map");
         for(RoverRoleBelief belief : roverRoleBeliefs)
         {
             if(belief.getRole() == "Scout")
@@ -71,7 +71,7 @@ public class CaptainScoutRover extends ScoutRover {
         allocateMapAreas(scoutCount);
         //start by moving
         Node n = map.closestNode();
-        System.out.println("Attempting Move to Node");
+        System.out.println(this.getID() + " Attempting Move to Node");
         roverMove(n.getxPos() - xPos, n.getyPos() - yPos);
 
     }
@@ -96,10 +96,10 @@ public class CaptainScoutRover extends ScoutRover {
     void poll(PollResult pr) {
         // This is called when one of the actions has completed
 
-        System.out.println("Remaining Power: " + getEnergy());
+        System.out.println(this.getID() + " Remaining Power: " + getEnergy());
 
         if(pr.getResultStatus() == PollResult.FAILED) {
-            System.out.println("Ran out of power...");
+            System.out.println(this.getID() + " Ran out of power...");
             return;
         }
 
@@ -110,7 +110,7 @@ public class CaptainScoutRover extends ScoutRover {
 
             case PollResult.SCAN:
                 for(ScanItem item : pr.getScanItems()) {
-                    System.out.println("Found Item");
+                    System.out.println(this.getID() + " Found Item");
                     if (item.getItemType() == ScanItem.RESOURCE) {
                         updateResource(item.getxOffset(), item.getyOffset(), item.getItemType());
                     }
@@ -137,7 +137,7 @@ public class CaptainScoutRover extends ScoutRover {
         switch (state) {
             case Scanning:
                 try {
-                    System.out.println("Attempting to Scan for New Resources");
+                    System.out.println(this.getID() + " Attempting to Scan for New Resources");
                     scan(SCAN_RANGE);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -147,7 +147,7 @@ public class CaptainScoutRover extends ScoutRover {
 
             case Scouting:
                 Node n = map.closestNode();
-                System.out.println("Attempting Move to Node");
+                System.out.println(this.getID() + " Attempting Move to Node");
                 roverMove(n.getxPos() - xPos, n.getyPos() - yPos);
                 break;
 

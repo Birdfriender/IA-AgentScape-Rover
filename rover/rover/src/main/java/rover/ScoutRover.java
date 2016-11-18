@@ -52,7 +52,7 @@ public class ScoutRover extends GenericRover {
         getLog().info("BEGIN!");
         shout("Hello", role);
         map = new RoverMap(this, SCAN_RANGE, getWorldHeight(), getWorldWidth());
-        System.out.println("World size " + getWorldWidth() + "x" + getWorldHeight());
+        System.out.println(this.getID() + " World size " + getWorldWidth() + "x" + getWorldHeight());
         new Thread(comms()).start();
         while (!gotAllocation)
         {
@@ -60,7 +60,7 @@ public class ScoutRover extends GenericRover {
         }
         //start by moving
         Node n = map.closestNode();
-        System.out.println("Attempting Move to Node");
+        System.out.println(this.getID() + " Attempting Move to Node");
         roverMove(n.getxPos() - xPos, n.getyPos() - yPos);
 
     }
@@ -69,10 +69,10 @@ public class ScoutRover extends GenericRover {
     void poll(PollResult pr) {
         // This is called when one of the actions has completed
 
-        System.out.println("Remaining Power: " + getEnergy());
+        System.out.println(this.getID() + " Remaining Power: " + getEnergy());
 
         if(pr.getResultStatus() == PollResult.FAILED) {
-            System.out.println("Ran out of power...");
+            System.out.println(this.getID() + " Ran out of power...");
             return;
         }
 
@@ -83,7 +83,7 @@ public class ScoutRover extends GenericRover {
 
             case PollResult.SCAN:
                 for(ScanItem item : pr.getScanItems()) {
-                    System.out.println("Found Item");
+                    System.out.println(this.getID() + " Found Item");
                     if (item.getItemType() == ScanItem.RESOURCE) {
                         updateResource(item.getxOffset(), item.getyOffset(), item.getItemType());
                     }
@@ -110,7 +110,7 @@ public class ScoutRover extends GenericRover {
         switch (state) {
             case Scanning:
                 try {
-                    System.out.println("Attempting to Scan for New Resources");
+                    System.out.println(this.getID() + " Attempting to Scan for New Resources");
                     scan(SCAN_RANGE);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -120,7 +120,7 @@ public class ScoutRover extends GenericRover {
 
             case Scouting:
                 Node n = map.closestNode();
-                System.out.println("Attempting Move to Node");
+                System.out.println(this.getID() + " Attempting Move to Node");
                 roverMove(n.getxPos() - xPos, n.getyPos() - yPos);
                 break;
 
@@ -139,7 +139,7 @@ public class ScoutRover extends GenericRover {
     public void processMessage(String message)
     {
         String[] splitMessage = message.split("_");
-        System.out.println(splitMessage);
+        System.out.println(this.getID() + " " + splitMessage);
         switch (splitMessage[1])
         {
             case "Hello" :
@@ -147,10 +147,10 @@ public class ScoutRover extends GenericRover {
                 break;
 
             case "Resource" :
-                System.out.println("Resource Info");
+                System.out.println(this.getID() + "Resource Info");
                 if(splitMessage[5].equals("Discovered"))
                 {
-                    System.out.println("Recieved new resource");
+                    System.out.println(this.getID() + "Recieved new resource");
                     Resource res = new Resource(Float.parseFloat(splitMessage[2]),
                             Float.parseFloat(splitMessage[3]),
                             Integer.parseInt(splitMessage[4]));
@@ -172,7 +172,7 @@ public class ScoutRover extends GenericRover {
                 break;
 
             case "Allocation":
-                System.out.println("Scouting Allocation");
+                System.out.println(this.getID() + " Scouting Allocation");
                 map.selectArea(Integer.parseInt(splitMessage[2]), Integer.parseInt(splitMessage[3]));
                 gotAllocation = true;
                 break;

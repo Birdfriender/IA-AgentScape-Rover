@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class SolidCollectorRover extends CollectorRover {
 
-    private static String role = "Scout";
+    private static String role = "SolidCollector";
     private ArrayList<RoverRoleBelief> roverRoleBeliefs;
 
     private enum State
@@ -52,7 +52,7 @@ public class SolidCollectorRover extends CollectorRover {
         getLog().info("BEGIN!");
         shout("Hello", role);
         map = new RoverMap(this, SCAN_RANGE, getWorldHeight(), getWorldWidth());
-        System.out.println("World size " + getWorldWidth() + "x" + getWorldHeight());
+        System.out.println(this.getID() + " World size " + getWorldWidth() + "x" + getWorldHeight());
         new Thread(comms()).start();
         while(!map.hasResourceType(COLLECTOR_TYPE))
         {
@@ -60,7 +60,7 @@ public class SolidCollectorRover extends CollectorRover {
         }
         //start by moving
         Resource r = map.closestResource(COLLECTOR_TYPE);
-        System.out.println("Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
+        System.out.println(this.getID() + " Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
         roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
 
     }
@@ -116,13 +116,13 @@ public class SolidCollectorRover extends CollectorRover {
                             Double.toString(res.getyPos()),
                             Integer.toString(res.getType()),
                             "Depleted");
-                    System.out.println("Attempting Move to New Resource");
+                    System.out.println(this.getID() + " Attempting Move to New Resource");
                     while(!map.hasResourceType(COLLECTOR_TYPE))
                     {
                         //wait
                     }
                     Resource r = map.closestResource(COLLECTOR_TYPE);
-                    System.out.println("Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
+                    System.out.println(this.getID() + " Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
                     roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
                 }
                 break;
@@ -141,12 +141,12 @@ public class SolidCollectorRover extends CollectorRover {
                     //wait
                 }
                 Resource r = map.closestResource(COLLECTOR_TYPE);
-                System.out.println("Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
+                System.out.println(this.getID() + " Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
                 roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
                 break;
 
             case ReturningResource:
-                System.out.println("Attempting Move to Base");
+                System.out.println(this.getID() + " Attempting Move to Base");
                 roverMove(xPos * -1, yPos * -1);
                 break;
         }
