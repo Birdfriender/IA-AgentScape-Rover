@@ -16,10 +16,10 @@ public class GenericRover extends Rover implements IMapObject {
     double xPos = 0, yPos = 0;
     double currentLoad = 0;
 
-    private static final int MAX_LOAD = 3;
-    private static final int SPEED = 3;
-    private static final int SCAN_RANGE = 3;
-    private static final int COLLECTOR_TYPE = 1;
+    int MAX_LOAD = 3;
+    int SPEED = 3;
+    int SCAN_RANGE = 3;
+    int COLLECTOR_TYPE = 1;
     private static String role = "Generic";
     ArrayList<RoverRoleBelief> roverRoleBeliefs = new ArrayList<RoverRoleBelief>( );
 

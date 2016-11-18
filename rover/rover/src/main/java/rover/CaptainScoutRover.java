@@ -12,10 +12,10 @@ import java.util.ArrayList;
  */
 public class CaptainScoutRover extends ScoutRover {
 
-    private static final int MAX_LOAD = 0;
-    private static final int SPEED = 1;
-    private static final int SCAN_RANGE = 8;
-    private static final int COLLECTOR_TYPE = 1;
+    int MAX_LOAD = 0;
+    int SPEED = 1;
+    int SCAN_RANGE = 8;
+    int COLLECTOR_TYPE = 1;
     private static String role = "CaptainScout";
 
     private enum State

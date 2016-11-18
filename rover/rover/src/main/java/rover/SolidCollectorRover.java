@@ -11,10 +11,10 @@ import java.util.ArrayList;
  */
 public class SolidCollectorRover extends CollectorRover {
 
-    private static final int MAX_LOAD = 4;
-    private static final int SPEED = 5;
-    private static final int SCAN_RANGE = 0;
-    private static final int COLLECTOR_TYPE = 1;
+    int MAX_LOAD = 4;
+    int SPEED = 5;
+    int SCAN_RANGE = 0;
+    int COLLECTOR_TYPE = 1;
     private static String role = "Scout";
     private ArrayList<RoverRoleBelief> roverRoleBeliefs;
 
