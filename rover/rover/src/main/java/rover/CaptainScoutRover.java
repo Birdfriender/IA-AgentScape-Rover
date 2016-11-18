@@ -70,11 +70,13 @@ public class CaptainScoutRover extends ScoutRover {
         int i = 0; //im so tired
         for(RoverRoleBelief belief : roverRoleBeliefs)
         {
-            if(belief.getRole() == "Scout")
+            System.out.println(getID() + " I believe there's a " + belief.getRole());
+            if(belief.getRole().equals("Scout"))
             {
                 whisper(belief.getClientID(), "Allocation", Integer.toString(i), Integer.toString(i + allocPerRover));
+                i += allocPerRover;
             }
-            i += allocPerRover;
+
         }
         whisper(this.getID(), "Allocation", Integer.toString(i), Integer.toString(i + allocPerRover + (totalNodes % scoutCount)));
     }
@@ -90,7 +92,7 @@ public class CaptainScoutRover extends ScoutRover {
         System.out.println(this.getID() + " Allocating Map");
         for(RoverRoleBelief belief : roverRoleBeliefs)
         {
-            if(belief.getRole() == "Scout")
+            if(belief.getRole().equals("Scout"))
             {
                 scoutCount++;
             }
