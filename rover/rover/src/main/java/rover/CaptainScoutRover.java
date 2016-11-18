@@ -96,6 +96,7 @@ public class CaptainScoutRover extends ScoutRover {
             }
         }
         allocateMapAreas(scoutCount);
+        allocatedMap = true;
         //start by moving
         Node n = map.closestNode();
         System.out.println(this.getID() + " Attempting Move to Node");
