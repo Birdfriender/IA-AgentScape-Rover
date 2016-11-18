@@ -32,7 +32,7 @@ public class CaptainScoutRover extends ScoutRover {
         SPEED = 3;
         SCAN_RANGE = 6;
         COLLECTOR_TYPE = 1;
-
+        roverRoleBeliefs = new ArrayList<RoverRoleBelief>();
 
         try {
             //set attributes for this rover

@@ -21,7 +21,7 @@ public class GenericRover extends Rover implements IMapObject {
     int SCAN_RANGE ;
     int COLLECTOR_TYPE;
     private static String role = "Generic";
-    ArrayList<RoverRoleBelief> roverRoleBeliefs = new ArrayList<RoverRoleBelief>( );
+    ArrayList<RoverRoleBelief> roverRoleBeliefs;
 
 	private enum State
 	{
@@ -46,6 +46,7 @@ public class GenericRover extends Rover implements IMapObject {
         SCAN_RANGE = 3;
         MAX_LOAD = 3;
         COLLECTOR_TYPE = 1;
+        roverRoleBeliefs = new ArrayList<RoverRoleBelief>();
 		try {
 			//set attributes for this rover
 			//speed, scan range, max load
