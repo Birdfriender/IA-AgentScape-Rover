@@ -143,7 +143,7 @@ public class ScoutRover extends GenericRover {
         switch (splitMessage[1])
         {
             case "Hello" :
-                new RoverRoleBelief(splitMessage[0], splitMessage[2]);
+                roverRoleBeliefs.add(new RoverRoleBelief(splitMessage[0], splitMessage[2]));
                 break;
 
             case "Resource" :
