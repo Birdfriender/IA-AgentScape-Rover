@@ -6,6 +6,7 @@ import map.Resource;
 import map.RoverMap;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by THH on 08/11/2016.
@@ -55,7 +56,7 @@ public class CaptainScoutRover extends ScoutRover {
         System.out.println(this.getID() + " World size " + getWorldWidth() + "x" + getWorldHeight());
         new Thread(comms()).start();
         try {
-            Thread.sleep(5000);
+            TimeUnit.SECONDS.wait(5);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -79,7 +80,7 @@ public class CaptainScoutRover extends ScoutRover {
     void allocateMapAreas(int scoutCount)
     {
         int totalNodes = map.numNodes();
-        int allocPerRover = totalNodes / scoutCount;
+        int allocPerRover = (totalNodes / scoutCount);
         int i = 0; //im so tired
         for(RoverRoleBelief belief : roverRoleBeliefs)
         {
