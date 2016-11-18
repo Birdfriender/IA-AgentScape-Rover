@@ -12,10 +12,6 @@ import java.util.ArrayList;
  */
 public class ScoutRover extends GenericRover {
 
-    int MAX_LOAD = 0;
-    int SPEED = 1;
-    int SCAN_RANGE = 8;
-    int COLLECTOR_TYPE = 1;
     private static String role = "Scout";
     protected boolean gotAllocation = false;
 
@@ -33,6 +29,10 @@ public class ScoutRover extends GenericRover {
 
         //use your username for team name
         setTeam("thh37");
+        MAX_LOAD = 0;
+        SPEED = 3;
+        SCAN_RANGE = 6;
+        COLLECTOR_TYPE = 1;
 
         try {
             //set attributes for this rover

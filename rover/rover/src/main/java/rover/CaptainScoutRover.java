@@ -12,10 +12,6 @@ import java.util.ArrayList;
  */
 public class CaptainScoutRover extends ScoutRover {
 
-    int MAX_LOAD = 0;
-    int SPEED = 1;
-    int SCAN_RANGE = 8;
-    int COLLECTOR_TYPE = 1;
     private static String role = "CaptainScout";
 
     private enum State
@@ -32,6 +28,11 @@ public class CaptainScoutRover extends ScoutRover {
 
         //use your username for team name
         setTeam("thh37");
+        MAX_LOAD = 0;
+        SPEED = 3;
+        SCAN_RANGE = 6;
+        COLLECTOR_TYPE = 1;
+
 
         try {
             //set attributes for this rover
@@ -59,6 +60,7 @@ public class CaptainScoutRover extends ScoutRover {
             e.printStackTrace();
         }
         int scoutCount = 1; //start at 1 because we'll be scouting too
+        System.out.println("Allocating Map");
         for(RoverRoleBelief belief : roverRoleBeliefs)
         {
             if(belief.getRole() == "Scout")
@@ -87,7 +89,7 @@ public class CaptainScoutRover extends ScoutRover {
             }
             i += allocPerRover;
         }
-        whisper(this.getID(), "Allocation", Integer.toString(i), Integer.toString(totalNodes % scoutCount));
+        whisper(this.getID(), "Allocation", Integer.toString(i), Integer.toString(i + allocPerRover + (totalNodes % scoutCount)));
     }
 
     @Override

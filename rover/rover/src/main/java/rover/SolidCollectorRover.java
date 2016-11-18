@@ -11,10 +11,6 @@ import java.util.ArrayList;
  */
 public class SolidCollectorRover extends CollectorRover {
 
-    int MAX_LOAD = 4;
-    int SPEED = 5;
-    int SCAN_RANGE = 0;
-    int COLLECTOR_TYPE = 1;
     private static String role = "Scout";
     private ArrayList<RoverRoleBelief> roverRoleBeliefs;
 
@@ -31,6 +27,10 @@ public class SolidCollectorRover extends CollectorRover {
     public SolidCollectorRover() {
         super();
 
+        MAX_LOAD = 4;
+        SPEED = 5;
+        SCAN_RANGE = 0;
+        COLLECTOR_TYPE = 1;
         //use your username for team name
         setTeam("thh37");
 
