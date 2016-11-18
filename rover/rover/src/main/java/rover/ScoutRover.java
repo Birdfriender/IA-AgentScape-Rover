@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * Created by Violet on 07/11/2016.
  */
-class ScoutRover extends GenericRover {
+public class ScoutRover extends GenericRover {
 
     private static String role = "Scout";
     private boolean gotAllocation = false;
@@ -24,7 +24,7 @@ class ScoutRover extends GenericRover {
 
     private State state;
 
-    ScoutRover() {
+    public ScoutRover() {
         super();
 
         //use your username for team name
