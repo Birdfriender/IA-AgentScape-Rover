@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class CaptainScoutRover extends ScoutRover {
 
     private static String role = "CaptainScout";
+    private boolean allocatedMap = false;
 
     private enum State
     {
@@ -56,25 +57,10 @@ public class CaptainScoutRover extends ScoutRover {
         System.out.println(this.getID() + " World size " + getWorldWidth() + "x" + getWorldHeight());
         new Thread(comms()).start();
         try {
-            TimeUnit.SECONDS.wait(5);
-        } catch (InterruptedException e) {
+            move(0, 0, 1);
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        int scoutCount = 1; //start at 1 because we'll be scouting too
-        System.out.println(this.getID() + " Allocating Map");
-        for(RoverRoleBelief belief : roverRoleBeliefs)
-        {
-            if(belief.getRole() == "Scout")
-            {
-                scoutCount++;
-            }
-        }
-        allocateMapAreas(scoutCount);
-        //start by moving
-        Node n = map.closestNode();
-        System.out.println(this.getID() + " Attempting Move to Node");
-        roverMove(n.getxPos() - xPos, n.getyPos() - yPos);
-
     }
 
     void allocateMapAreas(int scoutCount)
@@ -93,6 +79,29 @@ public class CaptainScoutRover extends ScoutRover {
         whisper(this.getID(), "Allocation", Integer.toString(i), Integer.toString(i + allocPerRover + (totalNodes % scoutCount)));
     }
 
+    void initialAllocation()
+    {
+        try {
+            TimeUnit.SECONDS.wait(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        int scoutCount = 1; //start at 1 because we'll be scouting too
+        System.out.println(this.getID() + " Allocating Map");
+        for(RoverRoleBelief belief : roverRoleBeliefs)
+        {
+            if(belief.getRole() == "Scout")
+            {
+                scoutCount++;
+            }
+        }
+        allocateMapAreas(scoutCount);
+        //start by moving
+        Node n = map.closestNode();
+        System.out.println(this.getID() + " Attempting Move to Node");
+        roverMove(n.getxPos() - xPos, n.getyPos() - yPos);
+    }
+
     @Override
     void poll(PollResult pr) {
         // This is called when one of the actions has completed
@@ -106,7 +115,13 @@ public class CaptainScoutRover extends ScoutRover {
 
         switch(pr.getResultType()) {
             case PollResult.MOVE:
-                state = State.Scanning;
+                if(!allocatedMap)
+                {
+                    initialAllocation();
+                }
+                else {
+                    state = State.Scanning;
+                }
                 break;
 
             case PollResult.SCAN:
