@@ -10,10 +10,10 @@ import java.util.ArrayList;
 /**
  * Created by Violet on 07/11/2016.
  */
-public class ScoutRover extends GenericRover {
+class ScoutRover extends GenericRover {
 
     private static String role = "Scout";
-    protected boolean gotAllocation = false;
+    private boolean gotAllocation = false;
 
     private enum State
     {
@@ -24,7 +24,7 @@ public class ScoutRover extends GenericRover {
 
     private State state;
 
-    public ScoutRover() {
+    ScoutRover() {
         super();
 
         //use your username for team name
@@ -66,6 +66,7 @@ public class ScoutRover extends GenericRover {
     void poll(PollResult pr) {
         // This is called when one of the actions has completed
         System.out.println("Waiting for allocation");
+        //noinspection StatementWithEmptyBody
         while (!gotAllocation)
         {
             //wait
@@ -175,6 +176,7 @@ public class ScoutRover extends GenericRover {
             case "Allocation":
                 System.out.println(this.getID() + " Scouting Allocation");
                 map.selectArea(Integer.parseInt(splitMessage[2]), Integer.parseInt(splitMessage[3]));
+                System.out.println("Allocation complete");
                 gotAllocation = true;
                 break;
 
