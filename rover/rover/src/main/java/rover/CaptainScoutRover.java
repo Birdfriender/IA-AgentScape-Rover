@@ -82,7 +82,7 @@ public class CaptainScoutRover extends ScoutRover {
     void initialAllocation()
     {
         try {
-            TimeUnit.SECONDS.wait(5);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

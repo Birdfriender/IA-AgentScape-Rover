@@ -112,8 +112,8 @@
       <file leaf-file-name="CaptainScoutRover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2461">
-              <caret line="98" column="28" selection-start-line="98" selection-start-column="28" selection-end-line="98" selection-end-column="28" />
+            <state relative-caret-position="205">
+              <caret line="84" column="29" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -1093,7 +1093,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479482864258</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Fixed stopping waiting">
+      <created>1479484412994</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1479484412994</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1188,7 +1195,8 @@
     <MESSAGE value="&quot;fixed&quot; issue with rolebeliefs" />
     <MESSAGE value="Fixed wait in captainscout" />
     <MESSAGE value="Fixed wait in captainscout for real this time" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed wait in captainscout for real this time" />
+    <MESSAGE value="Fixed stopping waiting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed stopping waiting" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1510,8 +1518,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2461">
-          <caret line="98" column="28" selection-start-line="98" selection-start-column="28" selection-end-line="98" selection-end-column="28" />
+        <state relative-caret-position="205">
+          <caret line="84" column="29" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
           <folding />
         </state>
       </provider>
