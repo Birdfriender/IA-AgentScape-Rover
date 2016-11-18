@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" description="@Override" line="140" />
+    <bookmark url="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" description="@Override" line="145" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a3b0a6b-8005-471b-975b-5941409b0754" name="Default" comment="">
@@ -123,7 +123,7 @@
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="960">
-              <caret line="26" column="11" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+              <caret line="75" column="16" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1158,7 +1158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479497355348</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Made scout public again, oops">
+      <created>1479497534082</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1479497534082</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1233,7 +1240,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="FIxed remove in RemoveUnexploredNodes" />
     <MESSAGE value="FIxed move to resource" />
     <MESSAGE value="Fixed world co-ordinate system" />
     <MESSAGE value="Remove collected resources from map" />
@@ -1258,7 +1264,8 @@
     <MESSAGE value="Hopefully fixed issues with scouts not starting + reformated some debugging statements" />
     <MESSAGE value="Removed waits in begin()" />
     <MESSAGE value="More debugging statements" />
-    <option name="LAST_COMMIT_MESSAGE" value="More debugging statements" />
+    <MESSAGE value="Made scout public again, oops" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made scout public again, oops" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1581,7 +1588,7 @@
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="960">
-          <caret line="26" column="11" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+          <caret line="75" column="16" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

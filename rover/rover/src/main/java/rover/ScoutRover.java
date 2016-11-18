@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class ScoutRover extends GenericRover {
 
     private static String role = "Scout";
-    private boolean gotAllocation = false;
+    private volatile boolean gotAllocation = false;
 
     private enum State
     {
@@ -70,6 +70,11 @@ public class ScoutRover extends GenericRover {
         while (!gotAllocation)
         {
             //wait
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
         System.out.println(this.getID() + " Remaining Power: " + getEnergy());
