@@ -4,7 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" description="@Override" line="137" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a3b0a6b-8005-471b-975b-5941409b0754" name="Default" comment="Added some more prints">
+    <list default="true" id="9a3b0a6b-8005-471b-975b-5941409b0754" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java" afterPath="$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java" />
     </list>
@@ -112,8 +112,8 @@
       <file leaf-file-name="CaptainScoutRover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="94" column="48" selection-start-line="94" selection-start-column="48" selection-end-line="94" selection-end-column="48" />
+            <state relative-caret-position="523">
+              <caret line="80" column="25" selection-start-line="80" selection-start-column="25" selection-end-line="80" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -1121,7 +1121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479485959776</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Fixed using == rather than .equals for the millionth time in my programming career">
+      <created>1479490790117</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1479490790117</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1196,7 +1203,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added logging commands" />
     <MESSAGE value="Updating logging" />
     <MESSAGE value="Initliazed Map member of GenericRover" />
     <MESSAGE value="Fixed concurrent modification exception in RemoveUnexploredNode" />
@@ -1221,7 +1227,8 @@
     <MESSAGE value="Fixed null pointer exception in captainscout" />
     <MESSAGE value="I'm really stupid" />
     <MESSAGE value="Added some more prints" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some more prints" />
+    <MESSAGE value="Fixed using == rather than .equals for the millionth time in my programming career" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed using == rather than .equals for the millionth time in my programming career" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1543,8 +1550,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="94" column="48" selection-start-line="94" selection-start-column="48" selection-end-line="94" selection-end-column="48" />
+        <state relative-caret-position="523">
+          <caret line="80" column="25" selection-start-line="80" selection-start-column="25" selection-end-line="80" selection-end-column="25" />
           <folding />
         </state>
       </provider>

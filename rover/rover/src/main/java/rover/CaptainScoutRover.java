@@ -78,7 +78,8 @@ public class CaptainScoutRover extends ScoutRover {
             }
 
         }
-        whisper(this.getID(), "Allocation", Integer.toString(i), Integer.toString(i + allocPerRover + (totalNodes % scoutCount)));
+        //-1 just because
+        whisper(this.getID(), "Allocation", Integer.toString(i), Integer.toString(i + allocPerRover + (totalNodes % scoutCount) - 1));
     }
 
     void initialAllocation()
