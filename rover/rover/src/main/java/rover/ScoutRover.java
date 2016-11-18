@@ -65,6 +65,7 @@ public class ScoutRover extends GenericRover {
     @Override
     void poll(PollResult pr) {
         // This is called when one of the actions has completed
+        System.out.println("Waiting for allocation");
         while (!gotAllocation)
         {
             //wait

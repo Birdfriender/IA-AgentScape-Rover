@@ -55,20 +55,24 @@ public class SolidCollectorRover extends CollectorRover {
         map = new RoverMap(this, SCAN_RANGE, getWorldHeight(), getWorldWidth());
         System.out.println(this.getID() + " World size " + getWorldWidth() + "x" + getWorldHeight());
         new Thread(comms()).start();
-        while(!map.hasResourceType(COLLECTOR_TYPE))
-        {
-            //wait
-        }
+
         //start by moving
-        Resource r = map.closestResource(COLLECTOR_TYPE);
-        System.out.println(this.getID() + " Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
-        roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
+        try {
+            move(0,0, 1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
     @Override
     void poll(PollResult pr)
     {
+        while(!map.hasResourceType(COLLECTOR_TYPE))
+        {
+            //wait
+        }
+
         switch(pr.getResultType()) {
             case PollResult.MOVE:
                 if(state == State.GoingToResource)
