@@ -54,20 +54,21 @@ public class ScoutRover extends GenericRover {
         map = new RoverMap(this, SCAN_RANGE, getWorldHeight(), getWorldWidth());
         System.out.println(this.getID() + " World size " + getWorldWidth() + "x" + getWorldHeight());
         new Thread(comms()).start();
-        while (!gotAllocation)
-        {
-            //wait
+        try {
+            move(0,0,1);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        //start by moving
-        Node n = map.closestNode();
-        System.out.println(this.getID() + " Attempting Move to Node");
-        roverMove(n.getxPos() - xPos, n.getyPos() - yPos);
 
     }
 
     @Override
     void poll(PollResult pr) {
         // This is called when one of the actions has completed
+        while (!gotAllocation)
+        {
+            //wait
+        }
 
         System.out.println(this.getID() + " Remaining Power: " + getEnergy());
 
@@ -139,7 +140,6 @@ public class ScoutRover extends GenericRover {
     public void processMessage(String message)
     {
         String[] splitMessage = message.split("_");
-        System.out.println(this.getID() + " " + splitMessage);
         switch (splitMessage[1])
         {
             case "Hello" :

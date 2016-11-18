@@ -344,7 +344,7 @@ public class GenericRover extends Rover implements IMapObject {
 
                     for(String message : messages)
                     {
-                        System.out.println(getID() + "Recieved Message " + message);
+                        System.out.println(getID() + " Recieved Message " + message);
                         processMessage(message);
                     }
                     messages.clear();
@@ -361,7 +361,6 @@ public class GenericRover extends Rover implements IMapObject {
     public void processMessage(String message)
     {
         String[] splitMessage = message.split("_");
-        System.out.println(splitMessage);
         switch (splitMessage[1])
         {
             case "Hello" :
