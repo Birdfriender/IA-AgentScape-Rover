@@ -16,10 +16,10 @@ public class GenericRover extends Rover implements IMapObject {
     double xPos = 0, yPos = 0;
     double currentLoad = 0;
 
-    int MAX_LOAD = 3;
-    int SPEED = 3;
-    int SCAN_RANGE = 3;
-    int COLLECTOR_TYPE = 1;
+    int MAX_LOAD;
+    int SPEED;
+    int SCAN_RANGE ;
+    int COLLECTOR_TYPE;
     private static String role = "Generic";
     ArrayList<RoverRoleBelief> roverRoleBeliefs = new ArrayList<RoverRoleBelief>( );
 
@@ -42,7 +42,10 @@ public class GenericRover extends Rover implements IMapObject {
 
 		//use your username for team name
 		setTeam("thh37");
-		
+		SPEED = 3;
+        SCAN_RANGE = 3;
+        MAX_LOAD = 3;
+        COLLECTOR_TYPE = 1;
 		try {
 			//set attributes for this rover
 			//speed, scan range, max load
@@ -208,7 +211,7 @@ public class GenericRover extends Rover implements IMapObject {
 
 	protected void roverMove(double x, double y)
     {
-        System.out.println("Moving from " + xPos + ", " + yPos + " heading: " + x + ", "  + y);
+        System.out.println("Moving from " + xPos + ", " + yPos + " heading: " + x + ", "  + y + " Speed: " + SPEED);
         try {
             move(x, y, SPEED);
         } catch (Exception e) {

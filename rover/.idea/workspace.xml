@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9a3b0a6b-8005-471b-975b-5941409b0754" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java" afterPath="$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" afterPath="$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rover/src/main/java/rover/SolidCollectorRover.java" afterPath="$PROJECT_DIR$/rover/src/main/java/rover/SolidCollectorRover.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java" afterPath="$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java" />
     </list>
     <ignored path="rover.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -99,11 +97,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GenericRover.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GenericRover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+            <state relative-caret-position="432">
+              <caret line="213" column="114" selection-start-line="213" selection-start-column="114" selection-end-line="213" selection-end-column="114" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -111,10 +109,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CaptainScoutRover.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CaptainScoutRover.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
+            <state relative-caret-position="1392">
               <caret line="123" column="42" selection-start-line="123" selection-start-column="42" selection-end-line="123" selection-end-column="42" />
               <folding />
             </state>
@@ -191,10 +189,10 @@
         <option value="$PROJECT_DIR$/rover/src/main/java/rover/Collector.java" />
         <option value="$PROJECT_DIR$/rover/src/main/java/rover/CollectorRover.java" />
         <option value="$PROJECT_DIR$/rover/src/main/java/map/RoverMap.java" />
-        <option value="$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java" />
         <option value="$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java" />
         <option value="$PROJECT_DIR$/rover/src/main/java/rover/SolidCollectorRover.java" />
         <option value="$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" />
+        <option value="$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java" />
       </list>
     </option>
   </component>
@@ -1053,7 +1051,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479477991617</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Added better debugging statements">
+      <created>1479479320990</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1479479320990</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1144,7 +1149,8 @@
     <MESSAGE value="Implemented SolidCollector rover" />
     <MESSAGE value="FIxed stupid java inheritance stuff" />
     <MESSAGE value="Actually FIxed stupid java inheritance stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Actually FIxed stupid java inheritance stuff" />
+    <MESSAGE value="Added better debugging statements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added better debugging statements" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1426,16 +1432,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CollectorRover.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -1466,9 +1462,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
+        <state relative-caret-position="1392">
           <caret line="123" column="42" selection-start-line="123" selection-start-column="42" selection-end-line="123" selection-end-column="42" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="213" column="114" selection-start-line="213" selection-start-column="114" selection-end-line="213" selection-end-column="114" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
