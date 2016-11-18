@@ -120,9 +120,7 @@ public class CaptainScoutRover extends ScoutRover {
                 {
                     initialAllocation();
                 }
-                else {
-                    state = State.Scanning;
-                }
+                state = State.Scanning;
                 break;
 
             case PollResult.SCAN:
