@@ -110,7 +110,7 @@ public class RoverMap {
             }
         }
         unexploredNodes.remove(r);
-        System.out.println("Nodes left to explore: " +unexploredNodes.size());
+        System.out.println(parent.getID() + " Nodes left to explore: " +unexploredNodes.size());
     }
 
     public boolean existsUnexploredNode()
@@ -129,7 +129,7 @@ public class RoverMap {
             }
         }
         resources.remove(r);
-        System.out.println("Known Resources Left: " + resources.size());
+        System.out.println(parent.getID() + " Known Resources Left: " + resources.size());
     }
 
     public boolean hasResourceType(int type)

@@ -19,7 +19,8 @@ public class SolidCollectorRover extends CollectorRover {
         GoingToResource,
         CollectingResource,
         ReturningResource,
-        DepositingResource
+        DepositingResource,
+        Started
     }
 
     private State state;
@@ -32,7 +33,7 @@ public class SolidCollectorRover extends CollectorRover {
         SCAN_RANGE = 0;
         COLLECTOR_TYPE = 1;
         roverRoleBeliefs = new ArrayList<>();
-        state = State.GoingToResource;
+        state = State.Started;
         //use your username for team name
         setTeam("thh37");
 
@@ -69,16 +70,6 @@ public class SolidCollectorRover extends CollectorRover {
     @Override
     void poll(PollResult pr)
     {
-        while(!map.hasResourceType(COLLECTOR_TYPE))
-        {
-            //wait
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-
         switch(pr.getResultType()) {
             case PollResult.MOVE:
                 if(state == State.GoingToResource)
@@ -88,6 +79,10 @@ public class SolidCollectorRover extends CollectorRover {
                 else if (state == State.ReturningResource)
                 {
                     state = State.DepositingResource;
+                }
+                else if (state == State.Started)
+                {
+                    state = State.GoingToResource;
                 }
                 break;
 
@@ -114,6 +109,7 @@ public class SolidCollectorRover extends CollectorRover {
                 try {
                     collect();
                 } catch (Exception e) {
+                    System.out.println(getID() + " Depleted Resource");
                     state = State.ReturningResource;
                     Resource res = new Resource(xPos, yPos, 0); //type doesnt matter here, bit awkward but oh well
                     shout("Resource",
