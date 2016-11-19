@@ -31,7 +31,7 @@ public class SolidCollectorRover extends CollectorRover {
         SPEED = 5;
         SCAN_RANGE = 0;
         COLLECTOR_TYPE = 1;
-        roverRoleBeliefs = new ArrayList<RoverRoleBelief>();
+        roverRoleBeliefs = new ArrayList<>();
         //use your username for team name
         setTeam("thh37");
 
@@ -87,6 +87,10 @@ public class SolidCollectorRover extends CollectorRover {
                 else if (state == State.ReturningResource)
                 {
                     state = State.DepositingResource;
+                }
+                else
+                {
+                    state = State.GoingToResource;
                 }
                 break;
 
