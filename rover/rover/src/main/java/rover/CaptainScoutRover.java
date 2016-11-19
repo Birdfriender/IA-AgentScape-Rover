@@ -6,7 +6,6 @@ import map.Resource;
 import map.RoverMap;
 
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by THH on 08/11/2016.
@@ -15,6 +14,7 @@ public class CaptainScoutRover extends ScoutRover {
 
     private static String role = "CaptainScout";
     private boolean allocatedMap = false;
+    private int activeScoutCount;
 
     private enum State
     {
@@ -34,7 +34,7 @@ public class CaptainScoutRover extends ScoutRover {
         SPEED = 3;
         SCAN_RANGE = 6;
         COLLECTOR_TYPE = 1;
-        roverRoleBeliefs = new ArrayList<RoverRoleBelief>();
+        roverRoleBeliefs = new ArrayList<>();
 
         try {
             //set attributes for this rover
@@ -63,7 +63,7 @@ public class CaptainScoutRover extends ScoutRover {
         }
     }
 
-    void allocateMapAreas(int scoutCount)
+    private void allocateMapAreas(int scoutCount)
     {
         int totalNodes = map.numNodes();
         int allocPerRover = (totalNodes / scoutCount);
@@ -82,23 +82,23 @@ public class CaptainScoutRover extends ScoutRover {
         whisper(this.getID(), "Allocation", Integer.toString(i), Integer.toString(i + allocPerRover + (totalNodes % scoutCount) - 1));
     }
 
-    void initialAllocation()
+    private void initialAllocation()
     {
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        int scoutCount = 1; //start at 1 because we'll be scouting too
+        activeScoutCount = 1; //start at 1 because we'll be scouting too
         System.out.println(this.getID() + " Allocating Map");
         for(RoverRoleBelief belief : roverRoleBeliefs)
         {
             if(belief.getRole().equals("Scout"))
             {
-                scoutCount++;
+                activeScoutCount++;
             }
         }
-        allocateMapAreas(scoutCount);
+        allocateMapAreas(activeScoutCount);
         allocatedMap = true;
     }
 
@@ -171,8 +171,66 @@ public class CaptainScoutRover extends ScoutRover {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                if(activeScoutCount == 0)
+                {
+                    for(RoverRoleBelief r : roverRoleBeliefs)
+                    {
+                        if(r.getRole().equals("SolidCollector") || r.getRole().equals("LiquidCollector"))
+                        {
+                            whisper(r.getClientID(), "Complete");
+                        }
+                    }
+                }
 
         }
 
+    }
+
+    @Override
+    public void processMessage(String message)
+    {
+        String[] splitMessage = message.split("_");
+        switch (splitMessage[1])
+        {
+            case "Hello" :
+                roverRoleBeliefs.add(new RoverRoleBelief(splitMessage[0], splitMessage[2]));
+                break;
+
+            case "Resource" :
+                System.out.println(this.getID() + "Resource Info");
+                if(splitMessage[5].equals("Discovered"))
+                {
+                    System.out.println(this.getID() + "Recieved new resource");
+                    Resource res = new Resource(Float.parseFloat(splitMessage[2]),
+                            Float.parseFloat(splitMessage[3]),
+                            Integer.parseInt(splitMessage[4]));
+                    if(!map.contains(res))
+                    {
+                        map.addResource(res);
+                    }
+                }
+                else if(splitMessage[5].equals("Depleted"))
+                {
+                    Resource res = new Resource(Float.parseFloat(splitMessage[2]),
+                            Float.parseFloat(splitMessage[3]),
+                            Integer.parseInt(splitMessage[4]));
+                    if(map.contains(res))
+                    {
+                        map.removeResource(res);
+                    }
+                }
+                break;
+
+            case "Allocation":
+                System.out.println(this.getID() + " Scouting Allocation");
+                map.selectArea(Integer.parseInt(splitMessage[2]), Integer.parseInt(splitMessage[3]));
+                System.out.println("Allocation complete");
+                break;
+
+            case "Complete":
+                activeScoutCount -= 1;
+                break;
+
+        }
     }
 }

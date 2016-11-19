@@ -102,6 +102,13 @@ public class ScoutRover extends GenericRover {
                 }
                 else
                 {
+                    for(RoverRoleBelief r : roverRoleBeliefs)
+                    {
+                        if(r.getRole().equals("CaptainScout"))
+                        {
+                            whisper(r.getClientID(), "Complete");
+                        }
+                    }
                     state = State.Waiting;
                 }
                 break;
@@ -184,7 +191,6 @@ public class ScoutRover extends GenericRover {
                 System.out.println("Allocation complete");
                 gotAllocation = true;
                 break;
-
         }
     }
 }
