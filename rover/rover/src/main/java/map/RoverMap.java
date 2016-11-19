@@ -10,30 +10,33 @@ import static java.lang.Math.sqrt;
  * Created by Violet on 19/10/2016.
  */
 public class RoverMap {
-    private ArrayList<Resource> resources = new ArrayList<Resource>();
+    private ArrayList<Resource> resources = new ArrayList<>();
     private GenericRover parent;
-    private ArrayList<Node> unexploredNodes = new ArrayList<Node>();
+    private ArrayList<Node> unexploredNodes = new ArrayList<>();
 
     public RoverMap(GenericRover parent, int scanRange, int worldY, int worldX) {
         this.parent = parent;
-        int alternator = 0;
-        for(double i = worldY/2 * -1; i< worldY/2; i+= 1.5 * scanRange)
+        if(scanRange > 0)
         {
-            if(alternator == 0)
+            int alternator = 0;
+            for(double i = worldY/2 * -1; i< worldY/2; i+= 1.5 * scanRange)
             {
-                for(double j = 0; j < worldX; j += sqrt(3) * scanRange)
+                if(alternator == 0)
                 {
-                    unexploredNodes.add(new Node(j,i));
+                    for(double j = 0; j < worldX; j += sqrt(3) * scanRange)
+                    {
+                        unexploredNodes.add(new Node(j,i));
+                    }
+                    alternator = 1;
                 }
-                alternator = 1;
-            }
-            else
-            {
-                for(double j = (sqrt(3) * scanRange)/2; j < worldX; j += sqrt(3) * scanRange)
+                else
                 {
-                    unexploredNodes.add(new Node(j,i));
+                    for(double j = (sqrt(3) * scanRange)/2; j < worldX; j += sqrt(3) * scanRange)
+                    {
+                        unexploredNodes.add(new Node(j,i));
+                    }
+                    alternator = 0;
                 }
-                alternator = 0;
             }
         }
     }
@@ -75,7 +78,7 @@ public class RoverMap {
 
     public void selectArea(int start, int end)
     {
-        ArrayList<Node> tempNodes = new ArrayList<Node>();
+        ArrayList<Node> tempNodes = new ArrayList<>();
         for(int i = start; i < end; i++)
         {
             tempNodes.add(unexploredNodes.get(i));
