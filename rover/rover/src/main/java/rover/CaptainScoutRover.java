@@ -54,7 +54,6 @@ public class CaptainScoutRover extends ScoutRover {
         getLog().info("BEGIN!");
         shout("Hello", role);
         map = new RoverMap(this);
-        map.generateNodes(SCAN_RANGE, getWorldHeight(), getWorldWidth());
         System.out.println(this.getID() + " World size " + getWorldWidth() + "x" + getWorldHeight());
         new Thread(comms()).start();
         try {
@@ -66,10 +65,12 @@ public class CaptainScoutRover extends ScoutRover {
 
     private void allocateMapAreas(int scoutCount)
     {
-        int totalNodes = map.numNodes();
+        RoverMap tempMap = new RoverMap(this);
+        tempMap.generateNodes(SCAN_RANGE, getWorldHeight(), getWorldWidth());
+        int totalNodes = tempMap.numNodes();
         int allocPerRover = (totalNodes / scoutCount);
         int i = 0; //im so tired
-        ArrayList<Node> nodes = map.getNodes();
+        ArrayList<Node> nodes = tempMap.getNodes();
         for(RoverRoleBelief belief : roverRoleBeliefs)
         {
             if(belief.getRole().equals("Scout"))
