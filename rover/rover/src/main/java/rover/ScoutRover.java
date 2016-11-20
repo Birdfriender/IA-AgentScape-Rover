@@ -51,7 +51,7 @@ public class ScoutRover extends GenericRover {
         //called when the world is started
         getLog().info("BEGIN!");
         shout("Hello", role);
-        map = new RoverMap(this, SCAN_RANGE, getWorldHeight(), getWorldWidth());
+        map = new RoverMap(this);
         System.out.println(this.getID() + " World size " + getWorldWidth() + "x" + getWorldHeight());
         new Thread(comms()).start();
         try {
@@ -187,9 +187,12 @@ public class ScoutRover extends GenericRover {
 
             case "Allocation":
                 System.out.println(this.getID() + " Scouting Allocation");
-                map.selectArea(Integer.parseInt(splitMessage[2]), Integer.parseInt(splitMessage[3]));
-                System.out.println("Allocation complete");
+                map.addNode(Double.parseDouble(splitMessage[2]), Double.parseDouble(splitMessage[3]));
+                break;
+
+            case "AllocationComplete" :
                 gotAllocation = true;
+                System.out.println("Allocation complete");
                 break;
         }
     }

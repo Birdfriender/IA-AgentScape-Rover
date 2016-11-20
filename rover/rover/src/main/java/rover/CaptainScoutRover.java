@@ -53,7 +53,8 @@ public class CaptainScoutRover extends ScoutRover {
         //called when the world is started
         getLog().info("BEGIN!");
         shout("Hello", role);
-        map = new RoverMap(this, SCAN_RANGE, getWorldHeight(), getWorldWidth());
+        map = new RoverMap(this);
+        map.generateNodes(SCAN_RANGE, getWorldHeight(), getWorldWidth());
         System.out.println(this.getID() + " World size " + getWorldWidth() + "x" + getWorldHeight());
         new Thread(comms()).start();
         try {
@@ -68,18 +69,31 @@ public class CaptainScoutRover extends ScoutRover {
         int totalNodes = map.numNodes();
         int allocPerRover = (totalNodes / scoutCount);
         int i = 0; //im so tired
+        ArrayList<Node> nodes = map.getNodes();
         for(RoverRoleBelief belief : roverRoleBeliefs)
         {
-            System.out.println(getID() + " I believe there's a " + belief.getRole());
             if(belief.getRole().equals("Scout"))
             {
-                whisper(belief.getClientID(), "Allocation", Integer.toString(i), Integer.toString(i + allocPerRover));
+                for(Node n : nodes)
+                {
+                    if(n.getyPos() >= i && n.getyPos() < i + allocPerRover)
+                    {
+                        whisper(belief.getClientID(), "Allocation", Double.toString(n.getyPos()), Double.toString(n.getxPos()));
+                    }
+                }
+                whisper(belief.getClientID(), "AllocationComplete");
                 i += allocPerRover;
             }
 
         }
         //-1 just because
-        whisper(this.getID(), "Allocation", Integer.toString(i), Integer.toString(i + allocPerRover + (totalNodes % scoutCount) - 1));
+        for(Node n : nodes)
+        {
+            if(n.getyPos() >= i && n.getyPos() < i + allocPerRover + (totalNodes % scoutCount) - 1)
+            {
+                whisper(this.getID(), "Allocation", Double.toString(n.getyPos()), Double.toString(n.getxPos()));
+            }
+        }
     }
 
     private void initialAllocation()
@@ -223,8 +237,7 @@ public class CaptainScoutRover extends ScoutRover {
 
             case "Allocation":
                 System.out.println(this.getID() + " Scouting Allocation");
-                map.selectArea(Integer.parseInt(splitMessage[2]), Integer.parseInt(splitMessage[3]));
-                System.out.println("Allocation complete");
+                map.addNode(Double.parseDouble(splitMessage[2]), Double.parseDouble(splitMessage[3]));
                 break;
 
             case "Complete":

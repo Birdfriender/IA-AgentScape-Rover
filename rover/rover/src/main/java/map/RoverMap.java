@@ -14,31 +14,37 @@ public class RoverMap {
     private GenericRover parent;
     private ArrayList<Node> unexploredNodes = new ArrayList<>();
 
-    public RoverMap(GenericRover parent, int scanRange, int worldY, int worldX) {
+    public RoverMap(GenericRover parent) {
         this.parent = parent;
-        if(scanRange > 0)
+    }
+
+    public void generateNodes(int scanRange, int worldY, int worldX)
+    {
+        int alternator = 0;
+        for(double i = worldY/2 * -1; i< worldY/2; i+= 1.5 * scanRange)
         {
-            int alternator = 0;
-            for(double i = worldY/2 * -1; i< worldY/2; i+= 1.5 * scanRange)
+            if(alternator == 0)
             {
-                if(alternator == 0)
+                for(double j = 0; j < worldX; j += sqrt(3) * scanRange)
                 {
-                    for(double j = 0; j < worldX; j += sqrt(3) * scanRange)
-                    {
-                        unexploredNodes.add(new Node(j,i));
-                    }
-                    alternator = 1;
+                    unexploredNodes.add(new Node(j,i));
                 }
-                else
+                alternator = 1;
+            }
+            else
+            {
+                for(double j = (sqrt(3) * scanRange)/2; j < worldX; j += sqrt(3) * scanRange)
                 {
-                    for(double j = (sqrt(3) * scanRange)/2; j < worldX; j += sqrt(3) * scanRange)
-                    {
-                        unexploredNodes.add(new Node(j,i));
-                    }
-                    alternator = 0;
+                    unexploredNodes.add(new Node(j,i));
                 }
+                alternator = 0;
             }
         }
+    }
+
+    public void addNode(double x, double y)
+    {
+        unexploredNodes.add(new Node(x, y));
     }
 
     public boolean contains(Resource newResource)
@@ -148,6 +154,11 @@ public class RoverMap {
     public int numNodes()
     {
         return unexploredNodes.size();
+    }
+
+    public ArrayList<Node> getNodes()
+    {
+        return unexploredNodes;
     }
 
 }

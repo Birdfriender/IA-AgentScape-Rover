@@ -55,7 +55,7 @@ public class SolidCollectorRover extends CollectorRover {
         //called when the world is started
         getLog().info("BEGIN!");
         shout("Hello", role);
-        map = new RoverMap(this, SCAN_RANGE, getWorldHeight(), getWorldWidth());
+        map = new RoverMap(this);
         System.out.println(this.getID() + " World size " + getWorldWidth() + "x" + getWorldHeight());
         new Thread(comms()).start();
 

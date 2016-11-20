@@ -64,7 +64,8 @@ public class GenericRover extends Rover implements IMapObject {
 		//called when the world is started
         getLog().info("BEGIN!");
         shout("Hello", role);
-		map = new RoverMap(this, SCAN_RANGE, getWorldHeight(), getWorldWidth());
+		map = new RoverMap(this);
+		map.generateNodes(SCAN_RANGE, getWorldHeight(), getWorldWidth());
 		System.out.println("World size " + getWorldWidth() + "x" + getWorldHeight());
 		new Thread(comms()).start();
 		try {
