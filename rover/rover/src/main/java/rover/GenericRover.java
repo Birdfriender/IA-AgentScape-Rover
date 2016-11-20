@@ -46,7 +46,7 @@ public class GenericRover extends Rover implements IMapObject {
         SCAN_RANGE = 3;
         MAX_LOAD = 3;
         COLLECTOR_TYPE = 1;
-        roverRoleBeliefs = new ArrayList<RoverRoleBelief>();
+        roverRoleBeliefs = new ArrayList<>();
 		try {
 			//set attributes for this rover
 			//speed, scan range, max load
@@ -214,6 +214,16 @@ public class GenericRover extends Rover implements IMapObject {
 	protected void roverMove(double x, double y)
     {
         System.out.println(getID() + " Moving from " + xPos + ", " + yPos + " heading: " + x + ", "  + y + " Speed: " + SPEED);
+        if(x > getWorldWidth() / 2)
+        {
+            x = getWorldHeight() - (x * -1);
+        }
+
+        if( y > getWorldHeight() / 2)
+        {
+            y = getWorldHeight() - (y * -1);
+        }
+
         try {
             move(x, y, SPEED);
         } catch (Exception e) {
