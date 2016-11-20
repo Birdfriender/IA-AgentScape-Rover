@@ -68,8 +68,8 @@ public class CaptainScoutRover extends ScoutRover {
         RoverMap tempMap = new RoverMap(this);
         tempMap.generateNodes(SCAN_RANGE, getWorldHeight(), getWorldWidth());
         int totalNodes = tempMap.numNodes();
-        int allocPerRover = (totalNodes / scoutCount);
-        int i = 0; //im so tired
+        double allocPerRover = getWorldHeight()/scoutCount;
+        double i = getWorldHeight()/-2; //im so tired
         ArrayList<Node> nodes = tempMap.getNodes();
         for(RoverRoleBelief belief : roverRoleBeliefs)
         {

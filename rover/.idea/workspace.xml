@@ -117,8 +117,8 @@
       <file leaf-file-name="CaptainScoutRover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="100" column="42" lean-forward="true" selection-start-line="100" selection-start-column="42" selection-end-line="100" selection-end-column="42" />
+            <state relative-caret-position="345">
+              <caret line="85" column="35" lean-forward="true" selection-start-line="85" selection-start-column="35" selection-end-line="85" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1142,7 +1142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479653117363</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="added wait to end of map allocation to allow captain to get its own allocation">
+      <created>1479654332607</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1479654332607</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1221,7 +1228,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed concurrent modification exception in RemoveUnexploredNode" />
     <MESSAGE value="FIxed remove in RemoveUnexploredNodes" />
     <MESSAGE value="FIxed move to resource" />
     <MESSAGE value="Fixed world co-ordinate system" />
@@ -1246,7 +1252,8 @@
     <MESSAGE value="Changed the way the collector waits for the scouts" />
     <MESSAGE value="Changed the way the captain allocates areas to scouts" />
     <MESSAGE value="Fixed captain's self allocation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed captain's self allocation" />
+    <MESSAGE value="added wait to end of map allocation to allow captain to get its own allocation" />
+    <option name="LAST_COMMIT_MESSAGE" value="added wait to end of map allocation to allow captain to get its own allocation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1569,8 +1576,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="100" column="42" lean-forward="true" selection-start-line="100" selection-start-column="42" selection-end-line="100" selection-end-column="42" />
+        <state relative-caret-position="345">
+          <caret line="85" column="35" lean-forward="true" selection-start-line="85" selection-start-column="35" selection-end-line="85" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
