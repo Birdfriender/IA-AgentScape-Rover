@@ -95,12 +95,6 @@ public class CaptainScoutRover extends ScoutRover {
                 whisper(this.getID(), "Allocation", Double.toString(n.getyPos()), Double.toString(n.getxPos()));
             }
         }
-
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     private void initialAllocation()

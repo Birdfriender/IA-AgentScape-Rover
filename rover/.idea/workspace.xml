@@ -117,8 +117,8 @@
       <file leaf-file-name="CaptainScoutRover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="85" column="35" lean-forward="true" selection-start-line="85" selection-start-column="35" selection-end-line="85" selection-end-column="35" />
+            <state relative-caret-position="481">
+              <caret line="96" column="9" lean-forward="false" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1149,7 +1149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479654332607</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Fixed bug where captain was allocating from 0 rather than -worldheight/2">
+      <created>1479660776065</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1479660776065</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1228,7 +1235,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="FIxed remove in RemoveUnexploredNodes" />
     <MESSAGE value="FIxed move to resource" />
     <MESSAGE value="Fixed world co-ordinate system" />
     <MESSAGE value="Remove collected resources from map" />
@@ -1253,7 +1259,8 @@
     <MESSAGE value="Changed the way the captain allocates areas to scouts" />
     <MESSAGE value="Fixed captain's self allocation" />
     <MESSAGE value="added wait to end of map allocation to allow captain to get its own allocation" />
-    <option name="LAST_COMMIT_MESSAGE" value="added wait to end of map allocation to allow captain to get its own allocation" />
+    <MESSAGE value="Fixed bug where captain was allocating from 0 rather than -worldheight/2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug where captain was allocating from 0 rather than -worldheight/2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1576,8 +1583,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="85" column="35" lean-forward="true" selection-start-line="85" selection-start-column="35" selection-end-line="85" selection-end-column="35" />
+        <state relative-caret-position="481">
+          <caret line="96" column="9" lean-forward="false" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
