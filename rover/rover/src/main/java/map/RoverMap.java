@@ -25,17 +25,17 @@ public class RoverMap {
         {
             if(alternator == 0)
             {
-                for(double j = 0; j < worldX; j += sqrt(3) * scanRange)
+                for(double j = worldX/2 * -1; j < worldX/2; j += sqrt(3) * scanRange)
                 {
-                    unexploredNodes.add(new Node(j,i));
+                    unexploredNodes.add(new Node(i,j));
                 }
                 alternator = 1;
             }
             else
             {
-                for(double j = (sqrt(3) * scanRange)/2; j < worldX; j += sqrt(3) * scanRange)
+                for(double j = (worldX/2 * -1) + (sqrt(3) * scanRange)/2; j < worldX/2; j += sqrt(3) * scanRange)
                 {
-                    unexploredNodes.add(new Node(j,i));
+                    unexploredNodes.add(new Node(i,j));
                 }
                 alternator = 0;
             }

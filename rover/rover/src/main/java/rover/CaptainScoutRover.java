@@ -73,7 +73,7 @@ public class CaptainScoutRover extends ScoutRover {
         ArrayList<Node> nodes = tempMap.getNodes();
         for(Node n : nodes)
         {
-            System.out.println("Node: " + n.getyPos() + " " + n.getyPos());
+            System.out.println("Node: " + n.getxPos() + " " + n.getyPos());
         }
         for(RoverRoleBelief belief : roverRoleBeliefs)
         {
