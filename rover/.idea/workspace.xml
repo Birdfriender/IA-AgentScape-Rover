@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9a3b0a6b-8005-471b-975b-5941409b0754" name="Default" comment="Added stack trace to collect exception to see if its being thrown erroneously">
+    <list default="true" id="9a3b0a6b-8005-471b-975b-5941409b0754" name="Default" comment="Fixed current load handling">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rover/src/main/java/rover/SolidCollectorRover.java" afterPath="$PROJECT_DIR$/rover/src/main/java/rover/SolidCollectorRover.java" />
     </list>
@@ -190,8 +190,8 @@
       <file leaf-file-name="SolidCollectorRover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/SolidCollectorRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="132" column="59" lean-forward="true" selection-start-line="132" selection-start-column="59" selection-end-line="132" selection-end-column="59" />
+            <state relative-caret-position="248">
+              <caret line="153" column="21" lean-forward="false" selection-start-line="153" selection-start-column="21" selection-end-line="153" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -247,6 +247,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>closestR</find>
+      <find>collect</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -1224,17 +1225,24 @@
       <option name="project" value="LOCAL" />
       <updated>1479768038467</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Added stack trace to collect exception to see if its being thrown erroneously">
+      <created>1479770437990</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1479770437990</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1934" height="1047" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24759872" sideWeight="0.49374348" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24759872" sideWeight="0.49374348" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1303,7 +1311,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Encapsulate resource map update code in attempt to fix bug where rover stops in the middle of nowhere" />
     <MESSAGE value="Additional Logging" />
     <MESSAGE value="Fixed bug with resource mapping" />
     <MESSAGE value="Remembered to start comms thread" />
@@ -1328,7 +1335,8 @@
     <MESSAGE value="Fixed issue with move where rovers wouldn't account for world wrapping" />
     <MESSAGE value="Added more debug logs to collector" />
     <MESSAGE value="Added stack trace to collect exception to see if its being thrown erroneously" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added stack trace to collect exception to see if its being thrown erroneously" />
+    <MESSAGE value="Fixed current load handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed current load handling" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1675,8 +1683,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/SolidCollectorRover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="132" column="59" lean-forward="true" selection-start-line="132" selection-start-column="59" selection-end-line="132" selection-end-column="59" />
+        <state relative-caret-position="248">
+          <caret line="153" column="21" lean-forward="false" selection-start-line="153" selection-start-column="21" selection-end-line="153" selection-end-column="21" />
           <folding />
         </state>
       </provider>

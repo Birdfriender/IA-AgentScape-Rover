@@ -100,14 +100,14 @@ public class SolidCollectorRover extends CollectorRover {
                 break;
 
             case PollResult.COLLECT:
-                if(currentLoad == MAX_LOAD)
+                if(getCurrentLoad() == MAX_LOAD)
                 {
                     state = State.ReturningResource;
                 }
                 break;
 
             case PollResult.DEPOSIT:
-                if(currentLoad == 0)
+                if(getCurrentLoad() == 0)
                 {
                     state = State.GoingToResource;
                 }
@@ -121,7 +121,6 @@ public class SolidCollectorRover extends CollectorRover {
                     collect();
                 } catch (Exception e) {
                     System.out.println(getID() + " Depleted Resource");
-                    state = State.ReturningResource;
                     Resource res = new Resource(xPos, yPos, 0); //type doesnt matter here, bit awkward but oh well
                     shout("Resource",
                             Double.toString(res.getxPos()),
@@ -142,6 +141,7 @@ public class SolidCollectorRover extends CollectorRover {
                     if(getCurrentLoad() == MAX_LOAD || !map.hasResourceType(COLLECTOR_TYPE))
                     {
                         System.out.println("Attempting to move to Base");
+                        state = State.ReturningResource;
                         roverMove(-xPos, -yPos);
                     }
                     else
@@ -149,9 +149,9 @@ public class SolidCollectorRover extends CollectorRover {
                         System.out.println(this.getID() + " Attempting Move to New Resource");
                         Resource r = map.closestResource(COLLECTOR_TYPE);
                         System.out.println(this.getID() + " Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
+                        state = State.GoingToResource;
                         roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
                     }
-                    e.printStackTrace();
                 }
                 break;
 
