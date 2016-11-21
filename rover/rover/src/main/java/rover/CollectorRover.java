@@ -37,13 +37,10 @@ public class CollectorRover extends GenericRover {
                 }
                 else if(splitMessage[5].equals("Depleted"))
                 {
-                    Resource res = new Resource(Float.parseFloat(splitMessage[2]),
-                            Float.parseFloat(splitMessage[3]),
+                    Resource res = new Resource(Double.parseDouble(splitMessage[2]),
+                            Double.parseDouble(splitMessage[3]),
                             Integer.parseInt(splitMessage[4]));
-                    if(map.contains(res))
-                    {
-                        map.removeResource(res);
-                    }
+                    map.removeResource(res);
                 }
                 break;
 

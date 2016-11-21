@@ -133,10 +133,23 @@ public class SolidCollectorRover extends CollectorRover {
                             Double.toString(res.getyPos()),
                             Integer.toString(res.getType()),
                             "Depleted");
-                    System.out.println(this.getID() + " Attempting Move to New Resource");
-                    Resource r = map.closestResource(COLLECTOR_TYPE);
-                    System.out.println(this.getID() + " Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
-                    roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e1) {
+                        e1.printStackTrace();
+                    }
+                    if(getCurrentLoad() == MAX_LOAD || !map.hasResourceType(COLLECTOR_TYPE))
+                    {
+                        System.out.println("Attempting to move to Base");
+                        roverMove(-xPos, -yPos);
+                    }
+                    else
+                    {
+                        System.out.println(this.getID() + " Attempting Move to New Resource");
+                        Resource r = map.closestResource(COLLECTOR_TYPE);
+                        System.out.println(this.getID() + " Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
+                        roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
+                    }
                 }
                 break;
 

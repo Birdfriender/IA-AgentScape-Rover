@@ -126,7 +126,7 @@ public class RoverMap {
 
     public void removeResource(Resource resource)
     {
-        int r = 0;
+        int r = -1;
         for(int i = 0; i < resources.size(); i++)
         {
             if(resources.get(i).getyPos() == resource.getyPos() && resources.get(i).getxPos() == resource.getxPos())
@@ -134,7 +134,10 @@ public class RoverMap {
                 r = i;
             }
         }
-        resources.remove(r);
+        if(r != -1)
+        {
+            resources.remove(r);
+        }
         System.out.println(parent.getID() + " Known Resources Left: " + resources.size());
     }
 
