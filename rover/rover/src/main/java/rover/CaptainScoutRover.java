@@ -71,6 +71,10 @@ public class CaptainScoutRover extends ScoutRover {
         double allocPerRover = getWorldHeight()/scoutCount;
         double i = getWorldHeight()/-2; //im so tired
         ArrayList<Node> nodes = tempMap.getNodes();
+        for(Node n : nodes)
+        {
+            System.out.println("Node: " + n.getyPos() + " " + n.getyPos());
+        }
         for(RoverRoleBelief belief : roverRoleBeliefs)
         {
             if(belief.getRole().equals("Scout"))

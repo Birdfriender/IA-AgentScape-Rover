@@ -147,7 +147,7 @@ public class GenericRover extends Rover implements IMapObject {
             case Scouting:
                 Node n = map.closestNode();
                 System.out.println("Attempting Move to Node");
-                roverMove(n.getxPos() - xPos, n.getyPos());
+                roverMove(n.getxPos() - xPos, n.getyPos() - yPos);
                 break;
             case Scanning:
                 try {
