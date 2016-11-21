@@ -151,6 +151,7 @@ public class SolidCollectorRover extends CollectorRover {
                         System.out.println(this.getID() + " Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
                         roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
                     }
+                    e.printStackTrace();
                 }
                 break;
 
