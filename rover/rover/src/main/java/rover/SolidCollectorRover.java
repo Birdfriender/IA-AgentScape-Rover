@@ -117,6 +117,7 @@ public class SolidCollectorRover extends CollectorRover {
         switch (state) {
             case CollectingResource:
                 try {
+                    System.out.println(getID() + " Collecting");
                     collect();
                 } catch (Exception e) {
                     System.out.println(getID() + " Depleted Resource");
@@ -155,6 +156,7 @@ public class SolidCollectorRover extends CollectorRover {
 
             case DepositingResource:
                 try {
+                    System.out.println(getID() + " Depositing");
                     deposit();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -162,12 +164,14 @@ public class SolidCollectorRover extends CollectorRover {
                 break;
 
             case GoingToResource:
+                System.out.println(getID() + " Going to Resource");
                 Resource r = map.closestResource(COLLECTOR_TYPE);
                 System.out.println(this.getID() + " Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
                 roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
                 break;
 
             case ReturningResource:
+                System.out.println(getID() + " Returning Resource");
                 System.out.println(this.getID() + " Attempting Move to Base");
                 roverMove(xPos * -1, yPos * -1);
                 break;
