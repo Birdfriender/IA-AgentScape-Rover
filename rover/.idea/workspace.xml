@@ -110,8 +110,8 @@
       <file leaf-file-name="CaptainScoutRover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="688">
-              <caret line="186" column="24" selection-start-line="186" selection-start-column="24" selection-end-line="186" selection-end-column="44" />
+            <state relative-caret-position="448">
+              <caret line="178" column="17" selection-start-line="178" selection-start-column="17" selection-end-line="178" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -1238,7 +1238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479748996145</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="added wait for allocation in captain scout">
+      <created>1479750260647</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1479750260647</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1313,7 +1320,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Attempt to fix multiple resource bug" />
     <MESSAGE value="Encapsulate resource map update code in attempt to fix bug where rover stops in the middle of nowhere" />
     <MESSAGE value="Added some more logging to try to isolate movement/mapping bug" />
     <MESSAGE value="Added ability for rover to send and recieve messages&#10;Changed map updating to utilize this functionality" />
@@ -1338,7 +1344,8 @@
     <MESSAGE value="Made gotallocation volatile and added a wait in the allocation check" />
     <MESSAGE value="Fixed wait in collector" />
     <MESSAGE value="Printing node map to test node generation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Printing node map to test node generation" />
+    <MESSAGE value="added wait for allocation in captain scout" />
+    <option name="LAST_COMMIT_MESSAGE" value="added wait for allocation in captain scout" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1676,8 +1683,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="688">
-          <caret line="186" column="24" selection-start-line="186" selection-start-column="24" selection-end-line="186" selection-end-column="44" />
+        <state relative-caret-position="448">
+          <caret line="178" column="17" selection-start-line="178" selection-start-column="17" selection-end-line="178" selection-end-column="17" />
           <folding />
         </state>
       </provider>
