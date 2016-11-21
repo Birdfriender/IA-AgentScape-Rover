@@ -138,7 +138,7 @@ public class CaptainScoutRover extends ScoutRover {
                 {
                     initialAllocation();
                 }
-                state = State.Scanning;
+                state = State.Scouting;
                 break;
 
             case PollResult.SCAN:
@@ -179,6 +179,14 @@ public class CaptainScoutRover extends ScoutRover {
                 break;
 
             case Scouting:
+                while (!map.existsUnexploredNode())
+                {
+                    try {
+                        Thread.sleep(200);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
                 Node n = map.closestNode();
                 System.out.println(this.getID() + " Attempting Move to Node");
                 roverMove(n.getxPos() - xPos, n.getyPos() - yPos);
