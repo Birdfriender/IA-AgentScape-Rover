@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9a3b0a6b-8005-471b-975b-5941409b0754" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" afterPath="$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java" afterPath="$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java" />
     </list>
     <ignored path="rover.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -97,11 +97,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GenericRover.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GenericRover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16656">
-              <caret line="364" column="9" selection-start-line="364" selection-start-column="9" selection-end-line="364" selection-end-column="9" />
+            <state relative-caret-position="707">
+              <caret line="231" column="34" selection-start-line="231" selection-start-column="34" selection-end-line="231" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -117,10 +117,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScoutRover.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ScoutRover.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
+            <state relative-caret-position="-781">
               <caret line="161" column="35" selection-start-line="161" selection-start-column="35" selection-end-line="161" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -190,9 +190,9 @@
         <option value="$PROJECT_DIR$/rover/src/main/java/rover/CollectorRover.java" />
         <option value="$PROJECT_DIR$/rover/src/main/java/map/RoverMap.java" />
         <option value="$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java" />
-        <option value="$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java" />
         <option value="$PROJECT_DIR$/rover/src/main/java/rover/SolidCollectorRover.java" />
         <option value="$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" />
+        <option value="$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java" />
       </list>
     </option>
   </component>
@@ -1184,7 +1184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479819416930</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Fixed scout node calculation">
+      <created>1479819660882</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1479819660882</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1259,7 +1266,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Attempt to fix multiple resource bug" />
     <MESSAGE value="Encapsulate resource map update code in attempt to fix bug where rover stops in the middle of nowhere" />
     <MESSAGE value="Added some more logging to try to isolate movement/mapping bug" />
     <MESSAGE value="Added ability for rover to send and recieve messages&#10;Changed map updating to utilize this functionality" />
@@ -1284,7 +1290,8 @@
     <MESSAGE value="Made gotallocation volatile and added a wait in the allocation check" />
     <MESSAGE value="Fixed wait in collector" />
     <MESSAGE value="Merge branch 'master' of https://github.com/Birdfriender/IA-AgentScape-Rover&#10;&#10;# Conflicts:&#10;#&#9;rover/.idea/workspace.xml&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/Birdfriender/IA-AgentScape-Rover&#10;&#10;# Conflicts:&#10;#&#9;rover/.idea/workspace.xml&#10;" />
+    <MESSAGE value="Fixed scout node calculation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed scout node calculation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1575,14 +1582,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16656">
-          <caret line="364" column="9" selection-start-line="364" selection-start-column="9" selection-end-line="364" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/SolidCollectorRover.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4272">
@@ -1603,11 +1602,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
+        <state relative-caret-position="-781">
           <caret line="161" column="35" selection-start-line="161" selection-start-column="35" selection-end-line="161" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="707">
+          <caret line="231" column="34" selection-start-line="231" selection-start-column="34" selection-end-line="231" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -216,12 +216,20 @@ public class GenericRover extends Rover implements IMapObject {
         System.out.println(getID() + " Moving from " + xPos + ", " + yPos + " heading: " + x + ", "  + y + " Speed: " + SPEED);
         if(x > getWorldWidth() / 2)
         {
-            x = getWorldHeight() - (x * -1);
+            x = getWorldHeight() - x;
+        }
+        if(x < getWorldWidth() / -2)
+        {
+            x = getWorldHeight() + x;
         }
 
         if( y > getWorldHeight() / 2)
         {
-            y = getWorldHeight() - (y * -1);
+            y = getWorldHeight() - y;
+        }
+        if( y < getWorldHeight() / -2)
+        {
+            y = getWorldHeight() + y;
         }
 
         try {
