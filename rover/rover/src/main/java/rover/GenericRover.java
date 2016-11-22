@@ -425,4 +425,24 @@ public class GenericRover extends Rover implements IMapObject {
         }
         return "NULL";
     }
+
+    double energyRequiredToMove(double destinationX, double destinationY)
+    {
+        return 2 * (Math.hypot(destinationX,destinationY)/SPEED);
+    }
+
+    double energyRequiredToScan()
+    {
+        return 10;
+    }
+
+    double energyRequireToCollect()
+    {
+        return 5;
+    }
+
+    double energyRequiredToDeposit()
+    {
+        return 5;
+    }
 }

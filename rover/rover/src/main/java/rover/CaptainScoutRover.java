@@ -182,19 +182,55 @@ public class CaptainScoutRover extends ScoutRover {
                         e.printStackTrace();
                     }
                 }
-                try {
-                    System.out.println(this.getID() + " Attempting to Scan for New Resources");
-                    scan(SCAN_RANGE);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                if(energyRequiredToScan() > getEnergy()) {
+                    for(RoverRoleBelief r : roverRoleBeliefs)
+                    {
+                        if(r.getRole().equals("CaptainScout"))
+                        {
+                            whisper(r.getClientID(), "Complete");
+                        }
+                    }
+                    state = State.Waiting;
+                    try {
+                        scan(0);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-                map.removeExploredNode(xPos,yPos);
+                else
+                {
+                    try {
+                        System.out.println(this.getID() + " Attempting to Scan for New Resources");
+                        scan(SCAN_RANGE);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    map.removeExploredNode(xPos, yPos);
+                }
                 break;
 
             case Scouting:
                 Node n = determineNextNode();
-                System.out.println(this.getID() + " Attempting Move to Node");
-                roverMove(n.getxPos() - xPos, n.getyPos() - yPos);
+                if(energyRequiredToMove(n.getxPos() - xPos, n.getyPos() - yPos) > getEnergy()) {
+                    for(RoverRoleBelief r : roverRoleBeliefs)
+                    {
+                        if(r.getRole().equals("CaptainScout"))
+                        {
+                            whisper(r.getClientID(), "Complete");
+                        }
+                    }
+                    state = State.Waiting;
+                    try {
+                        scan(0);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                else
+                {
+                    System.out.println(this.getID() + " Attempting Move to Node");
+                    roverMove(n.getxPos() - xPos, n.getyPos() - yPos);
+                }
                 break;
 
             case Waiting:
