@@ -134,7 +134,7 @@ public class ScoutRover extends GenericRover {
                 break;
 
             case Scouting:
-                Node n = map.closestNode();
+                Node n = determineNextNode();
                 System.out.println(this.getID() + " Attempting Move to Node");
                 roverMove(n.getxPos() - xPos, n.getyPos() - yPos);
                 break;
@@ -148,6 +148,35 @@ public class ScoutRover extends GenericRover {
 
         }
 
+    }
+
+    protected Node determineNextNode()
+    {
+        ArrayList<Node> nodes = new ArrayList<>();
+        //if there is one at our x co-ordinate
+        for(Node n : map.getNodes())
+        {
+            if(n.getxPos() == xPos)
+            {
+                nodes.add(n);
+            }
+        }
+        if(nodes.isEmpty())
+        {
+            return map.closestNode();
+        }
+        else
+        {
+            Node closest = nodes.get(0);
+            for(Node n : nodes)
+            {
+                if(n.objectiveDistanceTo(this) < closest.objectiveDistanceTo(this))
+                {
+                    closest = n;
+                }
+            }
+            return closest;
+        }
     }
 
     @Override

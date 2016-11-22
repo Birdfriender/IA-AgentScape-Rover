@@ -187,7 +187,7 @@ public class CaptainScoutRover extends ScoutRover {
                 break;
 
             case Scouting:
-                Node n = map.closestNode();
+                Node n = determineNextNode();
                 System.out.println(this.getID() + " Attempting Move to Node");
                 roverMove(n.getxPos() - xPos, n.getyPos() - yPos);
                 break;
