@@ -97,7 +97,7 @@ public class RoverMap {
         Node closest = unexploredNodes.get(0);
         for (Node node : unexploredNodes)
         {
-            if(node.objectiveDistanceTo(parent) < closest.objectiveDistanceTo(parent))
+            if(Math.abs(node.getyPos() - parent.getyPos()) < Math.abs(closest.getyPos() - parent.getyPos()))
             {
                 closest = node;
             }
