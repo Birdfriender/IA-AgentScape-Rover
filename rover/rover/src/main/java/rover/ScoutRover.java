@@ -187,7 +187,7 @@ public class ScoutRover extends GenericRover {
                 }
                 rowEnd = 1;
             }
-
+            return closest;
         }
         else
         {
@@ -210,7 +210,6 @@ public class ScoutRover extends GenericRover {
             }
             return closest;
         }
-        return null;
     }
 
     @Override
