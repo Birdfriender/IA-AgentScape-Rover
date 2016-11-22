@@ -159,7 +159,7 @@ public class ScoutRover extends GenericRover {
         //if there is one at our x co-ordinate
         for(Node n : map.getNodes())
         {
-            if(n.getxPos() == xPos)
+            if(n.getyPos() == yPos)
             {
                 nodes.add(n);
             }
