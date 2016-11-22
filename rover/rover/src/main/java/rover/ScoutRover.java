@@ -210,6 +210,7 @@ public class ScoutRover extends GenericRover {
             }
             return closest;
         }
+        return null;
     }
 
     @Override
