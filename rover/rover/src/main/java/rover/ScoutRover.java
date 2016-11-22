@@ -102,14 +102,17 @@ public class ScoutRover extends GenericRover {
                 }
                 else
                 {
-                    for(RoverRoleBelief r : roverRoleBeliefs)
+                    if(state != State.Waiting)
                     {
-                        if(r.getRole().equals("CaptainScout"))
+                        for(RoverRoleBelief r : roverRoleBeliefs)
                         {
-                            whisper(r.getClientID(), "Complete");
+                            if(r.getRole().equals("CaptainScout"))
+                            {
+                                whisper(r.getClientID(), "Complete");
+                            }
                         }
+                        state = State.Waiting;
                     }
-                    state = State.Waiting;
                 }
                 break;
 

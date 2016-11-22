@@ -154,6 +154,11 @@ public class CaptainScoutRover extends ScoutRover {
                 }
                 else
                 {
+                    if(state != State.Waiting)
+                    {
+                        whisper(getID(), "Complete");
+                        state = State.Waiting;
+                    }
                     state = State.Waiting;
                 }
                 break;
@@ -205,6 +210,7 @@ public class CaptainScoutRover extends ScoutRover {
                         if(r.getRole().equals("SolidCollector") || r.getRole().equals("LiquidCollector"))
                         {
                             whisper(r.getClientID(), "Complete");
+                            activeScoutCount -= 1; //so it only sends once;
                         }
                     }
                 }
