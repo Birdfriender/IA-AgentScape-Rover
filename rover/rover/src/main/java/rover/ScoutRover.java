@@ -170,7 +170,15 @@ public class ScoutRover extends GenericRover {
         }
         if(nodes.isEmpty())
         {
-            Node closest = map.closestNode();
+            Node closest;
+            if(!map.hasHigherNode())
+            {
+                closest = map.lowestNode();
+            }
+            else
+            {
+                closest = map.closestNode();
+            }
 
             if (rowEnd == 1)
             {

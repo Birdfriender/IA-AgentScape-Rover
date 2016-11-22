@@ -4,8 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" description="@Override" line="149" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a3b0a6b-8005-471b-975b-5941409b0754" name="Default" comment="">
+    <list default="true" id="9a3b0a6b-8005-471b-975b-5941409b0754" name="Default" comment="Hopefully fixed wrapping issue">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rover/src/main/java/map/RoverMap.java" afterPath="$PROJECT_DIR$/rover/src/main/java/map/RoverMap.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" afterPath="$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" />
     </list>
     <ignored path="rover.iws" />
@@ -120,8 +121,8 @@
       <file leaf-file-name="RoverMap.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/map/RoverMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="99" column="20" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="47" />
+            <state relative-caret-position="851">
+              <caret line="148" column="21" selection-start-line="148" selection-start-column="21" selection-end-line="148" selection-end-column="21" />
               <folding>
                 <element signature="e#1606#1607#0" expanded="true" />
                 <element signature="e#1648#1649#0" expanded="true" />
@@ -133,8 +134,8 @@
       <file leaf-file-name="ScoutRover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="180" column="17" selection-start-line="180" selection-start-column="17" selection-end-line="180" selection-end-column="17" />
+            <state relative-caret-position="720">
+              <caret line="179" column="44" selection-start-line="179" selection-start-column="44" selection-end-line="179" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -924,13 +925,6 @@
       <option name="presentableId" value="Default" />
       <updated>1438706704976</updated>
     </task>
-    <task id="LOCAL-00004" summary="Fixed concurrent modification exception in RemoveUnexploredNode">
-      <created>1477659234380</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1477659234380</updated>
-    </task>
     <task id="LOCAL-00005" summary="Additional Logging">
       <created>1477660027146</created>
       <option name="number" value="00005" />
@@ -1267,16 +1261,23 @@
       <option name="project" value="LOCAL" />
       <updated>1479828900034</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Undid last thing">
+      <created>1479829589899</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1479829589899</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-14" y="0" width="3204" height="1714" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24897681" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24897681" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949153" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -1342,8 +1343,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed null pointer exception in captainscout" />
-    <MESSAGE value="I'm really stupid" />
     <MESSAGE value="Added some more prints" />
     <MESSAGE value="Fixed using == rather than .equals for the millionth time in my programming career" />
     <MESSAGE value="Fixed array out of bounds error" />
@@ -1367,7 +1366,9 @@
     <MESSAGE value="Fixed more movement weirdness involving objective distance and world wrapping" />
     <MESSAGE value="Fixed more movement weirdness involving objective distance and world wrapping actually this time" />
     <MESSAGE value="Really hope I've actually fixed the movement bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Really hope I've actually fixed the movement bug" />
+    <MESSAGE value="Undid last thing" />
+    <MESSAGE value="Hopefully fixed wrapping issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hopefully fixed wrapping issue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1678,8 +1679,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/map/RoverMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="99" column="20" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="47" />
+        <state relative-caret-position="851">
+          <caret line="148" column="21" selection-start-line="148" selection-start-column="21" selection-end-line="148" selection-end-column="21" />
           <folding>
             <element signature="e#1606#1607#0" expanded="true" />
             <element signature="e#1648#1649#0" expanded="true" />
@@ -1689,8 +1690,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="180" column="17" selection-start-line="180" selection-start-column="17" selection-end-line="180" selection-end-column="17" />
+        <state relative-caret-position="720">
+          <caret line="179" column="44" selection-start-line="179" selection-start-column="44" selection-end-line="179" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

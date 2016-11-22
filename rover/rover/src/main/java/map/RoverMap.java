@@ -124,6 +124,31 @@ public class RoverMap {
         return !unexploredNodes.isEmpty();
     }
 
+    public boolean hasHigherNode()
+    {
+        for(Node n : unexploredNodes)
+        {
+            if(n.getyPos() > parent.getyPos())
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Node lowestNode()
+    {
+        Node lowest = unexploredNodes.get(0);
+        for(Node n : unexploredNodes)
+        {
+            if(n.getyPos() < lowest.getyPos())
+            {
+                lowest = n;
+            }
+        }
+        return lowest;
+    }
+
     public void removeResource(Resource resource)
     {
         int r = -1;
