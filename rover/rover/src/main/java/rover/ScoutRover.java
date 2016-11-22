@@ -168,14 +168,10 @@ public class ScoutRover extends GenericRover {
         }
         if(nodes.isEmpty())
         {
-            return map.closestNode();
-        }
-        else
-        {
-            Node closest = nodes.get(0);
+            Node closest = map.closestNode();
             if(rowEnd == 0) {
                 for (Node n : nodes) {
-                    if (n.getxPos() < closest.getxPos()) {
+                    if (n.getxPos() < closest.getxPos() && n.getyPos() == closest.getyPos()) {
                         closest = n;
                     }
 
@@ -185,12 +181,23 @@ public class ScoutRover extends GenericRover {
             else
             {
                 for (Node n : nodes) {
-                    if (n.getxPos() > closest.getxPos()) {
+                    if (n.getxPos() > closest.getxPos() && n.getyPos() == closest.getyPos()) {
                         closest = n;
                     }
 
                 }
                 rowEnd = 0;
+            }
+
+        }
+        else
+        {
+            Node closest = nodes.get(0);
+            for (Node n : nodes) {
+                if (n.getxPos() < closest.getxPos()) {
+                    closest = n;
+                }
+
             }
             return closest;
         }
