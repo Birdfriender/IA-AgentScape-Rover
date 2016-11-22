@@ -183,13 +183,7 @@ public class CaptainScoutRover extends ScoutRover {
                     }
                 }
                 if(energyRequiredToScan() > getEnergy()) {
-                    for(RoverRoleBelief r : roverRoleBeliefs)
-                    {
-                        if(r.getRole().equals("CaptainScout"))
-                        {
-                            whisper(r.getClientID(), "Complete");
-                        }
-                    }
+                    whisper(getID(), "Complete");
                     state = State.Waiting;
                     try {
                         scan(0);
@@ -212,13 +206,7 @@ public class CaptainScoutRover extends ScoutRover {
             case Scouting:
                 Node n = determineNextNode();
                 if(energyRequiredToMove(n.getxPos() - xPos, n.getyPos() - yPos) > getEnergy()) {
-                    for(RoverRoleBelief r : roverRoleBeliefs)
-                    {
-                        if(r.getRole().equals("CaptainScout"))
-                        {
-                            whisper(r.getClientID(), "Complete");
-                        }
-                    }
+                    whisper(getID(), "Complete");
                     state = State.Waiting;
                     try {
                         scan(0);
@@ -241,14 +229,8 @@ public class CaptainScoutRover extends ScoutRover {
                 }
                 if(activeScoutCount == 0)
                 {
-                    for(RoverRoleBelief r : roverRoleBeliefs)
-                    {
-                        if(r.getRole().equals("SolidCollector") || r.getRole().equals("LiquidCollector"))
-                        {
-                            whisper(r.getClientID(), "Complete");
-                            activeScoutCount -= 1; //so it only sends once;
-                        }
-                    }
+                    whisper(getID(), "Complete");
+                    activeScoutCount -= 1; //so it only sends once;
                 }
 
         }
