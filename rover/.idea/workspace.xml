@@ -120,8 +120,8 @@
       <file leaf-file-name="ScoutRover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2435">
-              <caret line="211" column="9" selection-start-line="211" selection-start-column="9" selection-end-line="211" selection-end-column="9" />
+            <state relative-caret-position="179">
+              <caret line="194" column="27" selection-start-line="194" selection-start-column="27" selection-end-line="194" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1240,7 +1240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479823716040</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="actually fixed that error">
+      <created>1479823917698</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1479823917698</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1315,7 +1322,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="&quot;fixed&quot; issue with rolebeliefs" />
     <MESSAGE value="Fixed wait in captainscout" />
     <MESSAGE value="Fixed wait in captainscout for real this time" />
     <MESSAGE value="Fixed stopping waiting" />
@@ -1340,7 +1346,8 @@
     <MESSAGE value="Fixed scout movemnet changes from last commit actually this time hopefully.... please...." />
     <MESSAGE value="Actually think I fixed that issue now" />
     <MESSAGE value="Fixed null pointer exception introduced by last attempt to fix movement" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed null pointer exception introduced by last attempt to fix movement" />
+    <MESSAGE value="actually fixed that error" />
+    <option name="LAST_COMMIT_MESSAGE" value="actually fixed that error" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1659,8 +1666,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2435">
-          <caret line="211" column="9" selection-start-line="211" selection-start-column="9" selection-end-line="211" selection-end-column="9" />
+        <state relative-caret-position="179">
+          <caret line="194" column="27" selection-start-line="194" selection-start-column="27" selection-end-line="194" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
