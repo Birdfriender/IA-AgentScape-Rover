@@ -192,9 +192,20 @@ public class ScoutRover extends GenericRover {
         else
         {
             Node closest = nodes.get(0);
-            for (Node n : nodes) {
-                if (n.objectiveDistanceTo(this) < closest.objectiveDistanceTo(this)) {
-                    closest = n;
+            if (rowEnd == 1)
+            {
+                for (Node n : nodes) {
+                    if (n.getxPos() < closest.getxPos()) {
+                        closest = n;
+                    }
+                }
+            }
+            else
+            {
+                for (Node n : nodes) {
+                    if (n.getxPos() > closest.getxPos()) {
+                        closest = n;
+                    }
                 }
             }
             return closest;

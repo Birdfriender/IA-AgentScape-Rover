@@ -120,8 +120,8 @@
       <file leaf-file-name="ScoutRover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="707">
-              <caret line="195" column="82" selection-start-line="195" selection-start-column="82" selection-end-line="195" selection-end-column="82" />
+            <state relative-caret-position="755">
+              <caret line="205" column="55" selection-start-line="205" selection-start-column="55" selection-end-line="205" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1212,7 +1212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479822449547</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Fixed scout movemnet changes from last commit actually this time hopefully">
+      <created>1479822878470</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1479822878470</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1287,7 +1294,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implemented SolidCollector rover" />
     <MESSAGE value="FIxed stupid java inheritance stuff" />
     <MESSAGE value="Actually FIxed stupid java inheritance stuff" />
     <MESSAGE value="Added better debugging statements" />
@@ -1312,7 +1318,8 @@
     <MESSAGE value="Fixed bug that would cause rovers to circumnavigate before undertaking a suboptimal move" />
     <MESSAGE value="Made scout movemnet more efficient" />
     <MESSAGE value="Fixed scout movemnet changes from last commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed scout movemnet changes from last commit" />
+    <MESSAGE value="Fixed scout movemnet changes from last commit actually this time hopefully" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed scout movemnet changes from last commit actually this time hopefully" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1631,8 +1638,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="707">
-          <caret line="195" column="82" selection-start-line="195" selection-start-column="82" selection-end-line="195" selection-end-column="82" />
+        <state relative-caret-position="755">
+          <caret line="205" column="55" selection-start-line="205" selection-start-column="55" selection-end-line="205" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
