@@ -25,7 +25,6 @@ public class ScoutRover extends GenericRover {
         Waiting
     }
     int rowEnd;
-    boolean visitedFirstNode;
     private State state;
 
     public ScoutRover() {
@@ -38,7 +37,6 @@ public class ScoutRover extends GenericRover {
         SCAN_RANGE = 6;
         COLLECTOR_TYPE = 1;
         rowEnd = 0;
-        visitedFirstNode = false;
 
         try {
             //set attributes for this rover
@@ -172,16 +170,7 @@ public class ScoutRover extends GenericRover {
         }
         if(nodes.isEmpty())
         {
-            Node closest;
-            if(!visitedFirstNode)
-            {
-                closest = map.closestNode();
-                visitedFirstNode = true;
-            }
-            else
-            {
-                closest = new Node(xPos - (Math.sqrt(3)*SCAN_RANGE/2), yPos + (1.5 * SCAN_RANGE));
-            }
+            Node closest = map.closestNode();
 
             if (rowEnd == 1)
             {
