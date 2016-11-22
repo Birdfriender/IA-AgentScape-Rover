@@ -15,13 +15,14 @@ public class ScoutRover extends GenericRover {
     private static String role = "Scout";
     private volatile boolean gotAllocation = false;
 
+
     private enum State
     {
         Scouting,
         Scanning,
         Waiting
     }
-
+    int rowEnd;
     private State state;
 
     public ScoutRover() {
@@ -33,6 +34,7 @@ public class ScoutRover extends GenericRover {
         SPEED = 3;
         SCAN_RANGE = 6;
         COLLECTOR_TYPE = 1;
+        rowEnd = 0;
 
         try {
             //set attributes for this rover
@@ -171,12 +173,24 @@ public class ScoutRover extends GenericRover {
         else
         {
             Node closest = nodes.get(0);
-            for(Node n : nodes)
-            {
-                if(n.objectiveDistanceTo(this) < closest.objectiveDistanceTo(this))
-                {
-                    closest = n;
+            if(rowEnd == 0) {
+                for (Node n : nodes) {
+                    if (n.getxPos() < closest.getxPos()) {
+                        closest = n;
+                    }
+
                 }
+                rowEnd = 1;
+            }
+            else
+            {
+                for (Node n : nodes) {
+                    if (n.getxPos() > closest.getxPos()) {
+                        closest = n;
+                    }
+
+                }
+                rowEnd = 0;
             }
             return closest;
         }
