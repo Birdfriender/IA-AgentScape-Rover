@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" description="@Override" line="149" />
+    <bookmark url="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" description="@Override" line="151" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a3b0a6b-8005-471b-975b-5941409b0754" name="Default" comment="Fixed more movement weirdness involving objective distance and world wrapping actually this time">
+    <list default="true" id="9a3b0a6b-8005-471b-975b-5941409b0754" name="Default" comment="Really hope I've actually fixed the movement bug">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rover/src/main/java/map/RoverMap.java" afterPath="$PROJECT_DIR$/rover/src/main/java/map/RoverMap.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" afterPath="$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" />
@@ -121,8 +121,8 @@
       <file leaf-file-name="RoverMap.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/map/RoverMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="101" column="31" selection-start-line="101" selection-start-column="31" selection-end-line="101" selection-end-column="31" />
+            <state relative-caret-position="424">
+              <caret line="99" column="20" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="47" />
               <folding>
                 <element signature="e#1606#1607#0" expanded="true" />
                 <element signature="e#1648#1649#0" expanded="true" />
@@ -134,8 +134,8 @@
       <file leaf-file-name="ScoutRover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="172" column="45" selection-start-line="172" selection-start-column="45" selection-end-line="172" selection-end-column="45" />
+            <state relative-caret-position="480">
+              <caret line="178" column="40" selection-start-line="178" selection-start-column="40" selection-end-line="178" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -205,8 +205,8 @@
         <option value="$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java" />
         <option value="$PROJECT_DIR$/rover/src/main/java/rover/SolidCollectorRover.java" />
         <option value="$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java" />
-        <option value="$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" />
         <option value="$PROJECT_DIR$/rover/src/main/java/map/RoverMap.java" />
+        <option value="$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" />
       </list>
     </option>
   </component>
@@ -925,13 +925,6 @@
       <option name="presentableId" value="Default" />
       <updated>1438706704976</updated>
     </task>
-    <task id="LOCAL-00002" summary="Updating logging">
-      <created>1477658079135</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1477658079135</updated>
-    </task>
     <task id="LOCAL-00003" summary="Initliazed Map member of GenericRover">
       <created>1477658605454</created>
       <option name="number" value="00003" />
@@ -1268,7 +1261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479825894426</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Fixed more movement weirdness involving objective distance and world wrapping actually this time">
+      <created>1479826435766</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1479826435766</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1343,7 +1343,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changed wait to sleep again" />
     <MESSAGE value="Fixed null pointer exception in captainscout" />
     <MESSAGE value="I'm really stupid" />
     <MESSAGE value="Added some more prints" />
@@ -1368,7 +1367,8 @@
     <MESSAGE value="Fixed new weirdness with scout movement" />
     <MESSAGE value="Fixed more movement weirdness involving objective distance and world wrapping" />
     <MESSAGE value="Fixed more movement weirdness involving objective distance and world wrapping actually this time" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed more movement weirdness involving objective distance and world wrapping actually this time" />
+    <MESSAGE value="Really hope I've actually fixed the movement bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Really hope I've actually fixed the movement bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1679,8 +1679,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/map/RoverMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="101" column="31" selection-start-line="101" selection-start-column="31" selection-end-line="101" selection-end-column="31" />
+        <state relative-caret-position="424">
+          <caret line="99" column="20" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="47" />
           <folding>
             <element signature="e#1606#1607#0" expanded="true" />
             <element signature="e#1648#1649#0" expanded="true" />
@@ -1690,8 +1690,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="172" column="45" selection-start-line="172" selection-start-column="45" selection-end-line="172" selection-end-column="45" />
+        <state relative-caret-position="480">
+          <caret line="178" column="40" selection-start-line="178" selection-start-column="40" selection-end-line="178" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
