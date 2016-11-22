@@ -7,6 +7,8 @@ import map.RoverMap;
 
 import java.util.ArrayList;
 
+import static java.lang.Math.sqrt;
+
 /**
  * Created by Violet on 07/11/2016.
  */
@@ -168,7 +170,7 @@ public class ScoutRover extends GenericRover {
         }
         if(nodes.isEmpty())
         {
-            Node closest = map.closestNode();
+            Node closest = new Node(xPos - (sqrt(SCAN_RANGE)/2), yPos + (1.5 * SCAN_RANGE));
             if (rowEnd == 1)
             {
                 for (Node n : map.getNodes()) {
