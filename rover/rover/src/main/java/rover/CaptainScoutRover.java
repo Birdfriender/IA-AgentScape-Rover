@@ -15,6 +15,8 @@ public class CaptainScoutRover extends ScoutRover {
     private static String role = "CaptainScout";
     private boolean allocatedMap = false;
     private int activeScoutCount;
+    private int solidCollectorCount;
+    private int liquidCollectorCount;
 
     public CaptainScoutRover() {
         super();
@@ -54,13 +56,16 @@ public class CaptainScoutRover extends ScoutRover {
         }
     }
 
-    private void allocateMapAreas(int scoutCount)
+    private void allocateMapAreas()
     {
         RoverMap tempMap = new RoverMap(this);
         tempMap.generateNodes(SCAN_RANGE, getWorldHeight(), getWorldWidth());
         int totalNodes = tempMap.numNodes();
-        double allocPerRover = getWorldHeight()/scoutCount;
+        double allocPerRover = getWorldHeight()/activeScoutCount;
         double i = getWorldHeight()/-2; //im so tired
+
+        double solidCounter = -getWorldWidth()/2;
+        double liquidCounter = -getWorldWidth()/2;
         ArrayList<Node> nodes = tempMap.getNodes();
         for(Node n : nodes)
         {
@@ -80,12 +85,24 @@ public class CaptainScoutRover extends ScoutRover {
                 whisper(belief.getClientID(), "AllocationComplete");
                 i += allocPerRover;
             }
+            if(belief.getRole().equals("SolidCollector"))
+            {
+                whisper(belief.getClientID(), "Allocation", Double.toString(solidCounter),
+                        Double.toString(solidCounter + (getWorldWidth()/solidCollectorCount)));
+                solidCounter += getWorldWidth()/solidCollectorCount;
+            }
+            if(belief.getRole().equals("LiquidCollector"))
+            {
+                whisper(belief.getClientID(), "Allocation", Double.toString(liquidCounter),
+                        Double.toString(liquidCounter + (getWorldWidth()/liquidCollectorCount)));
+                solidCounter += getWorldWidth()/liquidCollectorCount;
+            }
 
         }
         //-1 just because
         for(Node n : nodes)
         {
-            if(n.getyPos() >= i && n.getyPos() < i + allocPerRover + (totalNodes % scoutCount) - 1)
+            if(n.getyPos() >= i && n.getyPos() < i + allocPerRover + (totalNodes % activeScoutCount) - 1)
             {
                 whisper(this.getID(), "Allocation", Double.toString(n.getyPos()), Double.toString(n.getxPos()));
             }
@@ -100,15 +117,24 @@ public class CaptainScoutRover extends ScoutRover {
             e.printStackTrace();
         }
         activeScoutCount = 1; //start at 1 because we'll be scouting too
+        solidCollectorCount = 0;
+        liquidCollectorCount = 0;
         System.out.println(this.getID() + " Allocating Map");
         for(RoverRoleBelief belief : roverRoleBeliefs)
         {
-            if(belief.getRole().equals("Scout"))
-            {
-                activeScoutCount++;
+            switch (belief.getRole()) {
+                case "Scout":
+                    activeScoutCount++;
+                    break;
+                case "SolidCollector":
+                    solidCollectorCount++;
+                    break;
+                case "LiquidCollector":
+                    liquidCollectorCount++;
+                    break;
             }
         }
-        allocateMapAreas(activeScoutCount);
+        allocateMapAreas();
         allocatedMap = true;
     }
 

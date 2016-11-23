@@ -294,13 +294,11 @@ public class ScoutRover extends GenericRover {
                 break;
 
             case "Allocation":
-                System.out.println(this.getID() + " Scouting Allocation");
                 map.addNode(Double.parseDouble(splitMessage[2]), Double.parseDouble(splitMessage[3]));
                 break;
 
             case "AllocationComplete" :
                 gotAllocation = true;
-                System.out.println("Allocation complete");
                 break;
         }
     }

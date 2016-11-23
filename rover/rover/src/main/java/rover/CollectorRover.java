@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class CollectorRover extends GenericRover {
 
     boolean readyToCollect;
+    double regionStart, regionEnd;
 
     @Override
     public void processMessage(String message)
@@ -46,6 +47,11 @@ public class CollectorRover extends GenericRover {
 
             case "Complete" :
                 readyToCollect = true;
+                break;
+
+            case "Allocation" :
+                regionStart = Double.parseDouble(splitMessage[2]);
+                regionEnd = Double.parseDouble(splitMessage[3]);
                 break;
         }
     }
