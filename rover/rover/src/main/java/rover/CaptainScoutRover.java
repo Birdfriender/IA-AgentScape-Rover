@@ -156,7 +156,13 @@ public class CaptainScoutRover extends ScoutRover {
                 {
                     if(state != State.Waiting)
                     {
-                        whisper(getID(), "Complete");
+                        for(RoverRoleBelief r : roverRoleBeliefs)
+                        {
+                            if(r.getRole().equals("SolidCarrier") || r.getRole().equals("LiquidCarrier"))
+                            {
+                                whisper(r.getClientID(), "Complete");
+                            }
+                        }
                         state = State.Waiting;
                     }
                     state = State.Waiting;
