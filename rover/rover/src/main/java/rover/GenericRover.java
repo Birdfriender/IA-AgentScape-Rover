@@ -23,19 +23,21 @@ public class GenericRover extends Rover implements IMapObject {
     private static String role = "Generic";
     ArrayList<RoverRoleBelief> roverRoleBeliefs;
 
-	private enum State
+    enum State
 	{
 		Scouting,
         Scanning,
         GoingToResource,
         CollectingResource,
         ReturningResource,
-        DepositingResource
+        DepositingResource,
+        Waiting,
+        Started
 	}
 
 
 
-	private State state;
+    State state;
 
 	public GenericRover() {
         super();

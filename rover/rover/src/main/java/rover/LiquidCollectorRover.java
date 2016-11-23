@@ -1,26 +1,25 @@
 package rover;
 
 import bdi.RoverRoleBelief;
-import map.Resource;
 import map.RoverMap;
 
 import java.util.ArrayList;
 
 /**
- * Created by Violet on 11/11/2016.
+ * Created by Violet on 23/11/2016.
  */
-public class SolidCollectorRover extends CollectorRover {
+public class LiquidCollectorRover extends CollectorRover {
 
-    private static String role = "SolidCollector";
+    private static String role = "LiquidCollector";
     private ArrayList<RoverRoleBelief> roverRoleBeliefs;
 
-    public SolidCollectorRover() {
+    public LiquidCollectorRover() {
         super();
 
         MAX_LOAD = 4;
         SPEED = 5;
         SCAN_RANGE = 0;
-        COLLECTOR_TYPE = 1;
+        COLLECTOR_TYPE = 2;
         roverRoleBeliefs = new ArrayList<>();
         state = State.Started;
         readyToCollect = false;
@@ -56,5 +55,4 @@ public class SolidCollectorRover extends CollectorRover {
         }
 
     }
-
 }

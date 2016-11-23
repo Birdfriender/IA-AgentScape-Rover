@@ -17,15 +17,7 @@ public class ScoutRover extends GenericRover {
     private static String role = "Scout";
     private volatile boolean gotAllocation = false;
 
-
-    private enum State
-    {
-        Scouting,
-        Scanning,
-        Waiting
-    }
     int rowEnd;
-    private State state;
 
     public ScoutRover() {
         super();

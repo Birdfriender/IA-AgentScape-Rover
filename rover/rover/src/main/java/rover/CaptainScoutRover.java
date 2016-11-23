@@ -16,15 +16,6 @@ public class CaptainScoutRover extends ScoutRover {
     private boolean allocatedMap = false;
     private int activeScoutCount;
 
-    private enum State
-    {
-        Scouting,
-        Scanning,
-        Waiting
-    }
-
-    private State state;
-
     public CaptainScoutRover() {
         super();
 

@@ -50,4 +50,115 @@ public class CollectorRover extends GenericRover {
         }
     }
 
+    @Override
+    void poll(PollResult pr)
+    {
+        while (!readyToCollect)
+        {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        switch(pr.getResultType()) {
+            case PollResult.MOVE:
+                if(state == State.GoingToResource)
+                {
+                    state = State.CollectingResource;
+                }
+                else if (state == State.ReturningResource)
+                {
+                    state = State.DepositingResource;
+                }
+                else if (state == State.Started)
+                {
+                    state = State.GoingToResource;
+                }
+                break;
+
+            case PollResult.SCAN:
+                break;
+
+            case PollResult.COLLECT:
+                if(getCurrentLoad() == MAX_LOAD)
+                {
+                    state = State.ReturningResource;
+                }
+                break;
+
+            case PollResult.DEPOSIT:
+                if(getCurrentLoad() == 0)
+                {
+                    state = State.GoingToResource;
+                }
+                break;
+        }
+
+        switch (state) {
+            case CollectingResource:
+                try {
+                    System.out.println(getID() + " Collecting");
+                    collect();
+                } catch (Exception e) {
+                    System.out.println(getID() + " Depleted Resource");
+                    Resource res = new Resource(xPos, yPos, 0); //type doesnt matter here, bit awkward but oh well
+                    shout("Resource",
+                            Double.toString(res.getxPos()),
+                            Double.toString(res.getyPos()),
+                            Integer.toString(res.getType()),
+                            "Depleted");
+                    whisper(this.getID(),
+                            "Resource",
+                            Double.toString(res.getxPos()),
+                            Double.toString(res.getyPos()),
+                            Integer.toString(res.getType()),
+                            "Depleted");
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e1) {
+                        e1.printStackTrace();
+                    }
+                    if(getCurrentLoad() == MAX_LOAD || !map.hasResourceType(COLLECTOR_TYPE))
+                    {
+                        System.out.println("Attempting to move to Base");
+                        state = State.ReturningResource;
+                        roverMove(-xPos, -yPos);
+                    }
+                    else
+                    {
+                        System.out.println(this.getID() + " Attempting Move to New Resource");
+                        Resource r = map.closestResource(COLLECTOR_TYPE);
+                        System.out.println(this.getID() + " Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
+                        state = State.GoingToResource;
+                        roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
+                    }
+                }
+                break;
+
+            case DepositingResource:
+                try {
+                    System.out.println(getID() + " Depositing");
+                    deposit();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            case GoingToResource:
+                System.out.println(getID() + " Going to Resource");
+                Resource r = map.closestResource(COLLECTOR_TYPE);
+                System.out.println(this.getID() + " Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
+                roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
+                break;
+
+            case ReturningResource:
+                System.out.println(getID() + " Returning Resource");
+                System.out.println(this.getID() + " Attempting Move to Base");
+                roverMove(xPos * -1, yPos * -1);
+                break;
+        }
+    }
+
 }
