@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" description="@Override" line="155" />
+    <bookmark url="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" description="@Override" line="153" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a3b0a6b-8005-471b-975b-5941409b0754" name="Default" comment="">
@@ -111,8 +111,8 @@
       <file leaf-file-name="CaptainScoutRover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="168" column="17" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="17" />
+            <state relative-caret-position="480">
+              <caret line="230" column="100" selection-start-line="230" selection-start-column="100" selection-end-line="230" selection-end-column="100" />
               <folding />
             </state>
           </provider>
@@ -134,8 +134,8 @@
       <file leaf-file-name="ScoutRover.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1389">
-              <caret line="125" column="17" selection-start-line="125" selection-start-column="17" selection-end-line="125" selection-end-column="17" />
+            <state relative-caret-position="-1443">
+              <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="69" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -937,13 +937,6 @@
       <option name="presentableId" value="Default" />
       <updated>1438706704976</updated>
     </task>
-    <task id="LOCAL-00008" summary="FIxed move to resource">
-      <created>1477662310914</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1477662310914</updated>
-    </task>
     <task id="LOCAL-00009" summary="Fixed world co-ordinate system">
       <created>1477662811453</created>
       <option name="number" value="00009" />
@@ -1280,7 +1273,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479908135656</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Fixed bug where scouts would report completion multiple times">
+      <created>1479908932427</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1479908932427</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1355,7 +1355,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed array out of bounds error" />
     <MESSAGE value="Hopefully fixed issues with scouts not starting + reformated some debugging statements" />
     <MESSAGE value="Removed waits in begin()" />
     <MESSAGE value="More debugging statements" />
@@ -1380,7 +1379,8 @@
     <MESSAGE value="Hopefully fixed wrapping issue" />
     <MESSAGE value="Fixed captain not whispering to carrier" />
     <MESSAGE value="Actually fixed that bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Actually fixed that bug" />
+    <MESSAGE value="Fixed bug where scouts would report completion multiple times" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug where scouts would report completion multiple times" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1692,8 +1692,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1389">
-          <caret line="125" column="17" selection-start-line="125" selection-start-column="17" selection-end-line="125" selection-end-column="17" />
+        <state relative-caret-position="-1443">
+          <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="69" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1702,8 +1702,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="168" column="17" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="17" />
+        <state relative-caret-position="480">
+          <caret line="230" column="100" selection-start-line="230" selection-start-column="100" selection-end-line="230" selection-end-column="100" />
           <folding />
         </state>
       </provider>

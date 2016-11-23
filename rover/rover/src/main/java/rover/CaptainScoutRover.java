@@ -228,6 +228,7 @@ public class CaptainScoutRover extends ScoutRover {
                 break;
 
             case Waiting:
+                System.out.println(getID() + " Scout Count: " + Integer.toString(activeScoutCount));
                 try {
                     scan(0);
                 } catch (Exception e) {
