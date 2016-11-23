@@ -156,13 +156,7 @@ public class CaptainScoutRover extends ScoutRover {
                 {
                     if(state != State.Waiting)
                     {
-                        for(RoverRoleBelief r : roverRoleBeliefs)
-                        {
-                            if(r.getRole().equals("SolidCarrier") || r.getRole().equals("LiquidCarrier"))
-                            {
-                                whisper(r.getClientID(), "Complete");
-                            }
-                        }
+                        whisper(getID(), "Complete");
                         state = State.Waiting;
                     }
                     state = State.Waiting;
@@ -235,7 +229,13 @@ public class CaptainScoutRover extends ScoutRover {
                 }
                 if(activeScoutCount == 0)
                 {
-                    whisper(getID(), "Complete");
+                    for(RoverRoleBelief r : roverRoleBeliefs)
+                    {
+                        if(r.getRole().equals("SolidCarrier") || r.getRole().equals("LiquidCarrier"))
+                        {
+                            whisper(r.getClientID(), "Complete");
+                        }
+                    }
                     activeScoutCount -= 1; //so it only sends once;
                 }
 

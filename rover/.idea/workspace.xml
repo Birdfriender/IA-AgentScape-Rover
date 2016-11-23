@@ -110,8 +110,8 @@
       <file leaf-file-name="CaptainScoutRover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="959">
-              <caret line="160" column="103" selection-start-line="160" selection-start-column="103" selection-end-line="160" selection-end-column="103" />
+            <state relative-caret-position="863">
+              <caret line="237" column="21" selection-start-line="237" selection-start-column="21" selection-end-line="237" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -936,13 +936,6 @@
       <option name="presentableId" value="Default" />
       <updated>1438706704976</updated>
     </task>
-    <task id="LOCAL-00006" summary="FIxed remove in RemoveUnexploredNodes">
-      <created>1477660321311</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1477660321311</updated>
-    </task>
     <task id="LOCAL-00007" summary="FIxed move to resource">
       <created>1477661475667</created>
       <option name="number" value="00007" />
@@ -1279,7 +1272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479830201180</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Fixed captain not whispering to carrier">
+      <created>1479908014442</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1479908014446</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1354,7 +1354,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added some more prints" />
     <MESSAGE value="Fixed using == rather than .equals for the millionth time in my programming career" />
     <MESSAGE value="Fixed array out of bounds error" />
     <MESSAGE value="Hopefully fixed issues with scouts not starting + reformated some debugging statements" />
@@ -1379,7 +1378,8 @@
     <MESSAGE value="Really hope I've actually fixed the movement bug" />
     <MESSAGE value="Undid last thing" />
     <MESSAGE value="Hopefully fixed wrapping issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hopefully fixed wrapping issue" />
+    <MESSAGE value="Fixed captain not whispering to carrier" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed captain not whispering to carrier" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1701,8 +1701,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="959">
-          <caret line="160" column="103" selection-start-line="160" selection-start-column="103" selection-end-line="160" selection-end-column="103" />
+        <state relative-caret-position="863">
+          <caret line="237" column="21" selection-start-line="237" selection-start-column="21" selection-end-line="237" selection-end-column="21" />
           <folding />
         </state>
       </provider>
