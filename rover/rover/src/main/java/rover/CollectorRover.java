@@ -135,7 +135,7 @@ public class CollectorRover extends GenericRover {
                     else
                     {
                         System.out.println(this.getID() + " Attempting Move to New Resource");
-                        Resource r = map.closestResource(COLLECTOR_TYPE);
+                        Resource r = map.closestResource(COLLECTOR_TYPE, regionStart, regionEnd);
                         System.out.println(this.getID() + " Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
                         state = State.GoingToResource;
                         roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
@@ -154,7 +154,7 @@ public class CollectorRover extends GenericRover {
 
             case GoingToResource:
                 System.out.println(getID() + " Going to Resource");
-                Resource r = map.closestResource(COLLECTOR_TYPE);
+                Resource r = map.closestResource(COLLECTOR_TYPE, regionStart, regionEnd);
                 System.out.println(this.getID() + " Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
                 roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
                 break;
