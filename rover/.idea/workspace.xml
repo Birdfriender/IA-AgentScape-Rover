@@ -7,7 +7,6 @@
     <list default="true" id="9a3b0a6b-8005-471b-975b-5941409b0754" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java" afterPath="$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" afterPath="$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" />
     </list>
     <ignored path="rover.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -111,8 +110,8 @@
       <file leaf-file-name="CaptainScoutRover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="230" column="100" selection-start-line="230" selection-start-column="100" selection-end-line="230" selection-end-column="100" />
+            <state relative-caret-position="528">
+              <caret line="240" column="102" selection-start-line="240" selection-start-column="102" selection-end-line="240" selection-end-column="102" />
               <folding />
             </state>
           </provider>
@@ -146,7 +145,7 @@
       <file leaf-file-name="SolidCollectorRover.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/SolidCollectorRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4080">
+            <state relative-caret-position="3936">
               <caret line="89" column="17" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="17" />
               <folding />
             </state>
@@ -937,13 +936,6 @@
       <option name="presentableId" value="Default" />
       <updated>1438706704976</updated>
     </task>
-    <task id="LOCAL-00009" summary="Fixed world co-ordinate system">
-      <created>1477662811453</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1477662811453</updated>
-    </task>
     <task id="LOCAL-00010" summary="Remove collected resources from map">
       <created>1477663520956</created>
       <option name="number" value="00010" />
@@ -1280,7 +1272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479908932427</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Added more debugging statements to figure out why the captain is playing its card so close to its chest regarding scout completion">
+      <created>1479909484226</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1479909484226</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1355,7 +1354,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Hopefully fixed issues with scouts not starting + reformated some debugging statements" />
     <MESSAGE value="Removed waits in begin()" />
     <MESSAGE value="More debugging statements" />
     <MESSAGE value="Made scout public again, oops" />
@@ -1380,7 +1378,8 @@
     <MESSAGE value="Fixed captain not whispering to carrier" />
     <MESSAGE value="Actually fixed that bug" />
     <MESSAGE value="Fixed bug where scouts would report completion multiple times" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug where scouts would report completion multiple times" />
+    <MESSAGE value="Added more debugging statements to figure out why the captain is playing its card so close to its chest regarding scout completion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more debugging statements to figure out why the captain is playing its card so close to its chest regarding scout completion" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1663,14 +1662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/SolidCollectorRover.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4080">
-          <caret line="89" column="17" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10752">
@@ -1700,10 +1691,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/SolidCollectorRover.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3936">
+          <caret line="89" column="17" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="230" column="100" selection-start-line="230" selection-start-column="100" selection-end-line="230" selection-end-column="100" />
+        <state relative-caret-position="528">
+          <caret line="240" column="102" selection-start-line="240" selection-start-column="102" selection-end-line="240" selection-end-column="102" />
           <folding />
         </state>
       </provider>

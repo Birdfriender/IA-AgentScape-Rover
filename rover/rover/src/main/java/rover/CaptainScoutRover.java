@@ -238,7 +238,7 @@ public class CaptainScoutRover extends ScoutRover {
                 {
                     for(RoverRoleBelief r : roverRoleBeliefs)
                     {
-                        if(r.getRole().equals("SolidCarrier") || r.getRole().equals("LiquidCarrier"))
+                        if(r.getRole().equals("SolidCollector") || r.getRole().equals("LiquidCollector"))
                         {
                             whisper(r.getClientID(), "Complete");
                         }
