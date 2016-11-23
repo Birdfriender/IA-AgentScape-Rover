@@ -90,32 +90,38 @@ public class ScoutRover extends GenericRover {
 
         switch(pr.getResultType()) {
             case PollResult.MOVE:
-                state = State.Scanning;
+                if(state != State.Waiting)
+                {
+                    state = State.Scanning;
+                }
                 break;
 
             case PollResult.SCAN:
-                for(ScanItem item : pr.getScanItems()) {
-                    System.out.println(this.getID() + " Found Item");
-                    if (item.getItemType() == ScanItem.RESOURCE) {
-                        updateResource(item.getxOffset(), item.getyOffset(), item.getItemType());
-                    }
-                }
-                if(map.existsUnexploredNode())
+                if(state != State.Waiting)
                 {
-                    state = State.Scouting;
-                }
-                else
-                {
-                    if(state != State.Waiting)
-                    {
-                        for(RoverRoleBelief r : roverRoleBeliefs)
-                        {
-                            if(r.getRole().equals("CaptainScout"))
-                            {
-                                whisper(r.getClientID(), "Complete");
-                            }
+                    for(ScanItem item : pr.getScanItems()) {
+                        System.out.println(this.getID() + " Found Item");
+                        if (item.getItemType() == ScanItem.RESOURCE) {
+                            updateResource(item.getxOffset(), item.getyOffset(), item.getItemType());
                         }
-                        state = State.Waiting;
+                    }
+                    if(map.existsUnexploredNode())
+                    {
+                        state = State.Scouting;
+                    }
+                    else
+                    {
+                        if(state != State.Waiting)
+                        {
+                            for(RoverRoleBelief r : roverRoleBeliefs)
+                            {
+                                if(r.getRole().equals("CaptainScout"))
+                                {
+                                    whisper(r.getClientID(), "Complete");
+                                }
+                            }
+                            state = State.Waiting;
+                        }
                     }
                 }
                 break;

@@ -134,32 +134,38 @@ public class CaptainScoutRover extends ScoutRover {
 
         switch(pr.getResultType()) {
             case PollResult.MOVE:
-                if(!allocatedMap)
+                if(state != State.Waiting)
                 {
-                    initialAllocation();
+                    if(!allocatedMap)
+                    {
+                        initialAllocation();
+                    }
+                    state = State.Scanning;
                 }
-                state = State.Scanning;
                 break;
 
             case PollResult.SCAN:
-                for(ScanItem item : pr.getScanItems()) {
-                    System.out.println(this.getID() + " Found Item");
-                    if (item.getItemType() == ScanItem.RESOURCE) {
-                        updateResource(item.getxOffset(), item.getyOffset(), item.getItemType());
+                if(state != State.Waiting)
+                {
+                    for(ScanItem item : pr.getScanItems()) {
+                        System.out.println(this.getID() + " Found Item");
+                        if (item.getItemType() == ScanItem.RESOURCE) {
+                            updateResource(item.getxOffset(), item.getyOffset(), item.getItemType());
+                        }
                     }
-                }
-                if(map.existsUnexploredNode())
-                {
-                    state = State.Scouting;
-                }
-                else
-                {
-                    if(state != State.Waiting)
+                    if(map.existsUnexploredNode())
                     {
-                        whisper(getID(), "Complete");
+                        state = State.Scouting;
+                    }
+                    else
+                    {
+                        if(state != State.Waiting)
+                        {
+                            whisper(getID(), "Complete");
+                            state = State.Waiting;
+                        }
                         state = State.Waiting;
                     }
-                    state = State.Waiting;
                 }
                 break;
 
