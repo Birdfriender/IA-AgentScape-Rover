@@ -16,6 +16,7 @@ public class ScoutRover extends GenericRover {
 
     private static String role = "Scout";
     private volatile boolean gotAllocation = false;
+    double regionStart, regionEnd;
 
     int rowEnd;
 
@@ -198,7 +199,7 @@ public class ScoutRover extends GenericRover {
         //if there is one at our x co-ordinate
         for(Node n : map.getNodes())
         {
-            if(n.getyPos() == yPos)
+            if(n.getyPos() == yPos && n.getxPos() >= regionStart && n.getxPos() < regionEnd)
             {
                 nodes.add(n);
             }
@@ -211,7 +212,8 @@ public class ScoutRover extends GenericRover {
             if (rowEnd == 1)
             {
                 for (Node n : map.getNodes()) {
-                    if (n.getxPos() < closest.getxPos() && n.getyPos() == closest.getyPos()) {
+                    if (n.getxPos() < closest.getxPos() && n.getyPos() == closest.getyPos()
+                            && n.getxPos() >= regionStart && n.getxPos() < regionEnd) {
                         closest = n;
                     }
                 }
@@ -220,7 +222,8 @@ public class ScoutRover extends GenericRover {
             else
             {
                 for (Node n : map.getNodes()) {
-                    if (n.getxPos() > closest.getxPos() && n.getyPos() == closest.getyPos()) {
+                    if (n.getxPos() > closest.getxPos() && n.getyPos() == closest.getyPos()
+                            && n.getxPos() >= regionStart && n.getxPos() < regionEnd) {
                         closest = n;
                     }
                 }
@@ -287,10 +290,8 @@ public class ScoutRover extends GenericRover {
                 break;
 
             case "Allocation":
-                map.addNode(Double.parseDouble(splitMessage[2]), Double.parseDouble(splitMessage[3]));
-                break;
-
-            case "AllocationComplete" :
+                regionStart = Double.parseDouble(splitMessage[2]);
+                regionEnd = Double.parseDouble(splitMessage[3]);
                 gotAllocation = true;
                 break;
         }

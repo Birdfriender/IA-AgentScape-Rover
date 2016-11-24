@@ -61,8 +61,7 @@ public class CaptainScoutRover extends ScoutRover {
         RoverMap tempMap = new RoverMap(this);
         tempMap.generateNodes(SCAN_RANGE, getWorldHeight(), getWorldWidth());
         int totalNodes = tempMap.numNodes();
-        double allocPerRover = getWorldHeight()/activeScoutCount;
-        double i = getWorldHeight()/-2; //im so tired
+        double scoutCounter = getWorldHeight()/-2; //im so tired
 
         double solidCounter = -getWorldWidth()/2;
         double liquidCounter = -getWorldWidth()/2;
@@ -75,15 +74,9 @@ public class CaptainScoutRover extends ScoutRover {
         {
             if(belief.getRole().equals("Scout"))
             {
-                for(Node n : nodes)
-                {
-                    if(n.getyPos() >= i && n.getyPos() < i + allocPerRover)
-                    {
-                        whisper(belief.getClientID(), "Allocation", Double.toString(n.getyPos()), Double.toString(n.getxPos()));
-                    }
-                }
-                whisper(belief.getClientID(), "AllocationComplete");
-                i += allocPerRover;
+                whisper(belief.getClientID(), "Allocation", Double.toString(scoutCounter),
+                Double.toString(scoutCounter + (getWorldHeight()/activeScoutCount)));
+                scoutCounter += getWorldHeight()/activeScoutCount;
             }
             if(belief.getRole().equals("SolidCollector"))
             {
@@ -99,14 +92,8 @@ public class CaptainScoutRover extends ScoutRover {
             }
 
         }
-        //-1 just because
-        for(Node n : nodes)
-        {
-            if(n.getyPos() >= i && n.getyPos() < i + allocPerRover + (totalNodes % activeScoutCount) - 1)
-            {
-                whisper(this.getID(), "Allocation", Double.toString(n.getyPos()), Double.toString(n.getxPos()));
-            }
-        }
+        regionStart = scoutCounter;
+        regionEnd = scoutCounter + getWorldHeight()/activeScoutCount;
     }
 
     private void initialAllocation()
@@ -303,7 +290,6 @@ public class CaptainScoutRover extends ScoutRover {
                 break;
 
             case "Allocation":
-                System.out.println(this.getID() + " Scouting Allocation");
                 map.addNode(Double.parseDouble(splitMessage[2]), Double.parseDouble(splitMessage[3]));
                 break;
 
