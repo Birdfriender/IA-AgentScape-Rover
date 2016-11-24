@@ -157,6 +157,11 @@ public class CollectorRover extends GenericRover {
             case GoingToResource:
                 System.out.println(getID() + " Going to Resource");
                 Resource r = map.closestResource(COLLECTOR_TYPE, regionStart, regionEnd);
+                if(r == null)
+                {
+                    //move nowhere
+                    roverMove(xPos, yPos);
+                }
                 System.out.println(this.getID() + " Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
                 roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
                 break;

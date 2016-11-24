@@ -73,7 +73,18 @@ public class RoverMap {
 
     public Resource closestResource(int type)
     {
-        Resource closest = resources.get(0);
+        Resource closest = null;
+        for (Resource res :resources)
+        {
+            if(res.getType() == type)
+            {
+                closest = res;
+            }
+        }
+        if(closest == null)
+        {
+            return closest;
+        }
         for (Resource res : resources)
         {
             if(res.objectiveDistanceTo(parent) < closest.objectiveDistanceTo(parent) && res.getType() == type)
@@ -87,6 +98,10 @@ public class RoverMap {
     public Resource closestResource(int type, double regionStart, double regionEnd)
     {
         Resource closest = closestResource(type);
+        if(closest == null)
+        {
+            return null;
+        }
         for (Resource res : resources)
         {
             if(res.getType() == type)
