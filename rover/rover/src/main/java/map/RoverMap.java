@@ -129,6 +129,33 @@ public class RoverMap {
         return closest;
     }
 
+    public Node closestNode(double regionStart, double regionEnd)
+    {
+        ArrayList<Node> nodes = new ArrayList<>();
+
+        for(Node node : unexploredNodes)
+        {
+            if(node.getxPos() >= regionStart && node.getxPos() < regionEnd)
+            {
+                nodes.add(node);
+            }
+        }
+
+        Node closest = null;
+        if(!nodes.isEmpty())
+        {
+            closest = nodes.get(0);
+            for (Node node : nodes)
+            {
+                if(node.objectiveDistanceTo(parent) < closest.objectiveDistanceTo(parent))
+                {
+                    closest = node;
+                }
+            }
+        }
+        return closest;
+    }
+
     public void removeExploredNode(double x, double y)
     {
         int r = 0;

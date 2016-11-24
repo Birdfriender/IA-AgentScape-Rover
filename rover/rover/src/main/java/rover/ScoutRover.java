@@ -208,7 +208,12 @@ public class ScoutRover extends GenericRover {
         if(nodes.isEmpty())
         {
             Node closest;
-            closest = map.closestNode();
+            closest = map.closestNode(regionStart, regionEnd);
+            if(closest.equals(null))
+            {
+                System.out.println("No more nodes to scout in region");
+                return map.closestNode();
+            }
 
             if (rowEnd == 1)
             {
