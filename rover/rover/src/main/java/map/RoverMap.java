@@ -21,11 +21,11 @@ public class RoverMap {
     public void generateNodes(int scanRange, int worldY, int worldX)
     {
         int alternator = 0;
-        for(double i = worldY/2 * -1; i< worldY/2; i+= 1.5 * scanRange)
+        for(double i = worldY/-2; i< worldY/2; i+= 3 * scanRange)
         {
             if(alternator == 0)
             {
-                for(double j = worldX/2 * -1; j < worldX/2; j += sqrt(3) * scanRange * 2)
+                for(double j = worldX/-2; j < worldX/2; j += sqrt(3) * scanRange * 2)
                 {
                     unexploredNodes.add(new Node(i,j));
                 }
@@ -33,7 +33,7 @@ public class RoverMap {
             }
             else
             {
-                for(double j = (worldX/2 * -1) + (sqrt(3) * scanRange)/2; j < worldX/2; j += sqrt(3) * scanRange * 2)
+                for(double j = (worldX/-2) + (sqrt(3) * scanRange); j < worldX/2; j += sqrt(3) * scanRange * 2)
                 {
                     unexploredNodes.add(new Node(i,j));
                 }
