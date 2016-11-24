@@ -4,6 +4,7 @@ import bdi.RoverRoleBelief;
 import map.Node;
 import map.Resource;
 import map.RoverMap;
+import scenario.HardCodedScenarioHelper;
 
 import java.util.ArrayList;
 
@@ -30,7 +31,9 @@ public class ScoutRover extends GenericRover {
         SCAN_RANGE = 6;
         COLLECTOR_TYPE = 1;
         rowEnd = 0;
-
+        HardCodedScenarioHelper scenarioHelper = new HardCodedScenarioHelper();
+        scenarioInfo = scenarioHelper.getScenarioInfoFor(getScenario());
+        determineStats();
         try {
             //set attributes for this rover
             //speed, scan range, max load
@@ -277,7 +280,8 @@ public class ScoutRover extends GenericRover {
                     System.out.println(this.getID() + "Recieved new resource");
                     Resource res = new Resource(Float.parseFloat(splitMessage[2]),
                             Float.parseFloat(splitMessage[3]),
-                            Integer.parseInt(splitMessage[4]));
+                            Integer.parseInt(splitMessage[4]),
+                            scenarioInfo.getNumberPerLump());
                     if(!map.contains(res))
                     {
                         map.addResource(res);
@@ -287,7 +291,8 @@ public class ScoutRover extends GenericRover {
                 {
                     Resource res = new Resource(Float.parseFloat(splitMessage[2]),
                             Float.parseFloat(splitMessage[3]),
-                            Integer.parseInt(splitMessage[4]));
+                            Integer.parseInt(splitMessage[4]),
+                            scenarioInfo.getNumberPerLump());
                     if(map.contains(res))
                     {
                         map.removeResource(res);

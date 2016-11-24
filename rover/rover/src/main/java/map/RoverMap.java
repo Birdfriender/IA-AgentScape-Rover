@@ -230,6 +230,19 @@ public class RoverMap {
         return false;
     }
 
+    public int decrementResource(double x, double y)
+    {
+        for(Resource r : resources)
+        {
+            if(r.getxPos() == x && r.getyPos() == y)
+            {
+                r.decrementResources();
+                return r.getNumResources();
+            }
+        }
+        return 0;
+    }
+
     public int numNodes()
     {
         return unexploredNodes.size();

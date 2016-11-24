@@ -5,6 +5,8 @@ import map.IMapObject;
 import map.Node;
 import map.Resource;
 import map.RoverMap;
+import scenario.ScenarioInfo;
+import scenario.HardCodedScenarioHelper;
 
 import java.lang.Math;
 import java.util.ArrayList;
@@ -20,6 +22,8 @@ public class GenericRover extends Rover implements IMapObject {
     int SPEED;
     int SCAN_RANGE ;
     int COLLECTOR_TYPE;
+
+    ScenarioInfo scenarioInfo;
     private static String role = "Generic";
     ArrayList<RoverRoleBelief> roverRoleBeliefs;
 
@@ -49,6 +53,9 @@ public class GenericRover extends Rover implements IMapObject {
         MAX_LOAD = 3;
         COLLECTOR_TYPE = 1;
         roverRoleBeliefs = new ArrayList<>();
+        HardCodedScenarioHelper scenarioHelper = new HardCodedScenarioHelper();
+        scenarioInfo = scenarioHelper.getScenarioInfoFor(getScenario());
+        determineStats();
 		try {
 			//set attributes for this rover
 			//speed, scan range, max load
@@ -171,7 +178,7 @@ public class GenericRover extends Rover implements IMapObject {
                     collect();
                 } catch (Exception e) {
                     state = State.ReturningResource;
-                    Resource res = new Resource(xPos, yPos, 0); //type doesnt matter here, bit awkward but oh well
+                    Resource res = new Resource(xPos, yPos, 0, scenarioInfo.getNumberPerLump()); //type doesnt matter here, bit awkward but oh well
                     shout("Resource",
                             Double.toString(res.getxPos()),
                             Double.toString(res.getyPos()),
@@ -283,7 +290,7 @@ public class GenericRover extends Rover implements IMapObject {
             yCoord = yCoord + getWorldHeight();
         }
 
-        Resource newRes = new Resource(xCoord, yCoord, type);
+        Resource newRes = new Resource(xCoord, yCoord, type, scenarioInfo.getNumberPerLump());
         if(!map.contains(newRes)) {
             shout("Resource",
                     Double.toString(newRes.getxPos()),
@@ -395,7 +402,8 @@ public class GenericRover extends Rover implements IMapObject {
                     System.out.println("Recieved new resource");
                     Resource res = new Resource(Float.parseFloat(splitMessage[2]),
                             Float.parseFloat(splitMessage[3]),
-                            Integer.parseInt(splitMessage[4]));
+                            Integer.parseInt(splitMessage[4]),
+                            scenarioInfo.getNumberPerLump());
                     if(!map.contains(res))
                     {
                         map.addResource(res);
@@ -405,7 +413,8 @@ public class GenericRover extends Rover implements IMapObject {
                 {
                     Resource res = new Resource(Float.parseFloat(splitMessage[2]),
                             Float.parseFloat(splitMessage[3]),
-                            Integer.parseInt(splitMessage[4]));
+                            Integer.parseInt(splitMessage[4]),
+                            scenarioInfo.getNumberPerLump());
                     if(map.contains(res))
                     {
                         map.removeResource(res);
@@ -436,6 +445,47 @@ public class GenericRover extends Rover implements IMapObject {
     double energyRequiredToScan()
     {
         return 10;
+    }
+
+    void determineStats()
+    {
+        switch (role) {
+            case "Generic":
+                //There's no real reason for these stats but like... 0 and 1 are trivial anyway
+                MAX_LOAD = 1;
+                SCAN_RANGE = 6;
+                SPEED = 2;
+                break;
+
+            case "CaptainScout":
+            case "Scout":
+                MAX_LOAD = 0;
+                SPEED = 3;
+                SCAN_RANGE = 6;
+                break;
+
+            case "SolidCollector":
+            case "LiquidCollector":
+            case "VenomCollector":
+            case "PunishedCollector":
+                SCAN_RANGE = 0;
+                if (scenarioInfo.getNumberPerLump() <= 2) {
+                    MAX_LOAD = 4;
+                } else if (scenarioInfo.getNumberPerLump() <= 5)
+                {
+                    MAX_LOAD = scenarioInfo.getNumberOfLumps();
+                }
+                else if (scenarioInfo.getNumberPerLump() <= 10)
+                {
+                    MAX_LOAD = scenarioInfo.getNumberOfLumps()/2;
+                }
+                else
+                {
+                    MAX_LOAD = 5;
+                }
+                SPEED = 9 - MAX_LOAD;
+                break;
+        }
     }
 
     double energyRequireToCollect()

@@ -26,7 +26,7 @@ public class SolidCollectorRover extends CollectorRover {
         readyToCollect = false;
         //use your username for team name
         setTeam("thh37");
-
+        determineStats();
         try {
             //set attributes for this rover
             //speed, scan range, max load
