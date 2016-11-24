@@ -96,7 +96,7 @@ public class ScoutRover extends GenericRover {
                     for(ScanItem item : pr.getScanItems()) {
                         System.out.println(this.getID() + " Found Item");
                         if (item.getItemType() == ScanItem.RESOURCE) {
-                            updateResource(item.getxOffset(), item.getyOffset(), item.getItemType());
+                            updateResource(item.getxOffset(), item.getyOffset(), item.getResourceType());
                         }
                     }
                     if(map.existsUnexploredNode())
