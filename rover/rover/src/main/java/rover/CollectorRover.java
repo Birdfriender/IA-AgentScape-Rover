@@ -90,25 +90,6 @@ public class CollectorRover extends GenericRover {
                 break;
 
             case PollResult.COLLECT:
-                if(map.decrementResource(xPos, yPos) == 0)
-                {
-                    Resource res = new Resource(xPos, yPos, COLLECTOR_TYPE, scenarioInfo.getNumberPerLump()); //type doesnt matter here, bit awkward but oh well
-                    shout("Resource",
-                            Double.toString(res.getxPos()),
-                            Double.toString(res.getyPos()),
-                            Integer.toString(res.getType()),
-                            "Depleted");
-                    whisper(this.getID(),
-                            "Resource",
-                            Double.toString(res.getxPos()),
-                            Double.toString(res.getyPos()),
-                            Integer.toString(res.getType()),
-                            "Depleted");
-                    if(getCurrentLoad() != MAX_LOAD && map.hasResourceType(COLLECTOR_TYPE))
-                    {
-                        state = State.GoingToResource;
-                    }
-                }
                 if(getCurrentLoad() == MAX_LOAD)
                 {
                     state = State.ReturningResource;
@@ -129,7 +110,38 @@ public class CollectorRover extends GenericRover {
                     System.out.println(getID() + " Collecting");
                     collect();
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    System.out.println(getID() + " Depleted Resource");
+                    Resource res = new Resource(xPos, yPos, 0, scenarioInfo.getNumberPerLump()); //type doesnt matter here, bit awkward but oh well
+                    shout("Resource",
+                            Double.toString(res.getxPos()),
+                            Double.toString(res.getyPos()),
+                            Integer.toString(res.getType()),
+                            "Depleted");
+                    whisper(this.getID(),
+                            "Resource",
+                            Double.toString(res.getxPos()),
+                            Double.toString(res.getyPos()),
+                            Integer.toString(res.getType()),
+                            "Depleted");
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e1) {
+                        e1.printStackTrace();
+                    }
+                    if(getCurrentLoad() == MAX_LOAD || !map.hasResourceType(COLLECTOR_TYPE))
+                    {
+                        System.out.println("Attempting to move to Base");
+                        state = State.ReturningResource;
+                        roverMove(-xPos, -yPos);
+                    }
+                    else
+                    {
+                        System.out.println(this.getID() + " Attempting Move to New Resource");
+                        Resource r = map.closestResource(COLLECTOR_TYPE, regionStart, regionEnd);
+                        System.out.println(this.getID() + " Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
+                        state = State.GoingToResource;
+                        roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
+                    }
                 }
                 break;
 
