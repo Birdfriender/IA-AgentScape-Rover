@@ -49,6 +49,7 @@ public class ScoutRover extends GenericRover {
         getLog().info("BEGIN!");
         shout("Hello", role);
         map = new RoverMap(this);
+        map.generateNodes(SCAN_RANGE, getWorldHeight(), getWorldWidth());
         System.out.println(this.getID() + " World size " + getWorldWidth() + "x" + getWorldHeight());
         new Thread(comms()).start();
         try {
