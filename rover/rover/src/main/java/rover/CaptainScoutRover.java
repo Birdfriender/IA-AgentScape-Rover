@@ -184,10 +184,9 @@ public class CaptainScoutRover extends ScoutRover {
             case Scanning:
                 if(!map.existsUnexploredNode())
                 {
-                    state = State.Waiting;
                     try {
-                        scan(0);
-                    } catch (Exception e) {
+                        Thread.sleep(200);
+                    } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }

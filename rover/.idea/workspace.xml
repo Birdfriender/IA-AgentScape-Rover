@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9a3b0a6b-8005-471b-975b-5941409b0754" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rover/src/main/java/map/RoverMap.java" afterPath="$PROJECT_DIR$/rover/src/main/java/map/RoverMap.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java" afterPath="$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" afterPath="$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" />
     </list>
     <ignored path="rover.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -99,11 +97,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CaptainScoutRover.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CaptainScoutRover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="245" column="43" selection-start-line="245" selection-start-column="41" selection-end-line="245" selection-end-column="43" />
+            <state relative-caret-position="527">
+              <caret line="187" column="41" selection-start-line="187" selection-start-column="41" selection-end-line="187" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -139,7 +137,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScoutRover.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ScoutRover.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="335">
@@ -236,9 +234,9 @@
         <option value="$PROJECT_DIR$/rover/src/main/java/scenario/ScenarioInfo.java" />
         <option value="$PROJECT_DIR$/rover/src/main/java/scenario/HardCodedScenarioHelper.java" />
         <option value="$PROJECT_DIR$/rover.monitor/pom.xml" />
-        <option value="$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java" />
         <option value="$PROJECT_DIR$/rover/src/main/java/map/RoverMap.java" />
         <option value="$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java" />
+        <option value="$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java" />
       </list>
     </option>
   </component>
@@ -1063,13 +1061,6 @@
       <option name="presentableId" value="Default" />
       <updated>1438706704976</updated>
     </task>
-    <task id="LOCAL-00023" summary="Added better debugging statements">
-      <created>1479480019490</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1479480019490</updated>
-    </task>
     <task id="LOCAL-00024" summary="&quot;fixed&quot; issue with rolebeliefs">
       <created>1479480834406</created>
       <option name="number" value="00024" />
@@ -1406,7 +1397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479994919941</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="Changed pathfinding for scouts so they hopefully wont double up on nodes">
+      <created>1479997811211</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1479997811211</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1481,7 +1479,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed null pointer exception introduced by last attempt to fix movement" />
     <MESSAGE value="actually fixed that error" />
     <MESSAGE value="Fixed new weirdness with scout movement" />
     <MESSAGE value="Fixed more movement weirdness involving objective distance and world wrapping" />
@@ -1506,7 +1503,8 @@
     <MESSAGE value="Changed the way scouts are allocated regions" />
     <MESSAGE value="Allowed scout to generate nodes in its map" />
     <MESSAGE value="Changed node allocation in captain" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed node allocation in captain" />
+    <MESSAGE value="Changed pathfinding for scouts so they hopefully wont double up on nodes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed pathfinding for scouts so they hopefully wont double up on nodes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1822,14 +1820,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="245" column="43" selection-start-line="245" selection-start-column="41" selection-end-line="245" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/ScoutRover.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="335">
@@ -1837,6 +1827,14 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="187" column="41" selection-start-line="187" selection-start-column="41" selection-end-line="187" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
