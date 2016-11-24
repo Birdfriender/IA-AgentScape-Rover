@@ -21,7 +21,7 @@ public class RoverMap {
     public void generateNodes(int scanRange, int worldY, int worldX)
     {
         int alternator = 0;
-        for(double i = worldY/2 * -1; i< worldY/2; i+= 3 * scanRange)
+        for(double i = worldY/2 * -1; i< worldY/2; i+= 1.5 * scanRange)
         {
             if(alternator == 0)
             {
