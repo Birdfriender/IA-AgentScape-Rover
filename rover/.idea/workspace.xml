@@ -130,8 +130,8 @@
       <file leaf-file-name="RoverMap.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/map/RoverMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+            <state relative-caret-position="336">
+              <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -1061,13 +1061,6 @@
       <option name="presentableId" value="Default" />
       <updated>1438706704976</updated>
     </task>
-    <task id="LOCAL-00029" summary="Fixed null pointer exception in captainscout">
-      <created>1479485211713</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1479485211713</updated>
-    </task>
     <task id="LOCAL-00030" summary="I'm really stupid">
       <created>1479485959776</created>
       <option name="number" value="00030" />
@@ -1404,7 +1397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479999658437</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="Undid that">
+      <created>1479999847327</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1479999847327</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1479,7 +1479,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Undid last thing" />
     <MESSAGE value="Hopefully fixed wrapping issue" />
     <MESSAGE value="Fixed captain not whispering to carrier" />
     <MESSAGE value="Actually fixed that bug" />
@@ -1504,7 +1503,8 @@
     <MESSAGE value="Fixed null check in determinenextnode" />
     <MESSAGE value="Fixed captain self-allocation interpretation" />
     <MESSAGE value="Added 0.1 to start of the map to fudge things slightly" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added 0.1 to start of the map to fudge things slightly" />
+    <MESSAGE value="Undid that" />
+    <option name="LAST_COMMIT_MESSAGE" value="Undid that" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1832,8 +1832,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/map/RoverMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+        <state relative-caret-position="336">
+          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
           <folding />
         </state>
       </provider>
