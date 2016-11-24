@@ -282,7 +282,8 @@ public class CaptainScoutRover extends ScoutRover {
                 break;
 
             case "Allocation":
-                map.addNode(Double.parseDouble(splitMessage[2]), Double.parseDouble(splitMessage[3]));
+                regionStart = Double.parseDouble(splitMessage[2]);
+                regionEnd = Double.parseDouble(splitMessage[3]);
                 break;
 
             case "Complete":
