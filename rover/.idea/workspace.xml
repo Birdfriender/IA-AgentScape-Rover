@@ -100,8 +100,8 @@
       <file leaf-file-name="CaptainScoutRover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="187" column="41" selection-start-line="187" selection-start-column="41" selection-end-line="187" selection-end-column="41" />
+            <state relative-caret-position="911">
+              <caret line="63" column="50" selection-start-line="63" selection-start-column="50" selection-end-line="63" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -1061,13 +1061,6 @@
       <option name="presentableId" value="Default" />
       <updated>1438706704976</updated>
     </task>
-    <task id="LOCAL-00024" summary="&quot;fixed&quot; issue with rolebeliefs">
-      <created>1479480834406</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1479480834406</updated>
-    </task>
     <task id="LOCAL-00025" summary="Fixed wait in captainscout">
       <created>1479482102921</created>
       <option name="number" value="00025" />
@@ -1404,7 +1397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479997811211</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Reversed change to captain wait at startup">
+      <created>1479998262269</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1479998262269</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1479,7 +1479,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="actually fixed that error" />
     <MESSAGE value="Fixed new weirdness with scout movement" />
     <MESSAGE value="Fixed more movement weirdness involving objective distance and world wrapping" />
     <MESSAGE value="Fixed more movement weirdness involving objective distance and world wrapping actually this time" />
@@ -1504,7 +1503,8 @@
     <MESSAGE value="Allowed scout to generate nodes in its map" />
     <MESSAGE value="Changed node allocation in captain" />
     <MESSAGE value="Changed pathfinding for scouts so they hopefully wont double up on nodes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed pathfinding for scouts so they hopefully wont double up on nodes" />
+    <MESSAGE value="Reversed change to captain wait at startup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reversed change to captain wait at startup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1832,8 +1832,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/CaptainScoutRover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="187" column="41" selection-start-line="187" selection-start-column="41" selection-end-line="187" selection-end-column="41" />
+        <state relative-caret-position="911">
+          <caret line="63" column="50" selection-start-line="63" selection-start-column="50" selection-end-line="63" selection-end-column="50" />
           <folding />
         </state>
       </provider>
