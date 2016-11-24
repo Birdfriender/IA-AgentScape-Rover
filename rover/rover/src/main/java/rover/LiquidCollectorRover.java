@@ -2,6 +2,7 @@ package rover;
 
 import bdi.RoverRoleBelief;
 import map.RoverMap;
+import scenario.HardCodedScenarioHelper;
 
 import java.util.ArrayList;
 
@@ -44,6 +45,8 @@ public class LiquidCollectorRover extends CollectorRover {
         getLog().info("BEGIN!");
         shout("Hello", role);
         map = new RoverMap(this);
+        HardCodedScenarioHelper scenarioHelper = new HardCodedScenarioHelper();
+        scenarioInfo = scenarioHelper.getScenarioInfoFor(getScenario());
         System.out.println(this.getID() + " World size " + getWorldWidth() + "x" + getWorldHeight());
         new Thread(comms()).start();
 

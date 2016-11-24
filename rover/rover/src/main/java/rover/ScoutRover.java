@@ -31,9 +31,6 @@ public class ScoutRover extends GenericRover {
         SCAN_RANGE = 6;
         COLLECTOR_TYPE = 1;
         rowEnd = 0;
-        HardCodedScenarioHelper scenarioHelper = new HardCodedScenarioHelper();
-        scenarioInfo = scenarioHelper.getScenarioInfoFor(getScenario());
-        determineStats();
         try {
             //set attributes for this rover
             //speed, scan range, max load
@@ -52,6 +49,8 @@ public class ScoutRover extends GenericRover {
         getLog().info("BEGIN!");
         shout("Hello", role);
         map = new RoverMap(this);
+        HardCodedScenarioHelper scenarioHelper = new HardCodedScenarioHelper();
+        scenarioInfo = scenarioHelper.getScenarioInfoFor(getScenario());
         map.generateNodes(SCAN_RANGE, getWorldHeight(), getWorldWidth());
         System.out.println(this.getID() + " World size " + getWorldWidth() + "x" + getWorldHeight());
         new Thread(comms()).start();

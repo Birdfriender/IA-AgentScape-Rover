@@ -53,9 +53,6 @@ public class GenericRover extends Rover implements IMapObject {
         MAX_LOAD = 3;
         COLLECTOR_TYPE = 1;
         roverRoleBeliefs = new ArrayList<>();
-        HardCodedScenarioHelper scenarioHelper = new HardCodedScenarioHelper();
-        scenarioInfo = scenarioHelper.getScenarioInfoFor(getScenario());
-        determineStats();
 		try {
 			//set attributes for this rover
 			//speed, scan range, max load
@@ -74,6 +71,8 @@ public class GenericRover extends Rover implements IMapObject {
         getLog().info("BEGIN!");
         shout("Hello", role);
 		map = new RoverMap(this);
+        HardCodedScenarioHelper scenarioHelper = new HardCodedScenarioHelper();
+        scenarioInfo = scenarioHelper.getScenarioInfoFor(getScenario());
 		map.generateNodes(SCAN_RANGE, getWorldHeight(), getWorldWidth());
 		System.out.println("World size " + getWorldWidth() + "x" + getWorldHeight());
 		new Thread(comms()).start();
