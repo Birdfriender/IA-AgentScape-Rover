@@ -446,47 +446,6 @@ public class GenericRover extends Rover implements IMapObject {
         return 10;
     }
 
-    void determineStats()
-    {
-        switch (role) {
-            case "Generic":
-                //There's no real reason for these stats but like... 0 and 1 are trivial anyway
-                MAX_LOAD = 1;
-                SCAN_RANGE = 6;
-                SPEED = 2;
-                break;
-
-            case "CaptainScout":
-            case "Scout":
-                MAX_LOAD = 0;
-                SPEED = 3;
-                SCAN_RANGE = 6;
-                break;
-
-            case "SolidCollector":
-            case "LiquidCollector":
-            case "VenomCollector":
-            case "PunishedCollector":
-                SCAN_RANGE = 0;
-                if (scenarioInfo.getNumberPerLump() <= 2) {
-                    MAX_LOAD = 4;
-                } else if (scenarioInfo.getNumberPerLump() <= 5)
-                {
-                    MAX_LOAD = scenarioInfo.getNumberOfLumps();
-                }
-                else if (scenarioInfo.getNumberPerLump() <= 10)
-                {
-                    MAX_LOAD = scenarioInfo.getNumberOfLumps()/2;
-                }
-                else
-                {
-                    MAX_LOAD = 5;
-                }
-                SPEED = 9 - MAX_LOAD;
-                break;
-        }
-    }
-
     double energyRequireToCollect()
     {
         return 5;
