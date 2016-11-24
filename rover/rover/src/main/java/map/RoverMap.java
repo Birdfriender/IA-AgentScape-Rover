@@ -84,13 +84,21 @@ public class RoverMap {
 
     public Resource closestResource(int type, double regionStart, double regionEnd)
     {
-        Resource closest = resources.get(0);
+        Resource closest = closestResource(type);
         for (Resource res : resources)
         {
-            if(res.objectiveDistanceTo(parent) < closest.objectiveDistanceTo(parent) && res.getType() == type
-                    && res.getxPos() >= regionStart && res.getxPos() <= regionEnd)
+            if(res.getType() == type)
             {
-                closest = res;
+                if(res.getxPos() >= regionStart && res.getxPos() < regionEnd){
+                    if(closest.getxPos() < regionStart || closest.getxPos() >= regionEnd)
+                    {
+                        closest = res;
+                    }
+                }
+                else if (res.objectiveDistanceTo(parent) < closest.objectiveDistanceTo(parent))
+                {
+                    closest = res;
+                }
             }
         }
         return closest;
