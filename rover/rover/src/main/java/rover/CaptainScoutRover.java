@@ -60,9 +60,7 @@ public class CaptainScoutRover extends ScoutRover {
     {
         RoverMap tempMap = new RoverMap(this);
         tempMap.generateNodes(SCAN_RANGE, getWorldHeight(), getWorldWidth());
-        int totalNodes = tempMap.numNodes();
-        double scoutCounter = getWorldHeight()/-2; //im so tired
-
+        double scoutCounter = getWorldHeight()/-2;
         double solidCounter = -getWorldWidth()/2;
         double liquidCounter = -getWorldWidth()/2;
         ArrayList<Node> nodes = tempMap.getNodes();
@@ -75,8 +73,8 @@ public class CaptainScoutRover extends ScoutRover {
             if(belief.getRole().equals("Scout"))
             {
                 whisper(belief.getClientID(), "Allocation", Double.toString(scoutCounter),
-                Double.toString(scoutCounter + (getWorldHeight()/activeScoutCount)));
-                scoutCounter += getWorldHeight()/activeScoutCount;
+                Double.toString(scoutCounter + (getWorldWidth()/activeScoutCount)));
+                scoutCounter += getWorldWidth()/activeScoutCount;
             }
             if(belief.getRole().equals("SolidCollector"))
             {
@@ -92,8 +90,8 @@ public class CaptainScoutRover extends ScoutRover {
             }
 
         }
-        regionStart = scoutCounter;
-        regionEnd = scoutCounter + getWorldHeight()/activeScoutCount;
+        whisper(getID(), "Allocation", Double.toString(scoutCounter),
+                Double.toString(scoutCounter + getWorldWidth()/activeScoutCount));
     }
 
     private void initialAllocation()
