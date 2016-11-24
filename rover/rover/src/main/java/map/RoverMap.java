@@ -27,6 +27,7 @@ public class RoverMap {
             {
                 for(double j = worldX/-2; j < worldX/2; j += sqrt(3) * scanRange * 2)
                 {
+                    System.out.println("Node x: " + Double.toString(i) + " y: " + Double.toString(j));
                     unexploredNodes.add(new Node(i,j));
                 }
                 alternator = 1;
@@ -35,6 +36,7 @@ public class RoverMap {
             {
                 for(double j = (worldX/-2) + (sqrt(3) * scanRange); j < worldX/2; j += sqrt(3) * scanRange * 2)
                 {
+                    System.out.println("Node x: " + Double.toString(i) + " y: " + Double.toString(j));
                     unexploredNodes.add(new Node(i,j));
                 }
                 alternator = 0;
