@@ -162,8 +162,11 @@ public class CollectorRover extends GenericRover {
                     //move nowhere
                     roverMove(xPos, yPos);
                 }
-                System.out.println(this.getID() + " Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
-                roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
+                else
+                {
+                    System.out.println(this.getID() + " Attempting to Move to Resource at " + r.getxPos() + ", " + r.getyPos());
+                    roverMove(r.getxPos() - xPos,r.getyPos() - yPos);
+                }
                 break;
 
             case ReturningResource:
