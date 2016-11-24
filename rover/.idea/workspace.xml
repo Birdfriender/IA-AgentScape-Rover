@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a3b0a6b-8005-471b-975b-5941409b0754" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rover/src/main/java/scenario/HardCodedScenarioHelper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rover/src/main/java/scenario/ScenarioInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rover.monitor/src/main/java/rover/debug/DebugMonitorAgent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rover.monitor/src/main/java/rover/debug/DebugRoverDisplay.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rover.monitor/src/main/java/rover/debug/DebugRoverTableModel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rover.monitor/src/main/java/rover/debug/DebugWorldPanel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rover.monitor/pom.xml" afterPath="$PROJECT_DIR$/rover.monitor/pom.xml" />
     </list>
     <ignored path="rover.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -92,8 +93,8 @@
       <file leaf-file-name="GenericRover.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1264">
-              <caret line="34" column="15" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
+            <state relative-caret-position="784">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -481,6 +482,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="rover" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rover" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rover.monitor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rover" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="debug" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1033,13 +1064,6 @@
       <option name="presentableId" value="Default" />
       <updated>1438706704976</updated>
     </task>
-    <task id="LOCAL-00013" summary="Encapsulate resource map update code in attempt to fix bug where rover stops in the middle of nowhere">
-      <created>1477835230337</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1477835230337</updated>
-    </task>
     <task id="LOCAL-00014" summary="Added some more logging to try to isolate movement/mapping bug">
       <created>1477836237515</created>
       <option name="number" value="00014" />
@@ -1376,7 +1400,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479931411647</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="Added Ben's Hardcoded scenario stuff + debug monitor">
+      <created>1479991021178</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1479991021184</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1451,7 +1482,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Made gotallocation volatile and added a wait in the allocation check" />
     <MESSAGE value="Fixed wait in collector" />
     <MESSAGE value="Merge branch 'master' of https://github.com/Birdfriender/IA-AgentScape-Rover&#10;&#10;# Conflicts:&#10;#&#9;rover/.idea/workspace.xml&#10;" />
     <MESSAGE value="Fixed scout node calculation" />
@@ -1476,7 +1506,8 @@
     <MESSAGE value="Fixed the captain using the wrong name for collectors" />
     <MESSAGE value="Implemented liquid collector" />
     <MESSAGE value="added allocation for collectors" />
-    <option name="LAST_COMMIT_MESSAGE" value="added allocation for collectors" />
+    <MESSAGE value="Added Ben's Hardcoded scenario stuff + debug monitor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Ben's Hardcoded scenario stuff + debug monitor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1804,8 +1835,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rover/src/main/java/rover/GenericRover.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1264">
-          <caret line="34" column="15" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
+        <state relative-caret-position="784">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
